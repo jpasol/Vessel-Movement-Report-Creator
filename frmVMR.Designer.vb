@@ -24,6 +24,8 @@ Partial Class frmVMR
     Private Sub InitializeComponent()
         Me.tabVMR = New System.Windows.Forms.TabControl()
         Me.tabParticulars = New System.Windows.Forms.TabPage()
+        Me.mskATD = New System.Windows.Forms.MaskedTextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.mskLastLoaded = New System.Windows.Forms.MaskedTextBox()
         Me.lblLastLoaded = New System.Windows.Forms.Label()
         Me.mskFirstLoaded = New System.Windows.Forms.MaskedTextBox()
@@ -67,7 +69,6 @@ Partial Class frmVMR
         Me.lblGrandTot = New System.Windows.Forms.Label()
         Me.mskTEUs = New System.Windows.Forms.MaskedTextBox()
         Me.lblTEUs = New System.Windows.Forms.Label()
-        Me.crThroughput = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.cmdNextTpt = New System.Windows.Forms.Button()
         Me.cmdPrevTpt = New System.Windows.Forms.Button()
         Me.cmdExitTpt = New System.Windows.Forms.Button()
@@ -104,8 +105,10 @@ Partial Class frmVMR
         Me.cmdNextFoot = New System.Windows.Forms.Button()
         Me.cmdPrevFoot = New System.Windows.Forms.Button()
         Me.cmdExitFoot = New System.Windows.Forms.Button()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.crPreview = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.crThroughput = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.Throughput1 = New Vessel_Movement_Report_Creator.Throughput()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.cmdSave = New System.Windows.Forms.Button()
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
@@ -116,7 +119,7 @@ Partial Class frmVMR
         Me.spltSpecials.Panel2.SuspendLayout()
         Me.spltSpecials.SuspendLayout()
         Me.TabPage5.SuspendLayout()
-        Me.TabPage6.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabVMR
@@ -125,7 +128,7 @@ Partial Class frmVMR
         Me.tabVMR.Controls.Add(Me.tabThroughput)
         Me.tabVMR.Controls.Add(Me.tabSpecials)
         Me.tabVMR.Controls.Add(Me.TabPage5)
-        Me.tabVMR.Controls.Add(Me.TabPage6)
+        Me.tabVMR.Controls.Add(Me.TabPage1)
         Me.tabVMR.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
         Me.tabVMR.Location = New System.Drawing.Point(12, 12)
         Me.tabVMR.Name = "tabVMR"
@@ -135,6 +138,8 @@ Partial Class frmVMR
         '
         'tabParticulars
         '
+        Me.tabParticulars.Controls.Add(Me.mskATD)
+        Me.tabParticulars.Controls.Add(Me.Label1)
         Me.tabParticulars.Controls.Add(Me.mskLastLoaded)
         Me.tabParticulars.Controls.Add(Me.lblLastLoaded)
         Me.tabParticulars.Controls.Add(Me.mskFirstLoaded)
@@ -171,9 +176,27 @@ Partial Class frmVMR
         Me.tabParticulars.Text = "Vessel Particulars"
         Me.tabParticulars.UseVisualStyleBackColor = True
         '
+        'mskATD
+        '
+        Me.mskATD.Location = New System.Drawing.Point(343, 485)
+        Me.mskATD.Mask = "0000H 00/00/0000"
+        Me.mskATD.Name = "mskATD"
+        Me.mskATD.Size = New System.Drawing.Size(205, 27)
+        Me.mskATD.TabIndex = 30
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(103, 488)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(235, 22)
+        Me.Label1.TabIndex = 29
+        Me.Label1.Text = "Actual Time of Arrival (ATD)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'mskLastLoaded
         '
         Me.mskLastLoaded.Location = New System.Drawing.Point(942, 362)
+        Me.mskLastLoaded.Mask = "0000H 00/00/0000"
         Me.mskLastLoaded.Name = "mskLastLoaded"
         Me.mskLastLoaded.Size = New System.Drawing.Size(205, 27)
         Me.mskLastLoaded.TabIndex = 28
@@ -190,6 +213,7 @@ Partial Class frmVMR
         'mskFirstLoaded
         '
         Me.mskFirstLoaded.Location = New System.Drawing.Point(943, 309)
+        Me.mskFirstLoaded.Mask = "0000H 00/00/0000"
         Me.mskFirstLoaded.Name = "mskFirstLoaded"
         Me.mskFirstLoaded.Size = New System.Drawing.Size(205, 27)
         Me.mskFirstLoaded.TabIndex = 26
@@ -206,6 +230,7 @@ Partial Class frmVMR
         'mskLastDischarged
         '
         Me.mskLastDischarged.Location = New System.Drawing.Point(973, 256)
+        Me.mskLastDischarged.Mask = "0000H 00/00/0000"
         Me.mskLastDischarged.Name = "mskLastDischarged"
         Me.mskLastDischarged.Size = New System.Drawing.Size(205, 27)
         Me.mskLastDischarged.TabIndex = 24
@@ -222,6 +247,7 @@ Partial Class frmVMR
         'mskFirstDischarged
         '
         Me.mskFirstDischarged.Location = New System.Drawing.Point(974, 203)
+        Me.mskFirstDischarged.Mask = "0000H 00/00/0000"
         Me.mskFirstDischarged.Name = "mskFirstDischarged"
         Me.mskFirstDischarged.Size = New System.Drawing.Size(205, 27)
         Me.mskFirstDischarged.TabIndex = 22
@@ -238,6 +264,7 @@ Partial Class frmVMR
         'mskOpCommenced
         '
         Me.mskOpCommenced.Location = New System.Drawing.Point(924, 150)
+        Me.mskOpCommenced.Mask = "0000H 00/00/0000"
         Me.mskOpCommenced.Name = "mskOpCommenced"
         Me.mskOpCommenced.Size = New System.Drawing.Size(205, 27)
         Me.mskOpCommenced.TabIndex = 20
@@ -254,6 +281,7 @@ Partial Class frmVMR
         'mskATA
         '
         Me.mskATA.Location = New System.Drawing.Point(343, 444)
+        Me.mskATA.Mask = "0000H 00/00/0000"
         Me.mskATA.Name = "mskATA"
         Me.mskATA.Size = New System.Drawing.Size(205, 27)
         Me.mskATA.TabIndex = 18
@@ -270,9 +298,11 @@ Partial Class frmVMR
         'mskETA
         '
         Me.mskETA.Location = New System.Drawing.Point(374, 399)
+        Me.mskETA.Mask = "0000H 00/00/0000"
         Me.mskETA.Name = "mskETA"
         Me.mskETA.Size = New System.Drawing.Size(205, 27)
         Me.mskETA.TabIndex = 16
+        Me.mskETA.ValidatingType = GetType(Date)
         '
         'lblETA
         '
@@ -286,6 +316,7 @@ Partial Class frmVMR
         'mskOvertime
         '
         Me.mskOvertime.Location = New System.Drawing.Point(269, 330)
+        Me.mskOvertime.Mask = "0000H 00/00/0000"
         Me.mskOvertime.Name = "mskOvertime"
         Me.mskOvertime.Size = New System.Drawing.Size(205, 27)
         Me.mskOvertime.TabIndex = 14
@@ -293,6 +324,7 @@ Partial Class frmVMR
         'mskSLGang
         '
         Me.mskSLGang.Location = New System.Drawing.Point(269, 279)
+        Me.mskSLGang.Mask = "0000H 00/00/0000"
         Me.mskSLGang.Name = "mskSLGang"
         Me.mskSLGang.Size = New System.Drawing.Size(205, 27)
         Me.mskSLGang.TabIndex = 13
@@ -413,10 +445,10 @@ Partial Class frmVMR
         Me.tabThroughput.Controls.Add(Me.lblGrandTot)
         Me.tabThroughput.Controls.Add(Me.mskTEUs)
         Me.tabThroughput.Controls.Add(Me.lblTEUs)
-        Me.tabThroughput.Controls.Add(Me.crThroughput)
         Me.tabThroughput.Controls.Add(Me.cmdNextTpt)
         Me.tabThroughput.Controls.Add(Me.cmdPrevTpt)
         Me.tabThroughput.Controls.Add(Me.cmdExitTpt)
+        Me.tabThroughput.Controls.Add(Me.crThroughput)
         Me.tabThroughput.Location = New System.Drawing.Point(4, 29)
         Me.tabThroughput.Name = "tabThroughput"
         Me.tabThroughput.Padding = New System.Windows.Forms.Padding(3)
@@ -536,16 +568,6 @@ Partial Class frmVMR
         Me.lblTEUs.Size = New System.Drawing.Size(102, 22)
         Me.lblTEUs.TabIndex = 29
         Me.lblTEUs.Text = "Total TEUs"
-        '
-        'crThroughput
-        '
-        Me.crThroughput.ActiveViewIndex = -1
-        Me.crThroughput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.crThroughput.Cursor = System.Windows.Forms.Cursors.Default
-        Me.crThroughput.Location = New System.Drawing.Point(6, 6)
-        Me.crThroughput.Name = "crThroughput"
-        Me.crThroughput.Size = New System.Drawing.Size(1306, 371)
-        Me.crThroughput.TabIndex = 6
         '
         'cmdNextTpt
         '
@@ -891,33 +913,48 @@ Partial Class frmVMR
         Me.cmdExitFoot.Text = "Exit (F3)"
         Me.cmdExitFoot.UseVisualStyleBackColor = True
         '
-        'TabPage6
+        'crThroughput
         '
-        Me.TabPage6.Controls.Add(Me.crPreview)
-        Me.TabPage6.Controls.Add(Me.cmdSave)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(1318, 672)
-        Me.TabPage6.TabIndex = 5
-        Me.TabPage6.Text = "Preview"
-        Me.TabPage6.UseVisualStyleBackColor = True
+        Me.crThroughput.ActiveViewIndex = 0
+        Me.crThroughput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.crThroughput.Cursor = System.Windows.Forms.Cursors.Default
+        Me.crThroughput.DisplayStatusBar = False
+        Me.crThroughput.DisplayToolbar = False
+        Me.crThroughput.Location = New System.Drawing.Point(6, 6)
+        Me.crThroughput.Name = "crThroughput"
+        Me.crThroughput.ReportSource = Me.Throughput1
+        Me.crThroughput.Size = New System.Drawing.Size(1306, 371)
+        Me.crThroughput.TabIndex = 6
+        Me.crThroughput.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'crPreview
+        'TabPage1
         '
-        Me.crPreview.ActiveViewIndex = -1
-        Me.crPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.crPreview.Cursor = System.Windows.Forms.Cursors.Default
-        Me.crPreview.Location = New System.Drawing.Point(3, 3)
-        Me.crPreview.Name = "crPreview"
-        Me.crPreview.Size = New System.Drawing.Size(1031, 666)
-        Me.crPreview.TabIndex = 6
+        Me.TabPage1.Controls.Add(Me.cmdSave)
+        Me.TabPage1.Controls.Add(Me.CrystalReportViewer1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1318, 672)
+        Me.TabPage1.TabIndex = 5
+        Me.TabPage1.Text = "Preview"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(6, 6)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1052, 660)
+        Me.CrystalReportViewer1.TabIndex = 0
         '
         'cmdSave
         '
         Me.cmdSave.Location = New System.Drawing.Point(1100, 569)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(164, 43)
-        Me.cmdSave.TabIndex = 5
+        Me.cmdSave.TabIndex = 1
         Me.cmdSave.Text = "Save | Print"
         Me.cmdSave.UseVisualStyleBackColor = True
         '
@@ -930,7 +967,7 @@ Partial Class frmVMR
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmVMR"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Form1"
+        Me.Text = "da"
         Me.TopMost = True
         Me.tabVMR.ResumeLayout(False)
         Me.tabParticulars.ResumeLayout(False)
@@ -945,7 +982,7 @@ Partial Class frmVMR
         Me.spltSpecials.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
-        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -955,7 +992,6 @@ Partial Class frmVMR
     Friend WithEvents tabThroughput As TabPage
     Friend WithEvents tabSpecials As TabPage
     Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents TabPage6 As TabPage
     Friend WithEvents lblVoyage As Label
     Friend WithEvents lblVessel As Label
     Friend WithEvents cmdNextPart As Button
@@ -969,7 +1005,6 @@ Partial Class frmVMR
     Friend WithEvents cmdNextFoot As Button
     Friend WithEvents cmdPrevFoot As Button
     Friend WithEvents cmdExitFoot As Button
-    Friend WithEvents cmdSave As Button
     Friend WithEvents lblOvertime As Label
     Friend WithEvents lblSLGang As Label
     Friend WithEvents lblPier As Label
@@ -1029,10 +1064,15 @@ Partial Class frmVMR
     Friend WithEvents mskChecker As MaskedTextBox
     Friend WithEvents lblChecker As Label
     Friend WithEvents lblManner As Label
-    Friend WithEvents crPreview As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents Label32 As Label
     Friend WithEvents Label31 As Label
     Friend WithEvents lblContainers As Label
     Friend WithEvents lblGearboxes As Label
     Friend WithEvents mskContainers As MaskedTextBox
+    Friend WithEvents mskATD As MaskedTextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Throughput1 As Throughput
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cmdSave As Button
 End Class

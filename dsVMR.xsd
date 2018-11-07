@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsThroughput" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsThroughput" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsThroughput" msprop:Generator_UserDSName="dsThroughput">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtOBThrghpt" msprop:Generator_TableClassName="dtOBThrghptDataTable" msprop:Generator_TableVarName="tabledtOBThrghpt" msprop:Generator_RowChangedName="dtOBThrghptRowChanged" msprop:Generator_TablePropName="dtOBThrghpt" msprop:Generator_RowDeletingName="dtOBThrghptRowDeleting" msprop:Generator_RowChangingName="dtOBThrghptRowChanging" msprop:Generator_RowEvHandlerName="dtOBThrghptRowChangeEventHandler" msprop:Generator_RowDeletedName="dtOBThrghptRowDeleted" msprop:Generator_RowClassName="dtOBThrghptRow" msprop:Generator_UserTableName="dtOBThrghpt" msprop:Generator_RowEvArgName="dtOBThrghptRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CtrType" msprop:Generator_ColumnVarNameInTable="columnCtrType" msprop:Generator_ColumnPropNameInRow="CtrType" msprop:Generator_ColumnPropNameInTable="CtrTypeColumn" msprop:Generator_UserColumnName="CtrType" type="xs:string" minOccurs="0" />
+              <xs:element name="CtrSize" msprop:Generator_ColumnVarNameInTable="columnCtrSize" msprop:Generator_ColumnPropNameInRow="CtrSize" msprop:Generator_ColumnPropNameInTable="CtrSizeColumn" msprop:Generator_UserColumnName="CtrSize" type="xs:string" minOccurs="0" />
+              <xs:element name="CtrLD" msprop:Generator_ColumnVarNameInTable="columnCtrLD" msprop:Generator_ColumnPropNameInRow="CtrLD" msprop:Generator_ColumnPropNameInTable="CtrLDColumn" msprop:Generator_UserColumnName="CtrLD" type="xs:int" minOccurs="0" />
+              <xs:element name="CtrMT" msprop:Generator_ColumnVarNameInTable="columnCtrMT" msprop:Generator_ColumnPropNameInRow="CtrMT" msprop:Generator_ColumnPropNameInTable="CtrMTColumn" msprop:Generator_UserColumnName="CtrMT" type="xs:int" minOccurs="0" />
+              <xs:element name="CtrSSV" msprop:Generator_ColumnVarNameInTable="columnCtrSSV" msprop:Generator_ColumnPropNameInRow="CtrSSV" msprop:Generator_ColumnPropNameInTable="CtrSSVColumn" msprop:Generator_UserColumnName="CtrSSV" type="xs:int" minOccurs="0" />
+              <xs:element name="CtrTotal" msdata:Caption="CtrNSV" msprop:Generator_ColumnVarNameInTable="columnCtrTotal" msprop:Generator_ColumnPropNameInRow="CtrTotal" msprop:Generator_ColumnPropNameInTable="CtrTotalColumn" msprop:Generator_UserColumnName="CtrTotal" type="xs:int" minOccurs="0" />
+              <xs:element name="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnPropNameInTable="ItemColumn" msprop:Generator_UserColumnName="Item" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtIBThrghpt" msprop:Generator_TableClassName="dtIBThrghptDataTable" msprop:Generator_TableVarName="tabledtIBThrghpt" msprop:Generator_TablePropName="dtIBThrghpt" msprop:Generator_RowDeletingName="dtIBThrghptRowDeleting" msprop:Generator_RowChangingName="dtIBThrghptRowChanging" msprop:Generator_RowEvHandlerName="dtIBThrghptRowChangeEventHandler" msprop:Generator_RowDeletedName="dtIBThrghptRowDeleted" msprop:Generator_UserTableName="dtIBThrghpt" msprop:Generator_RowChangedName="dtIBThrghptRowChanged" msprop:Generator_RowEvArgName="dtIBThrghptRowChangeEvent" msprop:Generator_RowClassName="dtIBThrghptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CtrType" msprop:Generator_ColumnVarNameInTable="columnCtrType" msprop:Generator_ColumnPropNameInRow="CtrType" msprop:Generator_ColumnPropNameInTable="CtrTypeColumn" msprop:Generator_UserColumnName="CtrType" type="xs:string" minOccurs="0" />
+              <xs:element name="CtrSize" msprop:Generator_ColumnVarNameInTable="columnCtrSize" msprop:Generator_ColumnPropNameInRow="CtrSize" msprop:Generator_ColumnPropNameInTable="CtrSizeColumn" msprop:Generator_UserColumnName="CtrSize" type="xs:string" minOccurs="0" />
+              <xs:element name="CtrLD" msprop:Generator_ColumnVarNameInTable="columnCtrLD" msprop:Generator_ColumnPropNameInRow="CtrLD" msprop:Generator_ColumnPropNameInTable="CtrLDColumn" msprop:Generator_UserColumnName="CtrLD" type="xs:int" minOccurs="0" />
+              <xs:element name="CtrMT" msprop:Generator_ColumnVarNameInTable="columnCtrMT" msprop:Generator_ColumnPropNameInRow="CtrMT" msprop:Generator_ColumnPropNameInTable="CtrMTColumn" msprop:Generator_UserColumnName="CtrMT" type="xs:int" minOccurs="0" />
+              <xs:element name="CtrSSV" msprop:Generator_ColumnVarNameInTable="columnCtrSSV" msprop:Generator_ColumnPropNameInRow="CtrSSV" msprop:Generator_ColumnPropNameInTable="CtrSSVColumn" msprop:Generator_UserColumnName="CtrSSV" type="xs:int" minOccurs="0" />
+              <xs:element name="CtrTotal" msdata:Caption="CtrNSV" msprop:Generator_ColumnVarNameInTable="columnCtrTotal" msprop:Generator_ColumnPropNameInRow="CtrTotal" msprop:Generator_ColumnPropNameInTable="CtrTotalColumn" msprop:Generator_UserColumnName="CtrTotal" type="xs:int" minOccurs="0" />
+              <xs:element name="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnPropNameInTable="ItemColumn" msprop:Generator_UserColumnName="Item" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="dtOBThrghptKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dtOBThrghpt" />
+      <xs:field xpath="mstns:Item" />
+    </xs:unique>
+    <xs:unique name="dtIBThrghptKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dtIBThrghpt" />
+      <xs:field xpath="mstns:Item" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
