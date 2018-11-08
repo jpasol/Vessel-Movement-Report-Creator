@@ -22,5 +22,40 @@ Vessel Movement Report Creator
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOBThrghptDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtIBThrghptDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOBThrghptRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtIBThrghptRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOBThrghptRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtIBThrghptRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 </members>
 </doc>

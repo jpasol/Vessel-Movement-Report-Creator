@@ -22,7 +22,7 @@ Option Explicit On
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
  Global.System.Xml.Serialization.XmlRootAttribute("dsThroughput"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class dsThroughput
+Partial Friend Class dsThroughput
     Inherits Global.System.Data.DataSet
     
     Private tabledtOBThrghpt As dtOBThrghptDataTable
@@ -330,7 +330,7 @@ Partial Public Class dsThroughput
         
         Private columnCtrTotal As Global.System.Data.DataColumn
         
-        Private columnItem As Global.System.Data.DataColumn
+        Private columnthrKey As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -417,9 +417,9 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ItemColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property thrKeyColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnItem
+                Return Me.columnthrKey
             End Get
         End Property
         
@@ -460,9 +460,9 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AdddtOBThrghptRow(ByVal CtrType As String, ByVal CtrSize As String, ByVal CtrLD As Integer, ByVal CtrMT As Integer, ByVal CtrSSV As Integer, ByVal CtrTotal As Integer, ByVal Item As Integer) As dtOBThrghptRow
+        Public Overloads Function AdddtOBThrghptRow(ByVal CtrType As String, ByVal CtrSize As String, ByVal CtrLD As Integer, ByVal CtrMT As Integer, ByVal CtrSSV As Integer, ByVal CtrTotal As Integer, ByVal thrKey As Integer) As dtOBThrghptRow
             Dim rowdtOBThrghptRow As dtOBThrghptRow = CType(Me.NewRow,dtOBThrghptRow)
-            Dim columnValuesArray() As Object = New Object() {CtrType, CtrSize, CtrLD, CtrMT, CtrSSV, CtrTotal, Item}
+            Dim columnValuesArray() As Object = New Object() {CtrType, CtrSize, CtrLD, CtrMT, CtrSSV, CtrTotal, thrKey}
             rowdtOBThrghptRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtOBThrghptRow)
             Return rowdtOBThrghptRow
@@ -470,8 +470,8 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByItem(ByVal Item As Integer) As dtOBThrghptRow
-            Return CType(Me.Rows.Find(New Object() {Item}),dtOBThrghptRow)
+        Public Function FindBythrKey(ByVal thrKey As Integer) As dtOBThrghptRow
+            Return CType(Me.Rows.Find(New Object() {thrKey}),dtOBThrghptRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -497,7 +497,7 @@ Partial Public Class dsThroughput
             Me.columnCtrMT = MyBase.Columns("CtrMT")
             Me.columnCtrSSV = MyBase.Columns("CtrSSV")
             Me.columnCtrTotal = MyBase.Columns("CtrTotal")
-            Me.columnItem = MyBase.Columns("Item")
+            Me.columnthrKey = MyBase.Columns("thrKey")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -515,16 +515,12 @@ Partial Public Class dsThroughput
             MyBase.Columns.Add(Me.columnCtrSSV)
             Me.columnCtrTotal = New Global.System.Data.DataColumn("CtrTotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCtrTotal)
-            Me.columnItem = New Global.System.Data.DataColumn("Item", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Item")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ItemColumn")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnItem")
-            Me.columnItem.ExtendedProperties.Add("Generator_UserColumnName", "Item")
-            MyBase.Columns.Add(Me.columnItem)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("dtOBThrghptKey1", New Global.System.Data.DataColumn() {Me.columnItem}, true))
+            Me.columnthrKey = New Global.System.Data.DataColumn("thrKey", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnthrKey)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("dtOBThrghptKey1", New Global.System.Data.DataColumn() {Me.columnthrKey}, true))
             Me.columnCtrTotal.Caption = "CtrNSV"
-            Me.columnItem.AllowDBNull = false
-            Me.columnItem.Unique = true
+            Me.columnthrKey.AllowDBNull = false
+            Me.columnthrKey.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -674,7 +670,7 @@ Partial Public Class dsThroughput
         
         Private columnCtrTotal As Global.System.Data.DataColumn
         
-        Private columnItem As Global.System.Data.DataColumn
+        Private columnthrKey As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -761,9 +757,9 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ItemColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property thrKeyColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnItem
+                Return Me.columnthrKey
             End Get
         End Property
         
@@ -804,9 +800,9 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AdddtIBThrghptRow(ByVal CtrType As String, ByVal CtrSize As String, ByVal CtrLD As Integer, ByVal CtrMT As Integer, ByVal CtrSSV As Integer, ByVal CtrTotal As Integer, ByVal Item As Integer) As dtIBThrghptRow
+        Public Overloads Function AdddtIBThrghptRow(ByVal CtrType As String, ByVal CtrSize As String, ByVal CtrLD As Integer, ByVal CtrMT As Integer, ByVal CtrSSV As Integer, ByVal CtrTotal As Integer, ByVal thrKey As Integer) As dtIBThrghptRow
             Dim rowdtIBThrghptRow As dtIBThrghptRow = CType(Me.NewRow,dtIBThrghptRow)
-            Dim columnValuesArray() As Object = New Object() {CtrType, CtrSize, CtrLD, CtrMT, CtrSSV, CtrTotal, Item}
+            Dim columnValuesArray() As Object = New Object() {CtrType, CtrSize, CtrLD, CtrMT, CtrSSV, CtrTotal, thrKey}
             rowdtIBThrghptRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtIBThrghptRow)
             Return rowdtIBThrghptRow
@@ -814,8 +810,8 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByItem(ByVal Item As Integer) As dtIBThrghptRow
-            Return CType(Me.Rows.Find(New Object() {Item}),dtIBThrghptRow)
+        Public Function FindBythrKey(ByVal thrKey As Integer) As dtIBThrghptRow
+            Return CType(Me.Rows.Find(New Object() {thrKey}),dtIBThrghptRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -841,7 +837,7 @@ Partial Public Class dsThroughput
             Me.columnCtrMT = MyBase.Columns("CtrMT")
             Me.columnCtrSSV = MyBase.Columns("CtrSSV")
             Me.columnCtrTotal = MyBase.Columns("CtrTotal")
-            Me.columnItem = MyBase.Columns("Item")
+            Me.columnthrKey = MyBase.Columns("thrKey")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -859,16 +855,12 @@ Partial Public Class dsThroughput
             MyBase.Columns.Add(Me.columnCtrSSV)
             Me.columnCtrTotal = New Global.System.Data.DataColumn("CtrTotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCtrTotal)
-            Me.columnItem = New Global.System.Data.DataColumn("Item", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Item")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ItemColumn")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnItem")
-            Me.columnItem.ExtendedProperties.Add("Generator_UserColumnName", "Item")
-            MyBase.Columns.Add(Me.columnItem)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("dtIBThrghptKey1", New Global.System.Data.DataColumn() {Me.columnItem}, true))
+            Me.columnthrKey = New Global.System.Data.DataColumn("thrKey", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnthrKey)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("dtIBThrghptKey1", New Global.System.Data.DataColumn() {Me.columnthrKey}, true))
             Me.columnCtrTotal.Caption = "CtrNSV"
-            Me.columnItem.AllowDBNull = false
-            Me.columnItem.Unique = true
+            Me.columnthrKey.AllowDBNull = false
+            Me.columnthrKey.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1105,12 +1097,12 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Item() As Integer
+        Public Property thrKey() As Integer
             Get
-                Return CType(Me(Me.tabledtOBThrghpt.ItemColumn),Integer)
+                Return CType(Me(Me.tabledtOBThrghpt.thrKeyColumn),Integer)
             End Get
             Set
-                Me(Me.tabledtOBThrghpt.ItemColumn) = value
+                Me(Me.tabledtOBThrghpt.thrKeyColumn) = value
             End Set
         End Property
         
@@ -1294,12 +1286,12 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Item() As Integer
+        Public Property thrKey() As Integer
             Get
-                Return CType(Me(Me.tabledtIBThrghpt.ItemColumn),Integer)
+                Return CType(Me(Me.tabledtIBThrghpt.thrKeyColumn),Integer)
             End Get
             Set
-                Me(Me.tabledtIBThrghpt.ItemColumn) = value
+                Me(Me.tabledtIBThrghpt.thrKeyColumn) = value
             End Set
         End Property
         
