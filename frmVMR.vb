@@ -86,6 +86,7 @@ Public Class frmVMR
     End Function
 
     Private Sub frmVMR_Load(sender As Object, e As EventArgs) Handles Me.Load
+
         Initialize()
         If FindReports(strRegistry) = True Then
             dsRpt = RetrieveOPData(strRegistry)
@@ -142,7 +143,7 @@ where acv.id = '" & Parameter & "'"
 ,acv.[id] as 'Actual I/B'
 ,acv2.[id] as 'Actual O/B'
 ,rpt.id 
-,BIZU.[ID]
+,BIZU.[ID] as 'Line OP'
 
 FROM [apex].[dbo].[inv_unit] unit 
 full outer join 
@@ -172,7 +173,7 @@ where acv.[id] = '" & Parameter & "' and rpt.id = 'SFS' "
       ,acv.[id] as 'Actual I/B'
       ,acv2.[id] as 'Actual O/B'
       ,rpt.id
-,BIZU.[ID]
+,BIZU.[ID] as 'Line OP'
   FROM [apex].[dbo].[inv_unit] unit 
 full outer join 
 [inv_unit_fcy_visit] ufv 
@@ -198,6 +199,9 @@ where acv2.[id] = '" & Parameter & "' AND CATEGORY <> 'THRGH'"
             datAdapt.Fill(dsN4Details.Tables(count), rsVMRDetails)
             rsVMRDetails.Close()
         Next
+
+
+
 #End Region
 #Region "Populate Controls"
         With dsN4Details.Tables(N4Details.Vessel)
@@ -236,9 +240,8 @@ where acv2.[id] = '" & Parameter & "' AND CATEGORY <> 'THRGH'"
         'Count Untis
         Dim arrUnits As Double()
         ReDim arrUnits(paramData.Columns.Count)
-        For Each dc As DataColumn In paramData.Columns
 
-        Next
+
     End Function
 
     Public Sub Format(ReportData() As Object, crReport As Object) Implements IReportswSave.Format
