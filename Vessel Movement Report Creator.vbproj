@@ -92,11 +92,12 @@
     <Compile Include="dsVMR.vb">
       <DependentUpon>dsVMR.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmVMR.vb">
+    <Compile Include="VMRClass.vb" />
+    <Compile Include="VMRForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVMR.Designer.vb">
-      <DependentUpon>frmVMR.vb</DependentUpon>
+    <Compile Include="VMRForm.Designer.vb">
+      <DependentUpon>VMRForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -116,8 +117,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmVMR.resx">
-      <DependentUpon>frmVMR.vb</DependentUpon>
+    <EmbeddedResource Include="VMRForm.resx">
+      <DependentUpon>VMRForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -27,32 +27,32 @@ Vessel Movement Report Creator
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOBThrghptDataTable">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtIBThrghptDataTable">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOBThrghptRow">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtIBThrghptRow">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOBThrghptRowChangeEvent">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtIBThrghptRowChangeEvent">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
