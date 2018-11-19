@@ -53,6 +53,8 @@ Partial Class VMRForm
         Me.cmdNextPart = New System.Windows.Forms.Button()
         Me.cmdExitPart = New System.Windows.Forms.Button()
         Me.tabThroughput = New System.Windows.Forms.TabPage()
+        Me.mskATD = New System.Windows.Forms.MaskedTextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtobTotal = New System.Windows.Forms.TextBox()
         Me.txtobMT = New System.Windows.Forms.TextBox()
@@ -99,7 +101,7 @@ Partial Class VMRForm
         Me.cmdNextSpl = New System.Windows.Forms.Button()
         Me.cmdPrevSpl = New System.Windows.Forms.Button()
         Me.cmdExitSpl = New System.Windows.Forms.Button()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.tabFooters = New System.Windows.Forms.TabPage()
         Me.lblManner = New System.Windows.Forms.Label()
         Me.mskOPCenter = New System.Windows.Forms.MaskedTextBox()
         Me.mskManner = New System.Windows.Forms.MaskedTextBox()
@@ -113,17 +115,15 @@ Partial Class VMRForm
         Me.cmdNextFoot = New System.Windows.Forms.Button()
         Me.cmdPrevFoot = New System.Windows.Forms.Button()
         Me.cmdExitFoot = New System.Windows.Forms.Button()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.tabPreview = New System.Windows.Forms.TabPage()
         Me.cmdSave = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.mskATD = New System.Windows.Forms.MaskedTextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
         Me.tabThroughput.SuspendLayout()
         Me.tabSpecials.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.tabFooters.SuspendLayout()
+        Me.tabPreview.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabVMR
@@ -131,8 +131,8 @@ Partial Class VMRForm
         Me.tabVMR.Controls.Add(Me.tabParticulars)
         Me.tabVMR.Controls.Add(Me.tabThroughput)
         Me.tabVMR.Controls.Add(Me.tabSpecials)
-        Me.tabVMR.Controls.Add(Me.TabPage5)
-        Me.tabVMR.Controls.Add(Me.TabPage1)
+        Me.tabVMR.Controls.Add(Me.tabFooters)
+        Me.tabVMR.Controls.Add(Me.tabPreview)
         Me.tabVMR.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
         Me.tabVMR.Location = New System.Drawing.Point(12, 12)
         Me.tabVMR.Name = "tabVMR"
@@ -455,6 +455,23 @@ Partial Class VMRForm
         Me.tabThroughput.TabIndex = 2
         Me.tabThroughput.Text = "Throughput"
         Me.tabThroughput.UseVisualStyleBackColor = True
+        '
+        'mskATD
+        '
+        Me.mskATD.Location = New System.Drawing.Point(877, 346)
+        Me.mskATD.Mask = "0000H 00/00/0000"
+        Me.mskATD.Name = "mskATD"
+        Me.mskATD.Size = New System.Drawing.Size(205, 27)
+        Me.mskATD.TabIndex = 64
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(637, 349)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(235, 22)
+        Me.Label1.TabIndex = 63
+        Me.Label1.Text = "Actual Time of Arrival (ATD)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Label6
         '
@@ -864,28 +881,28 @@ Partial Class VMRForm
         Me.cmdExitSpl.Text = "Exit (F3)"
         Me.cmdExitSpl.UseVisualStyleBackColor = True
         '
-        'TabPage5
+        'tabFooters
         '
-        Me.TabPage5.Controls.Add(Me.lblManner)
-        Me.TabPage5.Controls.Add(Me.mskOPCenter)
-        Me.TabPage5.Controls.Add(Me.mskManner)
-        Me.TabPage5.Controls.Add(Me.lblOPCenter)
-        Me.TabPage5.Controls.Add(Me.mskAsstOP)
-        Me.TabPage5.Controls.Add(Me.lblAsstOP)
-        Me.TabPage5.Controls.Add(Me.mskSupervisor)
-        Me.TabPage5.Controls.Add(Me.lblSupervisor)
-        Me.TabPage5.Controls.Add(Me.mskChecker)
-        Me.TabPage5.Controls.Add(Me.lblChecker)
-        Me.TabPage5.Controls.Add(Me.cmdNextFoot)
-        Me.TabPage5.Controls.Add(Me.cmdPrevFoot)
-        Me.TabPage5.Controls.Add(Me.cmdExitFoot)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1318, 672)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Footers"
-        Me.TabPage5.UseVisualStyleBackColor = True
+        Me.tabFooters.Controls.Add(Me.lblManner)
+        Me.tabFooters.Controls.Add(Me.mskOPCenter)
+        Me.tabFooters.Controls.Add(Me.mskManner)
+        Me.tabFooters.Controls.Add(Me.lblOPCenter)
+        Me.tabFooters.Controls.Add(Me.mskAsstOP)
+        Me.tabFooters.Controls.Add(Me.lblAsstOP)
+        Me.tabFooters.Controls.Add(Me.mskSupervisor)
+        Me.tabFooters.Controls.Add(Me.lblSupervisor)
+        Me.tabFooters.Controls.Add(Me.mskChecker)
+        Me.tabFooters.Controls.Add(Me.lblChecker)
+        Me.tabFooters.Controls.Add(Me.cmdNextFoot)
+        Me.tabFooters.Controls.Add(Me.cmdPrevFoot)
+        Me.tabFooters.Controls.Add(Me.cmdExitFoot)
+        Me.tabFooters.Location = New System.Drawing.Point(4, 29)
+        Me.tabFooters.Name = "tabFooters"
+        Me.tabFooters.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabFooters.Size = New System.Drawing.Size(1318, 672)
+        Me.tabFooters.TabIndex = 4
+        Me.tabFooters.Text = "Footers"
+        Me.tabFooters.UseVisualStyleBackColor = True
         '
         'lblManner
         '
@@ -994,17 +1011,17 @@ Partial Class VMRForm
         Me.cmdExitFoot.Text = "Exit (F3)"
         Me.cmdExitFoot.UseVisualStyleBackColor = True
         '
-        'TabPage1
+        'tabPreview
         '
-        Me.TabPage1.Controls.Add(Me.cmdSave)
-        Me.TabPage1.Controls.Add(Me.CrystalReportViewer1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1318, 672)
-        Me.TabPage1.TabIndex = 5
-        Me.TabPage1.Text = "Preview"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.tabPreview.Controls.Add(Me.cmdSave)
+        Me.tabPreview.Controls.Add(Me.CrystalReportViewer1)
+        Me.tabPreview.Location = New System.Drawing.Point(4, 29)
+        Me.tabPreview.Name = "tabPreview"
+        Me.tabPreview.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabPreview.Size = New System.Drawing.Size(1318, 672)
+        Me.tabPreview.TabIndex = 5
+        Me.tabPreview.Text = "Preview"
+        Me.tabPreview.UseVisualStyleBackColor = True
         '
         'cmdSave
         '
@@ -1025,23 +1042,6 @@ Partial Class VMRForm
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1052, 660)
         Me.CrystalReportViewer1.TabIndex = 0
         '
-        'mskATD
-        '
-        Me.mskATD.Location = New System.Drawing.Point(877, 346)
-        Me.mskATD.Mask = "0000H 00/00/0000"
-        Me.mskATD.Name = "mskATD"
-        Me.mskATD.Size = New System.Drawing.Size(205, 27)
-        Me.mskATD.TabIndex = 64
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(637, 349)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(235, 22)
-        Me.Label1.TabIndex = 63
-        Me.Label1.Text = "Actual Time of Arrival (ATD)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
         'VMRForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1058,9 +1058,9 @@ Partial Class VMRForm
         Me.tabThroughput.PerformLayout()
         Me.tabSpecials.ResumeLayout(False)
         Me.tabSpecials.PerformLayout()
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
-        Me.TabPage1.ResumeLayout(False)
+        Me.tabFooters.ResumeLayout(False)
+        Me.tabFooters.PerformLayout()
+        Me.tabPreview.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1069,7 +1069,7 @@ Partial Class VMRForm
     Friend WithEvents tabParticulars As TabPage
     Friend WithEvents tabThroughput As TabPage
     Friend WithEvents tabSpecials As TabPage
-    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents tabFooters As TabPage
     Friend WithEvents lblVoyage As Label
     Friend WithEvents lblVessel As Label
     Friend WithEvents cmdNextPart As Button
@@ -1130,7 +1130,7 @@ Partial Class VMRForm
     Friend WithEvents lblChecker As Label
     Friend WithEvents lblManner As Label
     Friend WithEvents Label31 As Label
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents tabPreview As TabPage
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents cmdSave As Button
     Friend WithEvents Label6 As Label

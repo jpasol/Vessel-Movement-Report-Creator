@@ -13,22 +13,29 @@ Public Class VMRForm
 
     End Sub
     Private clsVMR As VMRClass
+    Private rptVMR As VMR
     Private Sub frmVMR_Load(sender As Object, e As EventArgs) Handles Me.Load
-        With clsVMR.vmrVessel
-            mskVessel.Text = clsVMR.vmrVessel.Name
-            If .InboundVoyage = .OutboundVoyage Then
-                mskVoyage.Text = .InboundVoyage
-            Else
-                mskVoyage.Text = .OutboundVoyage
-            End If
-            mskRegistry.Text = .Registry
-            mskPier.Text = .BerthWindow
-            mskATA.Text = clsVMR.getMilTime(.ATA)
-            mskATD.Text = clsVMR.getMilTime(.ATD)
-            mskOpCommenced.Text = clsVMR.getMilTime(.StartWork)
-            mskLastDischarged.Text = clsVMR.getMilTime(.LastContainerDischarged)
-            mskTimeComplete.Text = clsVMR.getMilTime(.EndWork).ToString.Substring(0, 5) 'HHmmH 
-            mskDateComplete.Text = clsVMR.getMilTime(.EndWork).ToString.Substring(6, 10) 'MM/dd/YYYY
+        With clsVMR
+            mskVessel.Text = .Details(.VslInfo.Name)
+            mskVoyage.Text = .Details(.VslInfo.Voyage)
+            mskRegistry.Text = .Details(.VslInfo.Registry)
+            mskPier.Text = .Details(.VslInfo.Berth)
+            mskATA.Text = .Details(.VslInfo.ATA)
+            mskATD.Text = .Details(.VslInfo.ATD)
+            mskOpCommenced.Text = .Details(.VslInfo.StartWork)
+            mskLastDischarged.Text = .Details(.VslInfo.LastDsc)
+            mskTimeComplete.Text = .Details(.VslInfo.EndWorkTime) 'HHmmH 
+            mskDateComplete.Text = .Details(.VslInfo.EndWorkDate) 'MM/dd/YYYY
         End With
+    End Sub
+
+    Private Sub tabVMR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabVMR.SelectedIndexChanged
+        Dim tabClicked As TabPage = DirectCast(sender, TabControl).SelectedTab
+        Select Case tabClicked.Name.ToString
+            Case "tabPreview"
+                rptVMR = New VMR
+                clsVMR.Format(rptVMR)
+                clsVMR.Preview(rptVMR, CrystalReportViewer1)
+        End Select
     End Sub
 End Class

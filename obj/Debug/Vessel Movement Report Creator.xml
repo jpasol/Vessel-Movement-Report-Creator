@@ -27,32 +27,122 @@ Vessel Movement Report Creator
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundDataTable">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundFCLDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundDataTable">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtVesselDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundRow">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtCMUDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtDGDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundMTYDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundFCLDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundMTYDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtLinesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundFCLRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundRow">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtVesselRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundRowChangeEvent">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtCMURow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtDGRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundMTYRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundFCLRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundMTYRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtLinesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundFCLRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundRowChangeEvent">
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtVesselRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtCMURowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtDGRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtInboundMTYRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundFCLRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtOutboundMTYRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Vessel_Movement_Report_Creator.dsThroughput.dtLinesRowChangeEvent">
 <summary>
 Row event argument class
 </summary>

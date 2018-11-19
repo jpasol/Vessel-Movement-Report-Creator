@@ -1,32 +1,30 @@
 ﻿Partial Class dsThroughput
-    Partial Public Class dtVesselDataTable
-        Private Sub dtVesselDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
-            If (e.Column.ColumnName = Me.RegStafColumn.ColumnName) Then
-                'Add user code here
-            End If
+    Partial Public Class dtOutboundMTYDataTable
+        Private Sub dtOutboundMTYDataTable_dtOutboundMTYRowChanging(sender As Object, e As dtOutboundMTYRowChangeEvent) Handles Me.dtOutboundMTYRowChanging
 
         End Sub
 
     End Class
 
-    Partial Public Class dtCMUDataTable
-        Private Sub dtCMUDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
-            If (e.Column.ColumnName = Me.CMUColumn.ColumnName) Then
-                'Add user code here
-            End If
+    Partial Public Class dtVesselDataTable
 
-        End Sub
+    End Class
+
+    Partial Public Class dtCMUDataTable
+
 
     End Class
 
     Partial Public Class dtOBThrghptDataTable
     End Class
 
-    Partial Public Class dtInboundDataTable
-        Private Sub dtInboundDataTable_dtInboundRowChanging(sender As Object, e As dtInboundRowChangeEvent) Handles Me.dtInboundRowChanging
+    Partial Public Class dtInboundFCLDataTable
+        Private Sub dtInboundFCLDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
+            If (e.Column.ColumnName = Me.line_opColumn.ColumnName) Then
+                'Add user code here
+            End If
 
         End Sub
-
 
     End Class
 End Class
