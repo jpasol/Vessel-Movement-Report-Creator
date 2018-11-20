@@ -14,7 +14,9 @@ Public Class VMRForm
     End Sub
     Private clsVMR As VMRClass
     Private rptVMR As VMR
+    Private dtCMU As DataTable
     Private Sub frmVMR_Load(sender As Object, e As EventArgs) Handles Me.Load
+
         With clsVMR
             mskVessel.Text = .Details(.VslInfo.Name)
             mskVoyage.Text = .Details(.VslInfo.Voyage)
@@ -27,6 +29,12 @@ Public Class VMRForm
             mskTimeComplete.Text = .Details(.VslInfo.EndWorkTime) 'HHmmH 
             mskDateComplete.Text = .Details(.VslInfo.EndWorkDate) 'MM/dd/YYYY
         End With
+
+        dtCMU = New DataTable
+        dtCMU.Columns.Add("CMU")
+        dtCMU.Columns.Add("Description")
+
+        DataGridView1.DataSource = dtCMU
     End Sub
 
     Private Sub tabVMR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabVMR.SelectedIndexChanged
@@ -34,8 +42,43 @@ Public Class VMRForm
         Select Case tabClicked.Name.ToString
             Case "tabPreview"
                 rptVMR = New VMR
+                mapDetails()
                 clsVMR.Format(rptVMR)
                 clsVMR.Preview(rptVMR, CrystalReportViewer1)
         End Select
+    End Sub
+    Private Sub mapDetails()
+        With clsVMR
+            .Details(.VslInfo.Name) = mskVessel.Text
+            .Details(.VslInfo.Voyage) = mskVoyage.Text
+            .Details(.VslInfo.Registry) = mskRegistry.Text
+            .Details(.VslInfo.Berth) = mskPier.Text
+            .Details(.VslInfo.ATA) = mskATA.Text
+            .Details(.VslInfo.ATD) = mskATD.Text
+            .Details(.VslInfo.StartWork) = mskOpCommenced.Text
+            .Details(.VslInfo.LastDsc) = mskLastDischarged.Text
+            .Details(.VslInfo.EndWorkTime) = mskTimeComplete.Text 'HHmmH
+            .Details(.VslInfo.EndWorkDate) = mskDateComplete.Text 'MM/dd/YYYY
+            .Details(.VslInfo.GangRequest) = mskSLGang.Text
+            .Details(.VslInfo.Overtime) = mskOvertime.Text
+            .Details(.VslInfo.ETA) = mskETA.Text
+            .Details(.VslInfo.FirstDsc) = mskFirstDischarged.Text
+            .Details(.VslInfo.LastDsc) = mskLastDischarged.Text
+            .Details(.VslInfo.FirstLoad) = mskFirstLoaded.Text
+            .Details(.VslInfo.LastLoad) = mskLastLoaded.Text
+            .Details(.VslInfo.RegStaff) = mskOnCallSV.Text
+            .Details(.VslInfo.Gangs) = mskRegulars.Text
+            .Details(.VslInfo.Checker) = mskChecker.Text
+            .Details(.VslInfo.OPSvisor) = mskSupervisor.Text
+            .Details(.VslInfo.OPSmngr) = mskAsstOP.Text
+            .Details(.VslInfo.OPScnter) = mskOPCenter.Text
+        End With
+    End Sub
+
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            dtCMU.Rows.Add(ComboBox1.Text, TextBox1.Text)
+            DataGridView1.Refresh()
+        End If
     End Sub
 End Class

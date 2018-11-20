@@ -103,6 +103,10 @@ Public Class VMRClass
 #Region "Create Vessel Details"
         tempRow = dsVMR.Tables("dtVessel").NewRow
         tempRow.ItemArray = vmrDetails
+        For count As Integer = 0 To tempRow.ItemArray.Count - 1
+            If tempRow(count).ToString.Length = 0 Or
+                    IsDBNull(tempRow(count)) Then tempRow(count) = "-"
+        Next
         dsVMR.Tables("dtVessel").Rows.Add(tempRow)
 
 #End Region

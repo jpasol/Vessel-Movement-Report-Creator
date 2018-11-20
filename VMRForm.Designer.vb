@@ -24,16 +24,8 @@ Partial Class VMRForm
     Private Sub InitializeComponent()
         Me.tabVMR = New System.Windows.Forms.TabControl()
         Me.tabParticulars = New System.Windows.Forms.TabPage()
-        Me.mskLastLoaded = New System.Windows.Forms.MaskedTextBox()
-        Me.lblLastLoaded = New System.Windows.Forms.Label()
-        Me.mskFirstLoaded = New System.Windows.Forms.MaskedTextBox()
-        Me.lblFirstLoaded = New System.Windows.Forms.Label()
-        Me.mskLastDischarged = New System.Windows.Forms.MaskedTextBox()
-        Me.lblLastDischarged = New System.Windows.Forms.Label()
-        Me.mskFirstDischarged = New System.Windows.Forms.MaskedTextBox()
-        Me.lblFirstDischarged = New System.Windows.Forms.Label()
-        Me.mskOpCommenced = New System.Windows.Forms.MaskedTextBox()
-        Me.lblOpCommenced = New System.Windows.Forms.Label()
+        Me.mskATD = New System.Windows.Forms.MaskedTextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.mskATA = New System.Windows.Forms.MaskedTextBox()
         Me.lblATA = New System.Windows.Forms.Label()
         Me.mskETA = New System.Windows.Forms.MaskedTextBox()
@@ -53,58 +45,36 @@ Partial Class VMRForm
         Me.cmdNextPart = New System.Windows.Forms.Button()
         Me.cmdExitPart = New System.Windows.Forms.Button()
         Me.tabThroughput = New System.Windows.Forms.TabPage()
-        Me.mskATD = New System.Windows.Forms.MaskedTextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtobTotal = New System.Windows.Forms.TextBox()
-        Me.txtobMT = New System.Windows.Forms.TextBox()
-        Me.txtobLD = New System.Windows.Forms.TextBox()
-        Me.txtibTotal = New System.Windows.Forms.TextBox()
-        Me.txtibMT = New System.Windows.Forms.TextBox()
-        Me.txtibLD = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.mskRegulars = New System.Windows.Forms.MaskedTextBox()
-        Me.lblRegulars = New System.Windows.Forms.Label()
-        Me.mskOnCallSV = New System.Windows.Forms.MaskedTextBox()
-        Me.lblOnCallSV = New System.Windows.Forms.Label()
+        Me.mskLastLoaded = New System.Windows.Forms.MaskedTextBox()
+        Me.lblLastLoaded = New System.Windows.Forms.Label()
+        Me.mskFirstLoaded = New System.Windows.Forms.MaskedTextBox()
+        Me.lblFirstLoaded = New System.Windows.Forms.Label()
+        Me.mskLastDischarged = New System.Windows.Forms.MaskedTextBox()
+        Me.lblLastDischarged = New System.Windows.Forms.Label()
+        Me.mskFirstDischarged = New System.Windows.Forms.MaskedTextBox()
+        Me.lblFirstDischarged = New System.Windows.Forms.Label()
+        Me.mskOpCommenced = New System.Windows.Forms.MaskedTextBox()
+        Me.lblOpCommenced = New System.Windows.Forms.Label()
         Me.mskTimeComplete = New System.Windows.Forms.MaskedTextBox()
         Me.lblTimeComplete = New System.Windows.Forms.Label()
         Me.mskDateComplete = New System.Windows.Forms.MaskedTextBox()
         Me.lblDateComplete = New System.Windows.Forms.Label()
-        Me.mskGrandTot = New System.Windows.Forms.MaskedTextBox()
-        Me.lblGrandTot = New System.Windows.Forms.Label()
-        Me.mskTEUs = New System.Windows.Forms.MaskedTextBox()
-        Me.lblTEUs = New System.Windows.Forms.Label()
+        Me.mskRegulars = New System.Windows.Forms.MaskedTextBox()
+        Me.lblRegulars = New System.Windows.Forms.Label()
+        Me.mskOnCallSV = New System.Windows.Forms.MaskedTextBox()
+        Me.lblOnCallSV = New System.Windows.Forms.Label()
         Me.cmdNextTpt = New System.Windows.Forms.Button()
         Me.cmdPrevTpt = New System.Windows.Forms.Button()
         Me.cmdExitTpt = New System.Windows.Forms.Button()
         Me.tabSpecials = New System.Windows.Forms.TabPage()
-        Me.lblContainers = New System.Windows.Forms.Label()
-        Me.lblGearboxes = New System.Windows.Forms.Label()
-        Me.mskContainers = New System.Windows.Forms.MaskedTextBox()
-        Me.mskLifted = New System.Windows.Forms.MaskedTextBox()
-        Me.lblLifted = New System.Windows.Forms.Label()
-        Me.mskGearboxes = New System.Windows.Forms.MaskedTextBox()
-        Me.lblSVD = New System.Windows.Forms.Label()
-        Me.mskFormalities = New System.Windows.Forms.MaskedTextBox()
-        Me.lblFormalities = New System.Windows.Forms.Label()
-        Me.mskStandby = New System.Windows.Forms.MaskedTextBox()
-        Me.lblStandby = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.cmdNextSpl = New System.Windows.Forms.Button()
         Me.cmdPrevSpl = New System.Windows.Forms.Button()
         Me.cmdExitSpl = New System.Windows.Forms.Button()
         Me.tabFooters = New System.Windows.Forms.TabPage()
-        Me.lblManner = New System.Windows.Forms.Label()
         Me.mskOPCenter = New System.Windows.Forms.MaskedTextBox()
-        Me.mskManner = New System.Windows.Forms.MaskedTextBox()
         Me.lblOPCenter = New System.Windows.Forms.Label()
         Me.mskAsstOP = New System.Windows.Forms.MaskedTextBox()
         Me.lblAsstOP = New System.Windows.Forms.Label()
@@ -122,6 +92,7 @@ Partial Class VMRForm
         Me.tabParticulars.SuspendLayout()
         Me.tabThroughput.SuspendLayout()
         Me.tabSpecials.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabFooters.SuspendLayout()
         Me.tabPreview.SuspendLayout()
         Me.SuspendLayout()
@@ -142,16 +113,8 @@ Partial Class VMRForm
         '
         'tabParticulars
         '
-        Me.tabParticulars.Controls.Add(Me.mskLastLoaded)
-        Me.tabParticulars.Controls.Add(Me.lblLastLoaded)
-        Me.tabParticulars.Controls.Add(Me.mskFirstLoaded)
-        Me.tabParticulars.Controls.Add(Me.lblFirstLoaded)
-        Me.tabParticulars.Controls.Add(Me.mskLastDischarged)
-        Me.tabParticulars.Controls.Add(Me.lblLastDischarged)
-        Me.tabParticulars.Controls.Add(Me.mskFirstDischarged)
-        Me.tabParticulars.Controls.Add(Me.lblFirstDischarged)
-        Me.tabParticulars.Controls.Add(Me.mskOpCommenced)
-        Me.tabParticulars.Controls.Add(Me.lblOpCommenced)
+        Me.tabParticulars.Controls.Add(Me.mskATD)
+        Me.tabParticulars.Controls.Add(Me.Label1)
         Me.tabParticulars.Controls.Add(Me.mskATA)
         Me.tabParticulars.Controls.Add(Me.lblATA)
         Me.tabParticulars.Controls.Add(Me.mskETA)
@@ -178,94 +141,26 @@ Partial Class VMRForm
         Me.tabParticulars.Text = "Vessel Particulars"
         Me.tabParticulars.UseVisualStyleBackColor = True
         '
-        'mskLastLoaded
+        'mskATD
         '
-        Me.mskLastLoaded.Location = New System.Drawing.Point(942, 362)
-        Me.mskLastLoaded.Mask = "0000H 00/00/0000"
-        Me.mskLastLoaded.Name = "mskLastLoaded"
-        Me.mskLastLoaded.Size = New System.Drawing.Size(205, 27)
-        Me.mskLastLoaded.TabIndex = 28
+        Me.mskATD.Location = New System.Drawing.Point(950, 322)
+        Me.mskATD.Mask = "0000H 00/00/0000"
+        Me.mskATD.Name = "mskATD"
+        Me.mskATD.Size = New System.Drawing.Size(205, 27)
+        Me.mskATD.TabIndex = 92
         '
-        'lblLastLoaded
+        'Label1
         '
-        Me.lblLastLoaded.AutoSize = True
-        Me.lblLastLoaded.Location = New System.Drawing.Point(679, 365)
-        Me.lblLastLoaded.Name = "lblLastLoaded"
-        Me.lblLastLoaded.Size = New System.Drawing.Size(257, 22)
-        Me.lblLastLoaded.TabIndex = 27
-        Me.lblLastLoaded.Text = "Time of Last Container Loaded" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'mskFirstLoaded
-        '
-        Me.mskFirstLoaded.Location = New System.Drawing.Point(943, 309)
-        Me.mskFirstLoaded.Mask = "0000H 00/00/0000"
-        Me.mskFirstLoaded.Name = "mskFirstLoaded"
-        Me.mskFirstLoaded.Size = New System.Drawing.Size(205, 27)
-        Me.mskFirstLoaded.TabIndex = 26
-        '
-        'lblFirstLoaded
-        '
-        Me.lblFirstLoaded.AutoSize = True
-        Me.lblFirstLoaded.Location = New System.Drawing.Point(679, 312)
-        Me.lblFirstLoaded.Name = "lblFirstLoaded"
-        Me.lblFirstLoaded.Size = New System.Drawing.Size(258, 22)
-        Me.lblFirstLoaded.TabIndex = 25
-        Me.lblFirstLoaded.Text = "Time of First Container Loaded" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'mskLastDischarged
-        '
-        Me.mskLastDischarged.Location = New System.Drawing.Point(973, 256)
-        Me.mskLastDischarged.Mask = "0000H 00/00/0000"
-        Me.mskLastDischarged.Name = "mskLastDischarged"
-        Me.mskLastDischarged.Size = New System.Drawing.Size(205, 27)
-        Me.mskLastDischarged.TabIndex = 24
-        '
-        'lblLastDischarged
-        '
-        Me.lblLastDischarged.AutoSize = True
-        Me.lblLastDischarged.Location = New System.Drawing.Point(679, 259)
-        Me.lblLastDischarged.Name = "lblLastDischarged"
-        Me.lblLastDischarged.Size = New System.Drawing.Size(288, 22)
-        Me.lblLastDischarged.TabIndex = 23
-        Me.lblLastDischarged.Text = "Time of Last Container Discharged" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'mskFirstDischarged
-        '
-        Me.mskFirstDischarged.Location = New System.Drawing.Point(974, 203)
-        Me.mskFirstDischarged.Mask = "0000H 00/00/0000"
-        Me.mskFirstDischarged.Name = "mskFirstDischarged"
-        Me.mskFirstDischarged.Size = New System.Drawing.Size(205, 27)
-        Me.mskFirstDischarged.TabIndex = 22
-        '
-        'lblFirstDischarged
-        '
-        Me.lblFirstDischarged.AutoSize = True
-        Me.lblFirstDischarged.Location = New System.Drawing.Point(679, 206)
-        Me.lblFirstDischarged.Name = "lblFirstDischarged"
-        Me.lblFirstDischarged.Size = New System.Drawing.Size(289, 22)
-        Me.lblFirstDischarged.TabIndex = 21
-        Me.lblFirstDischarged.Text = "Time of First Container Discharged" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'mskOpCommenced
-        '
-        Me.mskOpCommenced.Location = New System.Drawing.Point(924, 150)
-        Me.mskOpCommenced.Mask = "0000H 00/00/0000"
-        Me.mskOpCommenced.Name = "mskOpCommenced"
-        Me.mskOpCommenced.Size = New System.Drawing.Size(205, 27)
-        Me.mskOpCommenced.TabIndex = 20
-        '
-        'lblOpCommenced
-        '
-        Me.lblOpCommenced.AutoSize = True
-        Me.lblOpCommenced.Location = New System.Drawing.Point(679, 153)
-        Me.lblOpCommenced.Name = "lblOpCommenced"
-        Me.lblOpCommenced.Size = New System.Drawing.Size(239, 22)
-        Me.lblOpCommenced.TabIndex = 19
-        Me.lblOpCommenced.Text = "Time Operation Commenced"
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(710, 325)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(235, 22)
+        Me.Label1.TabIndex = 91
+        Me.Label1.Text = "Actual Time of Arrival (ATD)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'mskATA
         '
-        Me.mskATA.Location = New System.Drawing.Point(343, 444)
+        Me.mskATA.Location = New System.Drawing.Point(950, 267)
         Me.mskATA.Mask = "0000H 00/00/0000"
         Me.mskATA.Name = "mskATA"
         Me.mskATA.Size = New System.Drawing.Size(205, 27)
@@ -274,7 +169,7 @@ Partial Class VMRForm
         'lblATA
         '
         Me.lblATA.AutoSize = True
-        Me.lblATA.Location = New System.Drawing.Point(103, 447)
+        Me.lblATA.Location = New System.Drawing.Point(710, 270)
         Me.lblATA.Name = "lblATA"
         Me.lblATA.Size = New System.Drawing.Size(234, 22)
         Me.lblATA.TabIndex = 17
@@ -282,7 +177,7 @@ Partial Class VMRForm
         '
         'mskETA
         '
-        Me.mskETA.Location = New System.Drawing.Point(374, 399)
+        Me.mskETA.Location = New System.Drawing.Point(981, 212)
         Me.mskETA.Mask = "0000H 00/00/0000"
         Me.mskETA.Name = "mskETA"
         Me.mskETA.Size = New System.Drawing.Size(205, 27)
@@ -292,7 +187,7 @@ Partial Class VMRForm
         'lblETA
         '
         Me.lblETA.AutoSize = True
-        Me.lblETA.Location = New System.Drawing.Point(105, 402)
+        Me.lblETA.Location = New System.Drawing.Point(712, 215)
         Me.lblETA.Name = "lblETA"
         Me.lblETA.Size = New System.Drawing.Size(263, 22)
         Me.lblETA.TabIndex = 15
@@ -300,7 +195,7 @@ Partial Class VMRForm
         '
         'mskOvertime
         '
-        Me.mskOvertime.Location = New System.Drawing.Point(269, 330)
+        Me.mskOvertime.Location = New System.Drawing.Point(876, 157)
         Me.mskOvertime.Mask = "0000H 00/00/0000"
         Me.mskOvertime.Name = "mskOvertime"
         Me.mskOvertime.Size = New System.Drawing.Size(205, 27)
@@ -308,7 +203,7 @@ Partial Class VMRForm
         '
         'mskSLGang
         '
-        Me.mskSLGang.Location = New System.Drawing.Point(269, 279)
+        Me.mskSLGang.Location = New System.Drawing.Point(297, 396)
         Me.mskSLGang.Mask = "0000H 00/00/0000"
         Me.mskSLGang.Name = "mskSLGang"
         Me.mskSLGang.Size = New System.Drawing.Size(205, 27)
@@ -316,28 +211,28 @@ Partial Class VMRForm
         '
         'mskPier
         '
-        Me.mskPier.Location = New System.Drawing.Point(256, 228)
+        Me.mskPier.Location = New System.Drawing.Point(284, 321)
         Me.mskPier.Name = "mskPier"
         Me.mskPier.Size = New System.Drawing.Size(188, 27)
         Me.mskPier.TabIndex = 12
         '
         'mskRegistry
         '
-        Me.mskRegistry.Location = New System.Drawing.Point(255, 177)
+        Me.mskRegistry.Location = New System.Drawing.Point(283, 246)
         Me.mskRegistry.Name = "mskRegistry"
         Me.mskRegistry.Size = New System.Drawing.Size(194, 27)
         Me.mskRegistry.TabIndex = 11
         '
         'mskVoyage
         '
-        Me.mskVoyage.Location = New System.Drawing.Point(250, 126)
+        Me.mskVoyage.Location = New System.Drawing.Point(278, 171)
         Me.mskVoyage.Name = "mskVoyage"
         Me.mskVoyage.Size = New System.Drawing.Size(194, 27)
         Me.mskVoyage.TabIndex = 10
         '
         'mskVessel
         '
-        Me.mskVessel.Location = New System.Drawing.Point(227, 75)
+        Me.mskVessel.Location = New System.Drawing.Point(255, 96)
         Me.mskVessel.Name = "mskVessel"
         Me.mskVessel.Size = New System.Drawing.Size(535, 27)
         Me.mskVessel.TabIndex = 9
@@ -345,7 +240,7 @@ Partial Class VMRForm
         'lblOvertime
         '
         Me.lblOvertime.AutoSize = True
-        Me.lblOvertime.Location = New System.Drawing.Point(105, 333)
+        Me.lblOvertime.Location = New System.Drawing.Point(712, 160)
         Me.lblOvertime.Name = "lblOvertime"
         Me.lblOvertime.Size = New System.Drawing.Size(160, 22)
         Me.lblOvertime.TabIndex = 8
@@ -354,7 +249,7 @@ Partial Class VMRForm
         'lblSLGang
         '
         Me.lblSLGang.AutoSize = True
-        Me.lblSLGang.Location = New System.Drawing.Point(105, 282)
+        Me.lblSLGang.Location = New System.Drawing.Point(133, 399)
         Me.lblSLGang.Name = "lblSLGang"
         Me.lblSLGang.Size = New System.Drawing.Size(158, 22)
         Me.lblSLGang.TabIndex = 7
@@ -363,7 +258,7 @@ Partial Class VMRForm
         'lblPier
         '
         Me.lblPier.AutoSize = True
-        Me.lblPier.Location = New System.Drawing.Point(105, 231)
+        Me.lblPier.Location = New System.Drawing.Point(133, 324)
         Me.lblPier.Name = "lblPier"
         Me.lblPier.Size = New System.Drawing.Size(145, 22)
         Me.lblPier.TabIndex = 6
@@ -372,7 +267,7 @@ Partial Class VMRForm
         'lblRegistry
         '
         Me.lblRegistry.AutoSize = True
-        Me.lblRegistry.Location = New System.Drawing.Point(105, 180)
+        Me.lblRegistry.Location = New System.Drawing.Point(133, 249)
         Me.lblRegistry.Name = "lblRegistry"
         Me.lblRegistry.Size = New System.Drawing.Size(144, 22)
         Me.lblRegistry.TabIndex = 5
@@ -381,7 +276,7 @@ Partial Class VMRForm
         'lblVoyage
         '
         Me.lblVoyage.AutoSize = True
-        Me.lblVoyage.Location = New System.Drawing.Point(105, 129)
+        Me.lblVoyage.Location = New System.Drawing.Point(133, 174)
         Me.lblVoyage.Name = "lblVoyage"
         Me.lblVoyage.Size = New System.Drawing.Size(139, 22)
         Me.lblVoyage.TabIndex = 4
@@ -390,7 +285,7 @@ Partial Class VMRForm
         'lblVessel
         '
         Me.lblVessel.AutoSize = True
-        Me.lblVessel.Location = New System.Drawing.Point(105, 78)
+        Me.lblVessel.Location = New System.Drawing.Point(133, 99)
         Me.lblVessel.Name = "lblVessel"
         Me.lblVessel.Size = New System.Drawing.Size(116, 22)
         Me.lblVessel.TabIndex = 3
@@ -416,35 +311,24 @@ Partial Class VMRForm
         '
         'tabThroughput
         '
-        Me.tabThroughput.Controls.Add(Me.mskATD)
-        Me.tabThroughput.Controls.Add(Me.Label1)
-        Me.tabThroughput.Controls.Add(Me.Label6)
-        Me.tabThroughput.Controls.Add(Me.txtobTotal)
-        Me.tabThroughput.Controls.Add(Me.txtobMT)
-        Me.tabThroughput.Controls.Add(Me.txtobLD)
-        Me.tabThroughput.Controls.Add(Me.txtibTotal)
-        Me.tabThroughput.Controls.Add(Me.txtibMT)
-        Me.tabThroughput.Controls.Add(Me.txtibLD)
-        Me.tabThroughput.Controls.Add(Me.Label12)
-        Me.tabThroughput.Controls.Add(Me.Label13)
-        Me.tabThroughput.Controls.Add(Me.Label14)
-        Me.tabThroughput.Controls.Add(Me.Label15)
-        Me.tabThroughput.Controls.Add(Me.Label5)
-        Me.tabThroughput.Controls.Add(Me.Label3)
-        Me.tabThroughput.Controls.Add(Me.Label2)
-        Me.tabThroughput.Controls.Add(Me.Label4)
-        Me.tabThroughput.Controls.Add(Me.mskRegulars)
-        Me.tabThroughput.Controls.Add(Me.lblRegulars)
-        Me.tabThroughput.Controls.Add(Me.mskOnCallSV)
-        Me.tabThroughput.Controls.Add(Me.lblOnCallSV)
+        Me.tabThroughput.Controls.Add(Me.mskLastLoaded)
+        Me.tabThroughput.Controls.Add(Me.lblLastLoaded)
+        Me.tabThroughput.Controls.Add(Me.mskFirstLoaded)
+        Me.tabThroughput.Controls.Add(Me.lblFirstLoaded)
+        Me.tabThroughput.Controls.Add(Me.mskLastDischarged)
+        Me.tabThroughput.Controls.Add(Me.lblLastDischarged)
+        Me.tabThroughput.Controls.Add(Me.mskFirstDischarged)
+        Me.tabThroughput.Controls.Add(Me.lblFirstDischarged)
+        Me.tabThroughput.Controls.Add(Me.mskOpCommenced)
+        Me.tabThroughput.Controls.Add(Me.lblOpCommenced)
         Me.tabThroughput.Controls.Add(Me.mskTimeComplete)
         Me.tabThroughput.Controls.Add(Me.lblTimeComplete)
         Me.tabThroughput.Controls.Add(Me.mskDateComplete)
         Me.tabThroughput.Controls.Add(Me.lblDateComplete)
-        Me.tabThroughput.Controls.Add(Me.mskGrandTot)
-        Me.tabThroughput.Controls.Add(Me.lblGrandTot)
-        Me.tabThroughput.Controls.Add(Me.mskTEUs)
-        Me.tabThroughput.Controls.Add(Me.lblTEUs)
+        Me.tabThroughput.Controls.Add(Me.mskRegulars)
+        Me.tabThroughput.Controls.Add(Me.lblRegulars)
+        Me.tabThroughput.Controls.Add(Me.mskOnCallSV)
+        Me.tabThroughput.Controls.Add(Me.lblOnCallSV)
         Me.tabThroughput.Controls.Add(Me.cmdNextTpt)
         Me.tabThroughput.Controls.Add(Me.cmdPrevTpt)
         Me.tabThroughput.Controls.Add(Me.cmdExitTpt)
@@ -453,256 +337,159 @@ Partial Class VMRForm
         Me.tabThroughput.Padding = New System.Windows.Forms.Padding(3)
         Me.tabThroughput.Size = New System.Drawing.Size(1318, 672)
         Me.tabThroughput.TabIndex = 2
-        Me.tabThroughput.Text = "Throughput"
+        Me.tabThroughput.Text = "Other Particulars"
         Me.tabThroughput.UseVisualStyleBackColor = True
         '
-        'mskATD
+        'mskLastLoaded
         '
-        Me.mskATD.Location = New System.Drawing.Point(877, 346)
-        Me.mskATD.Mask = "0000H 00/00/0000"
-        Me.mskATD.Name = "mskATD"
-        Me.mskATD.Size = New System.Drawing.Size(205, 27)
-        Me.mskATD.TabIndex = 64
+        Me.mskLastLoaded.Location = New System.Drawing.Point(365, 322)
+        Me.mskLastLoaded.Mask = "0000H 00/00/0000"
+        Me.mskLastLoaded.Name = "mskLastLoaded"
+        Me.mskLastLoaded.Size = New System.Drawing.Size(205, 27)
+        Me.mskLastLoaded.TabIndex = 100
         '
-        'Label1
+        'lblLastLoaded
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(637, 349)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(235, 22)
-        Me.Label1.TabIndex = 63
-        Me.Label1.Text = "Actual Time of Arrival (ATD)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblLastLoaded.AutoSize = True
+        Me.lblLastLoaded.Location = New System.Drawing.Point(102, 325)
+        Me.lblLastLoaded.Name = "lblLastLoaded"
+        Me.lblLastLoaded.Size = New System.Drawing.Size(257, 22)
+        Me.lblLastLoaded.TabIndex = 99
+        Me.lblLastLoaded.Text = "Time of Last Container Loaded" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'Label6
+        'mskFirstLoaded
         '
-        Me.Label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.Label6.Location = New System.Drawing.Point(542, 30)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(235, 27)
-        Me.Label6.TabIndex = 62
-        Me.Label6.Text = "Throughput"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.mskFirstLoaded.Location = New System.Drawing.Point(366, 269)
+        Me.mskFirstLoaded.Mask = "0000H 00/00/0000"
+        Me.mskFirstLoaded.Name = "mskFirstLoaded"
+        Me.mskFirstLoaded.Size = New System.Drawing.Size(205, 27)
+        Me.mskFirstLoaded.TabIndex = 98
         '
-        'txtobTotal
+        'lblFirstLoaded
         '
-        Me.txtobTotal.Location = New System.Drawing.Point(912, 151)
-        Me.txtobTotal.Name = "txtobTotal"
-        Me.txtobTotal.Size = New System.Drawing.Size(74, 27)
-        Me.txtobTotal.TabIndex = 61
+        Me.lblFirstLoaded.AutoSize = True
+        Me.lblFirstLoaded.Location = New System.Drawing.Point(102, 272)
+        Me.lblFirstLoaded.Name = "lblFirstLoaded"
+        Me.lblFirstLoaded.Size = New System.Drawing.Size(258, 22)
+        Me.lblFirstLoaded.TabIndex = 97
+        Me.lblFirstLoaded.Text = "Time of First Container Loaded" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'txtobMT
+        'mskLastDischarged
         '
-        Me.txtobMT.Location = New System.Drawing.Point(832, 151)
-        Me.txtobMT.Name = "txtobMT"
-        Me.txtobMT.Size = New System.Drawing.Size(74, 27)
-        Me.txtobMT.TabIndex = 60
+        Me.mskLastDischarged.Location = New System.Drawing.Point(396, 216)
+        Me.mskLastDischarged.Mask = "0000H 00/00/0000"
+        Me.mskLastDischarged.Name = "mskLastDischarged"
+        Me.mskLastDischarged.Size = New System.Drawing.Size(205, 27)
+        Me.mskLastDischarged.TabIndex = 96
         '
-        'txtobLD
+        'lblLastDischarged
         '
-        Me.txtobLD.Location = New System.Drawing.Point(752, 151)
-        Me.txtobLD.Name = "txtobLD"
-        Me.txtobLD.Size = New System.Drawing.Size(74, 27)
-        Me.txtobLD.TabIndex = 59
+        Me.lblLastDischarged.AutoSize = True
+        Me.lblLastDischarged.Location = New System.Drawing.Point(102, 219)
+        Me.lblLastDischarged.Name = "lblLastDischarged"
+        Me.lblLastDischarged.Size = New System.Drawing.Size(288, 22)
+        Me.lblLastDischarged.TabIndex = 95
+        Me.lblLastDischarged.Text = "Time of Last Container Discharged" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'txtibTotal
+        'mskFirstDischarged
         '
-        Me.txtibTotal.Location = New System.Drawing.Point(492, 151)
-        Me.txtibTotal.Name = "txtibTotal"
-        Me.txtibTotal.Size = New System.Drawing.Size(74, 27)
-        Me.txtibTotal.TabIndex = 58
+        Me.mskFirstDischarged.Location = New System.Drawing.Point(397, 163)
+        Me.mskFirstDischarged.Mask = "0000H 00/00/0000"
+        Me.mskFirstDischarged.Name = "mskFirstDischarged"
+        Me.mskFirstDischarged.Size = New System.Drawing.Size(205, 27)
+        Me.mskFirstDischarged.TabIndex = 94
         '
-        'txtibMT
+        'lblFirstDischarged
         '
-        Me.txtibMT.Location = New System.Drawing.Point(412, 151)
-        Me.txtibMT.Name = "txtibMT"
-        Me.txtibMT.Size = New System.Drawing.Size(74, 27)
-        Me.txtibMT.TabIndex = 57
+        Me.lblFirstDischarged.AutoSize = True
+        Me.lblFirstDischarged.Location = New System.Drawing.Point(102, 166)
+        Me.lblFirstDischarged.Name = "lblFirstDischarged"
+        Me.lblFirstDischarged.Size = New System.Drawing.Size(289, 22)
+        Me.lblFirstDischarged.TabIndex = 93
+        Me.lblFirstDischarged.Text = "Time of First Container Discharged" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'txtibLD
+        'mskOpCommenced
         '
-        Me.txtibLD.Location = New System.Drawing.Point(332, 151)
-        Me.txtibLD.Name = "txtibLD"
-        Me.txtibLD.Size = New System.Drawing.Size(74, 27)
-        Me.txtibLD.TabIndex = 56
+        Me.mskOpCommenced.Location = New System.Drawing.Point(347, 110)
+        Me.mskOpCommenced.Mask = "0000H 00/00/0000"
+        Me.mskOpCommenced.Name = "mskOpCommenced"
+        Me.mskOpCommenced.Size = New System.Drawing.Size(205, 27)
+        Me.mskOpCommenced.TabIndex = 92
         '
-        'Label12
+        'lblOpCommenced
         '
-        Me.Label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label12.Location = New System.Drawing.Point(752, 85)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(235, 27)
-        Me.Label12.TabIndex = 55
-        Me.Label12.Text = "OUTBOUND"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label13
-        '
-        Me.Label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label13.Location = New System.Drawing.Point(752, 121)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(74, 27)
-        Me.Label13.TabIndex = 54
-        Me.Label13.Text = "LD"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label14
-        '
-        Me.Label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label14.Location = New System.Drawing.Point(832, 121)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(74, 27)
-        Me.Label14.TabIndex = 53
-        Me.Label14.Text = "MT"
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label15
-        '
-        Me.Label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label15.Location = New System.Drawing.Point(912, 121)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(74, 27)
-        Me.Label15.TabIndex = 52
-        Me.Label15.Text = "TOTAL"
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label5
-        '
-        Me.Label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label5.Location = New System.Drawing.Point(331, 85)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(235, 27)
-        Me.Label5.TabIndex = 48
-        Me.Label5.Text = "INBOUND"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label3
-        '
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label3.Location = New System.Drawing.Point(332, 121)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 27)
-        Me.Label3.TabIndex = 47
-        Me.Label3.Text = "LD"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label2
-        '
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label2.Location = New System.Drawing.Point(412, 121)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 27)
-        Me.Label2.TabIndex = 46
-        Me.Label2.Text = "MT"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label4
-        '
-        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label4.Location = New System.Drawing.Point(492, 121)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(74, 27)
-        Me.Label4.TabIndex = 45
-        Me.Label4.Text = "TOTAL"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'mskRegulars
-        '
-        Me.mskRegulars.Location = New System.Drawing.Point(794, 306)
-        Me.mskRegulars.Name = "mskRegulars"
-        Me.mskRegulars.Size = New System.Drawing.Size(205, 27)
-        Me.mskRegulars.TabIndex = 40
-        '
-        'lblRegulars
-        '
-        Me.lblRegulars.AutoSize = True
-        Me.lblRegulars.Location = New System.Drawing.Point(637, 308)
-        Me.lblRegulars.Name = "lblRegulars"
-        Me.lblRegulars.Size = New System.Drawing.Size(151, 22)
-        Me.lblRegulars.TabIndex = 39
-        Me.lblRegulars.Text = "Total regular staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'mskOnCallSV
-        '
-        Me.mskOnCallSV.Location = New System.Drawing.Point(903, 268)
-        Me.mskOnCallSV.Name = "mskOnCallSV"
-        Me.mskOnCallSV.Size = New System.Drawing.Size(205, 27)
-        Me.mskOnCallSV.TabIndex = 38
-        '
-        'lblOnCallSV
-        '
-        Me.lblOnCallSV.AutoSize = True
-        Me.lblOnCallSV.Location = New System.Drawing.Point(637, 269)
-        Me.lblOnCallSV.Name = "lblOnCallSV"
-        Me.lblOnCallSV.Size = New System.Drawing.Size(260, 22)
-        Me.lblOnCallSV.TabIndex = 37
-        Me.lblOnCallSV.Text = "Total on call stevedoers/drivers" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblOpCommenced.AutoSize = True
+        Me.lblOpCommenced.Location = New System.Drawing.Point(102, 113)
+        Me.lblOpCommenced.Name = "lblOpCommenced"
+        Me.lblOpCommenced.Size = New System.Drawing.Size(239, 22)
+        Me.lblOpCommenced.TabIndex = 91
+        Me.lblOpCommenced.Text = "Time Operation Commenced"
         '
         'mskTimeComplete
         '
-        Me.mskTimeComplete.Location = New System.Drawing.Point(380, 361)
+        Me.mskTimeComplete.Location = New System.Drawing.Point(914, 299)
         Me.mskTimeComplete.Mask = "0000H"
         Me.mskTimeComplete.Name = "mskTimeComplete"
         Me.mskTimeComplete.Size = New System.Drawing.Size(205, 27)
-        Me.mskTimeComplete.TabIndex = 36
+        Me.mskTimeComplete.TabIndex = 88
         '
         'lblTimeComplete
         '
         Me.lblTimeComplete.AutoSize = True
-        Me.lblTimeComplete.Location = New System.Drawing.Point(211, 364)
+        Me.lblTimeComplete.Location = New System.Drawing.Point(745, 302)
         Me.lblTimeComplete.Name = "lblTimeComplete"
         Me.lblTimeComplete.Size = New System.Drawing.Size(165, 22)
-        Me.lblTimeComplete.TabIndex = 35
+        Me.lblTimeComplete.TabIndex = 87
         Me.lblTimeComplete.Text = "Time of Completion"
         '
         'mskDateComplete
         '
-        Me.mskDateComplete.Location = New System.Drawing.Point(380, 323)
+        Me.mskDateComplete.Location = New System.Drawing.Point(914, 261)
         Me.mskDateComplete.Mask = "00/00/0000"
         Me.mskDateComplete.Name = "mskDateComplete"
         Me.mskDateComplete.Size = New System.Drawing.Size(205, 27)
-        Me.mskDateComplete.TabIndex = 34
+        Me.mskDateComplete.TabIndex = 86
         '
         'lblDateComplete
         '
         Me.lblDateComplete.AutoSize = True
-        Me.lblDateComplete.Location = New System.Drawing.Point(211, 326)
+        Me.lblDateComplete.Location = New System.Drawing.Point(745, 264)
         Me.lblDateComplete.Name = "lblDateComplete"
         Me.lblDateComplete.Size = New System.Drawing.Size(163, 22)
-        Me.lblDateComplete.TabIndex = 33
+        Me.lblDateComplete.TabIndex = 85
         Me.lblDateComplete.Text = "Date of Completion"
         '
-        'mskGrandTot
+        'mskRegulars
         '
-        Me.mskGrandTot.Location = New System.Drawing.Point(378, 288)
-        Me.mskGrandTot.Name = "mskGrandTot"
-        Me.mskGrandTot.Size = New System.Drawing.Size(205, 27)
-        Me.mskGrandTot.TabIndex = 32
+        Me.mskRegulars.Location = New System.Drawing.Point(902, 173)
+        Me.mskRegulars.Name = "mskRegulars"
+        Me.mskRegulars.Size = New System.Drawing.Size(205, 27)
+        Me.mskRegulars.TabIndex = 82
         '
-        'lblGrandTot
+        'lblRegulars
         '
-        Me.lblGrandTot.AutoSize = True
-        Me.lblGrandTot.Location = New System.Drawing.Point(211, 291)
-        Me.lblGrandTot.Name = "lblGrandTot"
-        Me.lblGrandTot.Size = New System.Drawing.Size(161, 22)
-        Me.lblGrandTot.TabIndex = 31
-        Me.lblGrandTot.Text = "Grand Total Boxes"
+        Me.lblRegulars.AutoSize = True
+        Me.lblRegulars.Location = New System.Drawing.Point(745, 175)
+        Me.lblRegulars.Name = "lblRegulars"
+        Me.lblRegulars.Size = New System.Drawing.Size(151, 22)
+        Me.lblRegulars.TabIndex = 81
+        Me.lblRegulars.Text = "Total regular staff" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'mskTEUs
+        'mskOnCallSV
         '
-        Me.mskTEUs.Location = New System.Drawing.Point(319, 250)
-        Me.mskTEUs.Name = "mskTEUs"
-        Me.mskTEUs.Size = New System.Drawing.Size(205, 27)
-        Me.mskTEUs.TabIndex = 30
+        Me.mskOnCallSV.Location = New System.Drawing.Point(1011, 133)
+        Me.mskOnCallSV.Name = "mskOnCallSV"
+        Me.mskOnCallSV.Size = New System.Drawing.Size(205, 27)
+        Me.mskOnCallSV.TabIndex = 80
         '
-        'lblTEUs
+        'lblOnCallSV
         '
-        Me.lblTEUs.AutoSize = True
-        Me.lblTEUs.Location = New System.Drawing.Point(211, 253)
-        Me.lblTEUs.Name = "lblTEUs"
-        Me.lblTEUs.Size = New System.Drawing.Size(102, 22)
-        Me.lblTEUs.TabIndex = 29
-        Me.lblTEUs.Text = "Total TEUs"
+        Me.lblOnCallSV.AutoSize = True
+        Me.lblOnCallSV.Location = New System.Drawing.Point(745, 136)
+        Me.lblOnCallSV.Name = "lblOnCallSV"
+        Me.lblOnCallSV.Size = New System.Drawing.Size(260, 22)
+        Me.lblOnCallSV.TabIndex = 79
+        Me.lblOnCallSV.Text = "Total on call stevedoers/drivers" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'cmdNextTpt
         '
@@ -733,18 +520,9 @@ Partial Class VMRForm
         '
         'tabSpecials
         '
-        Me.tabSpecials.Controls.Add(Me.lblContainers)
-        Me.tabSpecials.Controls.Add(Me.lblGearboxes)
-        Me.tabSpecials.Controls.Add(Me.mskContainers)
-        Me.tabSpecials.Controls.Add(Me.mskLifted)
-        Me.tabSpecials.Controls.Add(Me.lblLifted)
-        Me.tabSpecials.Controls.Add(Me.mskGearboxes)
-        Me.tabSpecials.Controls.Add(Me.lblSVD)
-        Me.tabSpecials.Controls.Add(Me.mskFormalities)
-        Me.tabSpecials.Controls.Add(Me.lblFormalities)
-        Me.tabSpecials.Controls.Add(Me.mskStandby)
-        Me.tabSpecials.Controls.Add(Me.lblStandby)
-        Me.tabSpecials.Controls.Add(Me.Label31)
+        Me.tabSpecials.Controls.Add(Me.DataGridView1)
+        Me.tabSpecials.Controls.Add(Me.TextBox1)
+        Me.tabSpecials.Controls.Add(Me.ComboBox1)
         Me.tabSpecials.Controls.Add(Me.cmdNextSpl)
         Me.tabSpecials.Controls.Add(Me.cmdPrevSpl)
         Me.tabSpecials.Controls.Add(Me.cmdExitSpl)
@@ -756,103 +534,29 @@ Partial Class VMRForm
         Me.tabSpecials.Text = "CMU Events"
         Me.tabSpecials.UseVisualStyleBackColor = True
         '
-        'lblContainers
+        'DataGridView1
         '
-        Me.lblContainers.AutoSize = True
-        Me.lblContainers.Location = New System.Drawing.Point(678, 406)
-        Me.lblContainers.Name = "lblContainers"
-        Me.lblContainers.Size = New System.Drawing.Size(97, 22)
-        Me.lblContainers.TabIndex = 64
-        Me.lblContainers.Text = "Containers"
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(216, 115)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(886, 353)
+        Me.DataGridView1.TabIndex = 8
         '
-        'lblGearboxes
+        'TextBox1
         '
-        Me.lblGearboxes.AutoSize = True
-        Me.lblGearboxes.Location = New System.Drawing.Point(678, 373)
-        Me.lblGearboxes.Name = "lblGearboxes"
-        Me.lblGearboxes.Size = New System.Drawing.Size(98, 22)
-        Me.lblGearboxes.TabIndex = 63
-        Me.lblGearboxes.Text = "Gearboxes"
+        Me.TextBox1.Location = New System.Drawing.Point(558, 82)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(486, 27)
+        Me.TextBox1.TabIndex = 7
         '
-        'mskContainers
+        'ComboBox1
         '
-        Me.mskContainers.Location = New System.Drawing.Point(615, 403)
-        Me.mskContainers.Name = "mskContainers"
-        Me.mskContainers.Size = New System.Drawing.Size(57, 27)
-        Me.mskContainers.TabIndex = 62
-        '
-        'mskLifted
-        '
-        Me.mskLifted.Location = New System.Drawing.Point(486, 465)
-        Me.mskLifted.Name = "mskLifted"
-        Me.mskLifted.Size = New System.Drawing.Size(205, 27)
-        Me.mskLifted.TabIndex = 61
-        '
-        'lblLifted
-        '
-        Me.lblLifted.AutoSize = True
-        Me.lblLifted.Location = New System.Drawing.Point(426, 468)
-        Me.lblLifted.Name = "lblLifted"
-        Me.lblLifted.Size = New System.Drawing.Size(54, 22)
-        Me.lblLifted.TabIndex = 60
-        Me.lblLifted.Text = "Lifted"
-        '
-        'mskGearboxes
-        '
-        Me.mskGearboxes.Location = New System.Drawing.Point(615, 370)
-        Me.mskGearboxes.Name = "mskGearboxes"
-        Me.mskGearboxes.Size = New System.Drawing.Size(57, 27)
-        Me.mskGearboxes.TabIndex = 59
-        '
-        'lblSVD
-        '
-        Me.lblSVD.AutoSize = True
-        Me.lblSVD.Location = New System.Drawing.Point(426, 373)
-        Me.lblSVD.Name = "lblSVD"
-        Me.lblSVD.Size = New System.Drawing.Size(144, 22)
-        Me.lblSVD.TabIndex = 58
-        Me.lblSVD.Text = "Shifting via Dock"
-        '
-        'mskFormalities
-        '
-        Me.mskFormalities.Location = New System.Drawing.Point(588, 275)
-        Me.mskFormalities.Name = "mskFormalities"
-        Me.mskFormalities.Size = New System.Drawing.Size(205, 27)
-        Me.mskFormalities.TabIndex = 57
-        '
-        'lblFormalities
-        '
-        Me.lblFormalities.AutoSize = True
-        Me.lblFormalities.Location = New System.Drawing.Point(426, 278)
-        Me.lblFormalities.Name = "lblFormalities"
-        Me.lblFormalities.Size = New System.Drawing.Size(156, 22)
-        Me.lblFormalities.TabIndex = 56
-        Me.lblFormalities.Text = "Vessel Formalities"
-        '
-        'mskStandby
-        '
-        Me.mskStandby.Location = New System.Drawing.Point(688, 180)
-        Me.mskStandby.Name = "mskStandby"
-        Me.mskStandby.Size = New System.Drawing.Size(205, 27)
-        Me.mskStandby.TabIndex = 55
-        '
-        'lblStandby
-        '
-        Me.lblStandby.AutoSize = True
-        Me.lblStandby.Location = New System.Drawing.Point(426, 183)
-        Me.lblStandby.Name = "lblStandby"
-        Me.lblStandby.Size = New System.Drawing.Size(256, 22)
-        Me.lblStandby.TabIndex = 54
-        Me.lblStandby.Text = "Standby Waiting for the Vessel"
-        '
-        'Label31
-        '
-        Me.Label31.Location = New System.Drawing.Point(340, 126)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(574, 21)
-        Me.Label31.TabIndex = 7
-        Me.Label31.Text = "Chargeable Marine Unit Events"
-        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Standby Waiting for the Vessel", "Vessel Formalities", "Shifting via Dock", "Lifted"})
+        Me.ComboBox1.Location = New System.Drawing.Point(275, 81)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(277, 28)
+        Me.ComboBox1.TabIndex = 6
         '
         'cmdNextSpl
         '
@@ -883,9 +587,7 @@ Partial Class VMRForm
         '
         'tabFooters
         '
-        Me.tabFooters.Controls.Add(Me.lblManner)
         Me.tabFooters.Controls.Add(Me.mskOPCenter)
-        Me.tabFooters.Controls.Add(Me.mskManner)
         Me.tabFooters.Controls.Add(Me.lblOPCenter)
         Me.tabFooters.Controls.Add(Me.mskAsstOP)
         Me.tabFooters.Controls.Add(Me.lblAsstOP)
@@ -904,33 +606,17 @@ Partial Class VMRForm
         Me.tabFooters.Text = "Footers"
         Me.tabFooters.UseVisualStyleBackColor = True
         '
-        'lblManner
-        '
-        Me.lblManner.AutoSize = True
-        Me.lblManner.Location = New System.Drawing.Point(566, 454)
-        Me.lblManner.Name = "lblManner"
-        Me.lblManner.Size = New System.Drawing.Size(174, 22)
-        Me.lblManner.TabIndex = 57
-        Me.lblManner.Text = "Manner of Operation"
-        '
         'mskOPCenter
         '
-        Me.mskOPCenter.Location = New System.Drawing.Point(458, 335)
+        Me.mskOPCenter.Location = New System.Drawing.Point(458, 365)
         Me.mskOPCenter.Name = "mskOPCenter"
         Me.mskOPCenter.Size = New System.Drawing.Size(390, 27)
         Me.mskOPCenter.TabIndex = 54
         '
-        'mskManner
-        '
-        Me.mskManner.Location = New System.Drawing.Point(458, 424)
-        Me.mskManner.Name = "mskManner"
-        Me.mskManner.Size = New System.Drawing.Size(390, 27)
-        Me.mskManner.TabIndex = 52
-        '
         'lblOPCenter
         '
         Me.lblOPCenter.AutoSize = True
-        Me.lblOPCenter.Location = New System.Drawing.Point(606, 365)
+        Me.lblOPCenter.Location = New System.Drawing.Point(606, 395)
         Me.lblOPCenter.Name = "lblOPCenter"
         Me.lblOPCenter.Size = New System.Drawing.Size(95, 22)
         Me.lblOPCenter.TabIndex = 49
@@ -938,7 +624,7 @@ Partial Class VMRForm
         '
         'mskAsstOP
         '
-        Me.mskAsstOP.Location = New System.Drawing.Point(458, 246)
+        Me.mskAsstOP.Location = New System.Drawing.Point(458, 276)
         Me.mskAsstOP.Name = "mskAsstOP"
         Me.mskAsstOP.Size = New System.Drawing.Size(390, 27)
         Me.mskAsstOP.TabIndex = 48
@@ -946,7 +632,7 @@ Partial Class VMRForm
         'lblAsstOP
         '
         Me.lblAsstOP.AutoSize = True
-        Me.lblAsstOP.Location = New System.Drawing.Point(532, 276)
+        Me.lblAsstOP.Location = New System.Drawing.Point(532, 306)
         Me.lblAsstOP.Name = "lblAsstOP"
         Me.lblAsstOP.Size = New System.Drawing.Size(242, 22)
         Me.lblAsstOP.TabIndex = 47
@@ -1058,6 +744,7 @@ Partial Class VMRForm
         Me.tabThroughput.PerformLayout()
         Me.tabSpecials.ResumeLayout(False)
         Me.tabSpecials.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabFooters.ResumeLayout(False)
         Me.tabFooters.PerformLayout()
         Me.tabPreview.ResumeLayout(False)
@@ -1093,6 +780,23 @@ Partial Class VMRForm
     Friend WithEvents mskRegistry As MaskedTextBox
     Friend WithEvents mskVoyage As MaskedTextBox
     Friend WithEvents mskVessel As MaskedTextBox
+    Friend WithEvents mskATA As MaskedTextBox
+    Friend WithEvents lblATA As Label
+    Friend WithEvents mskETA As MaskedTextBox
+    Friend WithEvents lblETA As Label
+    Friend WithEvents mskOPCenter As MaskedTextBox
+    Friend WithEvents lblOPCenter As Label
+    Friend WithEvents mskAsstOP As MaskedTextBox
+    Friend WithEvents lblAsstOP As Label
+    Friend WithEvents mskSupervisor As MaskedTextBox
+    Friend WithEvents lblSupervisor As Label
+    Friend WithEvents mskChecker As MaskedTextBox
+    Friend WithEvents lblChecker As Label
+    Friend WithEvents tabPreview As TabPage
+    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents cmdSave As Button
+    Friend WithEvents mskATD As MaskedTextBox
+    Friend WithEvents Label1 As Label
     Friend WithEvents mskLastLoaded As MaskedTextBox
     Friend WithEvents lblLastLoaded As Label
     Friend WithEvents mskFirstLoaded As MaskedTextBox
@@ -1103,62 +807,15 @@ Partial Class VMRForm
     Friend WithEvents lblFirstDischarged As Label
     Friend WithEvents mskOpCommenced As MaskedTextBox
     Friend WithEvents lblOpCommenced As Label
-    Friend WithEvents mskATA As MaskedTextBox
-    Friend WithEvents lblATA As Label
-    Friend WithEvents mskETA As MaskedTextBox
-    Friend WithEvents lblETA As Label
-    Friend WithEvents mskRegulars As MaskedTextBox
-    Friend WithEvents lblRegulars As Label
-    Friend WithEvents mskOnCallSV As MaskedTextBox
-    Friend WithEvents lblOnCallSV As Label
     Friend WithEvents mskTimeComplete As MaskedTextBox
     Friend WithEvents lblTimeComplete As Label
     Friend WithEvents mskDateComplete As MaskedTextBox
     Friend WithEvents lblDateComplete As Label
-    Friend WithEvents mskGrandTot As MaskedTextBox
-    Friend WithEvents lblGrandTot As Label
-    Friend WithEvents mskTEUs As MaskedTextBox
-    Friend WithEvents lblTEUs As Label
-    Friend WithEvents mskOPCenter As MaskedTextBox
-    Friend WithEvents mskManner As MaskedTextBox
-    Friend WithEvents lblOPCenter As Label
-    Friend WithEvents mskAsstOP As MaskedTextBox
-    Friend WithEvents lblAsstOP As Label
-    Friend WithEvents mskSupervisor As MaskedTextBox
-    Friend WithEvents lblSupervisor As Label
-    Friend WithEvents mskChecker As MaskedTextBox
-    Friend WithEvents lblChecker As Label
-    Friend WithEvents lblManner As Label
-    Friend WithEvents Label31 As Label
-    Friend WithEvents tabPreview As TabPage
-    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents cmdSave As Button
-    Friend WithEvents Label6 As Label
-    Friend WithEvents txtobTotal As TextBox
-    Friend WithEvents txtobMT As TextBox
-    Friend WithEvents txtobLD As TextBox
-    Friend WithEvents txtibTotal As TextBox
-    Friend WithEvents txtibMT As TextBox
-    Friend WithEvents txtibLD As TextBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents lblContainers As Label
-    Friend WithEvents lblGearboxes As Label
-    Friend WithEvents mskContainers As MaskedTextBox
-    Friend WithEvents mskLifted As MaskedTextBox
-    Friend WithEvents lblLifted As Label
-    Friend WithEvents mskGearboxes As MaskedTextBox
-    Friend WithEvents lblSVD As Label
-    Friend WithEvents mskFormalities As MaskedTextBox
-    Friend WithEvents lblFormalities As Label
-    Friend WithEvents mskStandby As MaskedTextBox
-    Friend WithEvents lblStandby As Label
-    Friend WithEvents mskATD As MaskedTextBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents mskRegulars As MaskedTextBox
+    Friend WithEvents lblRegulars As Label
+    Friend WithEvents mskOnCallSV As MaskedTextBox
+    Friend WithEvents lblOnCallSV As Label
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
