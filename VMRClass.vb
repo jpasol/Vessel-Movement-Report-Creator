@@ -110,8 +110,8 @@ Public Class VMRClass
         '0 = Inbound | 1 = Outbound
         With vmrVessel.Units.Containers
             Lines = .Tables(0).AsEnumerable.Union(.Tables(1).AsEnumerable).Select(Function(line) line("line_op").ToString).Distinct.ToArray
-            CreateDT(.Tables(0), "dtInbound")
-            CreateDT(.Tables(1), "dtOutbound")
+            CreateDT(Lines, .Tables(0), "dtInbound")
+            CreateDT(Lines, .Tables(1), "dtOutbound")
         End With
 
 #End Region
@@ -122,12 +122,12 @@ Public Class VMRClass
         crReport.SetDataSource(dsVMR)
 
     End Sub
-    Private Sub CreateDT(dtUnits As DataTable, dtString As String)
-        Dim lineop() As String = dtUnits.AsEnumerable.Select(Function(line) line("line_op").ToString).Distinct.ToArray
+    Private Sub CreateDT(LineOP As String(), dtUnits As DataTable, dtString As String)
+        Dim line() As String = LineOP
         Dim cntsize() As Long = {20, 40, 45}
-        For Each line As String In lineop
+        For Each lin As String In line
             For Each freight In System.Enum.GetNames(GetType(FreightKind))
-                addContainers(line, freight, dtUnits, dsVMR.Tables(dtString & freight))
+                addContainers(lin, freight, dtUnits, dsVMR.Tables(dtString & freight))
             Next
         Next
 

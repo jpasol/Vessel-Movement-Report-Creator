@@ -34,3 +34,8 @@ C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\Debug\Vessel Movement Report Creator.vbproj.ResolveComReference.cache
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\VMR.rpt
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\VMR.vb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\dsVMR.Designer.vb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\dsVMR.vb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\dsVMR.xsc
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\dsVMR.xsd
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\dsVMR.xss
