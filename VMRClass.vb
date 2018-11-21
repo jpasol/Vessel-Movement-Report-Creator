@@ -118,6 +118,8 @@ Public Class VMRClass
             CreateDT(Lines, .Tables(1), "dtOutbound")
         End With
 
+
+
 #End Region
         For Each linOP As String In Lines
             dsVMR.Tables("dtLines").Rows.Add(vmrVessel.Registry, linOP)
@@ -129,10 +131,17 @@ Public Class VMRClass
     Private Sub CreateDT(LineOP As String(), dtUnits As DataTable, dtString As String)
         Dim line() As String = LineOP
         Dim cntsize() As Long = {20, 40, 45}
+        Dim cat As String = ""
         For Each lin As String In line
             For Each freight In System.Enum.GetNames(GetType(FreightKind))
                 addContainers(lin, freight, dtUnits, dsVMR.Tables(dtString & freight))
             Next
+            If dtString = "dtInbound" Then
+                cat = "Import"
+            ElseIf dtString = "dtOutbound" Then
+                cat = "Export"
+            End If
+            addDGContainers(cat, lin, dtUnits, dsVMR.Tables("dtDG"))
         Next
 
     End Sub
@@ -158,6 +167,52 @@ Public Class VMRClass
             Next
         End With
         dtContainer.Rows.Add(tempRow)
+    End Sub
+    Private Sub addDGContainers(Category As String, Line As String, dtUnits As DataTable, dtDG As DataTable)
+        Dim dvRows As New DataView
+        Dim dgrows() As DataRow
+        Dim imdg() As Short
+        Dim iso() As String
+
+        dvRows.Table = dtUnits
+        dvRows.RowFilter = "line_op = '" & Line & "' and hazardous = True"
+
+        dgrows = (From rows As DataRow In dvRows.ToTable.Rows
+                  Select rows).ToArray
+        'dgrows = dtUnits.AsEnumerable.Where(Function(haz) haz("line_op") = Line And
+        'haz("hazardous") = True).Select(Function(row) row).ToArray
+
+        iso = dgrows.AsEnumerable.Select(Of String)(Function(code) code("iso_code")).Distinct.ToArray
+
+        For Each item In iso
+            imdg = dgrows.AsEnumerable.Where(Function(cde) cde("iso_code") = item) _
+                .Select(Of Short)(Function(cls) cls("imdg_types").ToString).Distinct.ToArray
+
+            For Each dgClass As Short In imdg
+                addTempDG(Line, Category, item, dgClass, dgrows, dtDG)
+            Next
+        Next
+
+
+    End Sub
+    Private Sub addTempDG(Line As String, Category As String, item As String, dgClass As Short, dgRows As DataRow(), dtDG As DataTable)
+        Dim temprow As DataRow
+        Dim ctrtyp As String
+        temprow = dtDG.NewRow
+        With temprow
+            .Item("Line") = Line
+            .Item("Category") = Category
+            .Item("ISO") = item
+            .Item("Class") = dgClass
+            For count As Integer = 5 To dtDG.Columns.Count - 1
+                ctrtyp = dtDG.Columns(count).ColumnName
+                .Item(count) = (From rows In dgRows.AsEnumerable
+                                Where rows("ctrTyp").ToString = ctrtyp And
+                                        rows("imdg_types") = dgClass And
+                                        rows("iso_code").ToString = item).Count()
+            Next
+            dtDG.Rows.Add(temprow)
+        End With
     End Sub
     Public Sub Preview(ByRef crReport As CrystalDecisions.CrystalReports.Engine.ReportClass, crViewer As CrystalDecisions.Windows.Forms.CrystalReportViewer) Implements IReportswSave.Preview
         crViewer.ReportSource = crReport

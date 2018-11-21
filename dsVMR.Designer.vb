@@ -1792,9 +1792,13 @@ Partial Friend Class dsThroughput
         
         Private columnDry As Global.System.Data.DataColumn
         
-        Private columnReefer As Global.System.Data.DataColumn
+        Private columnRfr As Global.System.Data.DataColumn
         
-        Private columnTank As Global.System.Data.DataColumn
+        Private columnTnk As Global.System.Data.DataColumn
+        
+        Private columnFRk As Global.System.Data.DataColumn
+        
+        Private columnOpn As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -1881,17 +1885,33 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ReeferColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property RfrColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnReefer
+                Return Me.columnRfr
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property TankColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property TnkColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnTank
+                Return Me.columnTnk
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property FRkColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFRk
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property OpnColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOpn
             End Get
         End Property
         
@@ -1932,9 +1952,9 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AdddtDGRow(ByVal Item As String, ByVal Line As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As String, ByVal Dry As String, ByVal Reefer As String, ByVal Tank As String) As dtDGRow
+        Public Overloads Function AdddtDGRow(ByVal Item As String, ByVal Line As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As Long, ByVal Dry As Long, ByVal Rfr As Long, ByVal Tnk As Long, ByVal FRk As Long, ByVal Opn As Long) As dtDGRow
             Dim rowdtDGRow As dtDGRow = CType(Me.NewRow,dtDGRow)
-            Dim columnValuesArray() As Object = New Object() {Item, Line, ISO, Category, _Class, Dry, Reefer, Tank}
+            Dim columnValuesArray() As Object = New Object() {Item, Line, ISO, Category, _Class, Dry, Rfr, Tnk, FRk, Opn}
             rowdtDGRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtDGRow)
             Return rowdtDGRow
@@ -1963,8 +1983,10 @@ Partial Friend Class dsThroughput
             Me.columnCategory = MyBase.Columns("Category")
             Me.columnClass = MyBase.Columns("Class")
             Me.columnDry = MyBase.Columns("Dry")
-            Me.columnReefer = MyBase.Columns("Reefer")
-            Me.columnTank = MyBase.Columns("Tank")
+            Me.columnRfr = MyBase.Columns("Rfr")
+            Me.columnTnk = MyBase.Columns("Tnk")
+            Me.columnFRk = MyBase.Columns("FRk")
+            Me.columnOpn = MyBase.Columns("Opn")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1982,17 +2004,21 @@ Partial Friend Class dsThroughput
             MyBase.Columns.Add(Me.columnISO)
             Me.columnCategory = New Global.System.Data.DataColumn("Category", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCategory)
-            Me.columnClass = New Global.System.Data.DataColumn("Class", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnClass = New Global.System.Data.DataColumn("Class", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             Me.columnClass.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ClassColumn")
             Me.columnClass.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnClass")
             Me.columnClass.ExtendedProperties.Add("Generator_UserColumnName", "Class")
             MyBase.Columns.Add(Me.columnClass)
-            Me.columnDry = New Global.System.Data.DataColumn("Dry", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnDry = New Global.System.Data.DataColumn("Dry", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDry)
-            Me.columnReefer = New Global.System.Data.DataColumn("Reefer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnReefer)
-            Me.columnTank = New Global.System.Data.DataColumn("Tank", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTank)
+            Me.columnRfr = New Global.System.Data.DataColumn("Rfr", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRfr)
+            Me.columnTnk = New Global.System.Data.DataColumn("Tnk", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTnk)
+            Me.columnFRk = New Global.System.Data.DataColumn("FRk", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFRk)
+            Me.columnOpn = New Global.System.Data.DataColumn("Opn", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOpn)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4753,10 +4779,10 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property _Class() As String
+        Public Property _Class() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tabledtDG.ClassColumn),String)
+                    Return CType(Me(Me.tabledtDG.ClassColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Class' in table 'dtDG' is DBNull.", e)
                 End Try
@@ -4768,10 +4794,10 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Dry() As String
+        Public Property Dry() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tabledtDG.DryColumn),String)
+                    Return CType(Me(Me.tabledtDG.DryColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Dry' in table 'dtDG' is DBNull.", e)
                 End Try
@@ -4783,31 +4809,61 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Reefer() As String
+        Public Property Rfr() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tabledtDG.ReeferColumn),String)
+                    Return CType(Me(Me.tabledtDG.RfrColumn),Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Reefer' in table 'dtDG' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Rfr' in table 'dtDG' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtDG.ReeferColumn) = value
+                Me(Me.tabledtDG.RfrColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Tank() As String
+        Public Property Tnk() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tabledtDG.TankColumn),String)
+                    Return CType(Me(Me.tabledtDG.TnkColumn),Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tank' in table 'dtDG' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tnk' in table 'dtDG' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtDG.TankColumn) = value
+                Me(Me.tabledtDG.TnkColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property FRk() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDG.FRkColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FRk' in table 'dtDG' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDG.FRkColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Opn() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDG.OpnColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Opn' in table 'dtDG' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDG.OpnColumn) = value
             End Set
         End Property
         
@@ -4885,26 +4941,50 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsReeferNull() As Boolean
-            Return Me.IsNull(Me.tabledtDG.ReeferColumn)
+        Public Function IsRfrNull() As Boolean
+            Return Me.IsNull(Me.tabledtDG.RfrColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetReeferNull()
-            Me(Me.tabledtDG.ReeferColumn) = Global.System.Convert.DBNull
+        Public Sub SetRfrNull()
+            Me(Me.tabledtDG.RfrColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsTankNull() As Boolean
-            Return Me.IsNull(Me.tabledtDG.TankColumn)
+        Public Function IsTnkNull() As Boolean
+            Return Me.IsNull(Me.tabledtDG.TnkColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetTankNull()
-            Me(Me.tabledtDG.TankColumn) = Global.System.Convert.DBNull
+        Public Sub SetTnkNull()
+            Me(Me.tabledtDG.TnkColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsFRkNull() As Boolean
+            Return Me.IsNull(Me.tabledtDG.FRkColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetFRkNull()
+            Me(Me.tabledtDG.FRkColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsOpnNull() As Boolean
+            Return Me.IsNull(Me.tabledtDG.OpnColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetOpnNull()
+            Me(Me.tabledtDG.OpnColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
