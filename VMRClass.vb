@@ -171,8 +171,8 @@ Public Class VMRClass
     Private Sub addDGContainers(Category As String, Line As String, dtUnits As DataTable, dtDG As DataTable)
         Dim dvRows As New DataView
         Dim dgrows() As DataRow
-        Dim imdg() As Short
-        Dim iso() As String
+        Dim imdg() As String
+        Dim cntsze() As Short
 
         dvRows.Table = dtUnits
         dvRows.RowFilter = "line_op = '" & Line & "' and hazardous = True"
@@ -182,13 +182,13 @@ Public Class VMRClass
         'dgrows = dtUnits.AsEnumerable.Where(Function(haz) haz("line_op") = Line And
         'haz("hazardous") = True).Select(Function(row) row).ToArray
 
-        iso = dgrows.AsEnumerable.Select(Of String)(Function(code) code("iso_code")).Distinct.ToArray
+        cntsze = dgrows.AsEnumerable.Select(Of Short)(Function(code) code("nominal_length").ToString.Substring(3, 2)).Distinct.ToArray
 
-        For Each item In iso
-            imdg = dgrows.AsEnumerable.Where(Function(cde) cde("iso_code") = item) _
-                .Select(Of Short)(Function(cls) cls("imdg_types").ToString).Distinct.ToArray
+        For Each item In cntsze
+            imdg = dgrows.AsEnumerable.Where(Function(cde) cde("nominal_length").ToString.Substring(3, 2) = item) _
+                .Select(Of String)(Function(cls) cls("imdg_types").ToString).Distinct.ToArray
 
-            For Each dgClass As Short In imdg
+            For Each dgClass As String In imdg
                 addTempDG(Line, Category, item, dgClass, dgrows, dtDG)
             Next
         Next
@@ -202,14 +202,15 @@ Public Class VMRClass
         With temprow
             .Item("Line") = Line
             .Item("Category") = Category
-            .Item("ISO") = item
+            .Item("ISO") = "N/A"
+            .Item("Size") = item
             .Item("Class") = dgClass
-            For count As Integer = 5 To dtDG.Columns.Count - 1
+            For count As Integer = 6 To dtDG.Columns.Count - 1
                 ctrtyp = dtDG.Columns(count).ColumnName
                 .Item(count) = (From rows In dgRows.AsEnumerable
                                 Where rows("ctrTyp").ToString = ctrtyp And
                                         rows("imdg_types") = dgClass And
-                                        rows("iso_code").ToString = item).Count()
+                                        rows("nominal_length").ToString.Substring(3, 2) = item).Count()
             Next
             dtDG.Rows.Add(temprow)
         End With
@@ -218,8 +219,8 @@ Public Class VMRClass
         crViewer.ReportSource = crReport
     End Sub
 
-    Public Sub Save(ReportData() As Object) Implements IReportswSave.Save
-        'save data here
+    Public Sub Save() Implements IReportswSave.Save
+
     End Sub
 
     Public Sub RetrieveData(Parameter As Object) Implements IReportswSave.RetrieveData

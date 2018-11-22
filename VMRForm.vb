@@ -14,7 +14,6 @@ Public Class VMRForm
     End Sub
     Private clsVMR As VMRClass
     Private rptVMR As VMR
-    Private dtCMU As DataTable
     Private Sub frmVMR_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         With clsVMR
@@ -30,11 +29,6 @@ Public Class VMRForm
             mskDateComplete.Text = .Details(.VslInfo.EndWorkDate) 'MM/dd/YYYY
         End With
 
-        dtCMU = New DataTable
-        dtCMU.Columns.Add("CMU")
-        dtCMU.Columns.Add("Description")
-
-        DataGridView1.DataSource = dtCMU
     End Sub
 
     Private Sub tabVMR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabVMR.SelectedIndexChanged
@@ -75,10 +69,4 @@ Public Class VMRForm
         End With
     End Sub
 
-    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            dtCMU.Rows.Add(ComboBox1.Text, TextBox1.Text)
-            DataGridView1.Refresh()
-        End If
-    End Sub
 End Class

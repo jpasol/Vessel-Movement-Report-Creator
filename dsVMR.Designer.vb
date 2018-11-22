@@ -1784,6 +1784,8 @@ Partial Friend Class dsThroughput
         
         Private columnLine As Global.System.Data.DataColumn
         
+        Private columnSize As Global.System.Data.DataColumn
+        
         Private columnISO As Global.System.Data.DataColumn
         
         Private columnCategory As Global.System.Data.DataColumn
@@ -1848,6 +1850,14 @@ Partial Friend Class dsThroughput
         Public ReadOnly Property LineColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnLine
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property SizeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSize
             End Get
         End Property
         
@@ -1952,9 +1962,9 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AdddtDGRow(ByVal Item As String, ByVal Line As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As Long, ByVal Dry As Long, ByVal Rfr As Long, ByVal Tnk As Long, ByVal FRk As Long, ByVal Opn As Long) As dtDGRow
+        Public Overloads Function AdddtDGRow(ByVal Item As String, ByVal Line As String, ByVal Size As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As Long, ByVal Dry As Long, ByVal Rfr As Long, ByVal Tnk As Long, ByVal FRk As Long, ByVal Opn As Long) As dtDGRow
             Dim rowdtDGRow As dtDGRow = CType(Me.NewRow,dtDGRow)
-            Dim columnValuesArray() As Object = New Object() {Item, Line, ISO, Category, _Class, Dry, Rfr, Tnk, FRk, Opn}
+            Dim columnValuesArray() As Object = New Object() {Item, Line, Size, ISO, Category, _Class, Dry, Rfr, Tnk, FRk, Opn}
             rowdtDGRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtDGRow)
             Return rowdtDGRow
@@ -1979,6 +1989,7 @@ Partial Friend Class dsThroughput
         Friend Sub InitVars()
             Me.columnItem = MyBase.Columns("Item")
             Me.columnLine = MyBase.Columns("Line")
+            Me.columnSize = MyBase.Columns("Size")
             Me.columnISO = MyBase.Columns("ISO")
             Me.columnCategory = MyBase.Columns("Category")
             Me.columnClass = MyBase.Columns("Class")
@@ -2000,6 +2011,8 @@ Partial Friend Class dsThroughput
             MyBase.Columns.Add(Me.columnItem)
             Me.columnLine = New Global.System.Data.DataColumn("Line", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLine)
+            Me.columnSize = New Global.System.Data.DataColumn("Size", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSize)
             Me.columnISO = New Global.System.Data.DataColumn("ISO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnISO)
             Me.columnCategory = New Global.System.Data.DataColumn("Category", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -4749,6 +4762,21 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Size() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtDG.SizeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Size' in table 'dtDG' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtDG.SizeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property ISO() As String
             Get
                 Try 
@@ -4889,6 +4917,18 @@ Partial Friend Class dsThroughput
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetLineNull()
             Me(Me.tabledtDG.LineColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsSizeNull() As Boolean
+            Return Me.IsNull(Me.tabledtDG.SizeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetSizeNull()
+            Me(Me.tabledtDG.SizeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

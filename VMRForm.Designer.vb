@@ -66,13 +66,6 @@ Partial Class VMRForm
         Me.cmdNextTpt = New System.Windows.Forms.Button()
         Me.cmdPrevTpt = New System.Windows.Forms.Button()
         Me.cmdExitTpt = New System.Windows.Forms.Button()
-        Me.tabSpecials = New System.Windows.Forms.TabPage()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.cmdNextSpl = New System.Windows.Forms.Button()
-        Me.cmdPrevSpl = New System.Windows.Forms.Button()
-        Me.cmdExitSpl = New System.Windows.Forms.Button()
         Me.tabFooters = New System.Windows.Forms.TabPage()
         Me.mskOPCenter = New System.Windows.Forms.MaskedTextBox()
         Me.lblOPCenter = New System.Windows.Forms.Label()
@@ -91,8 +84,6 @@ Partial Class VMRForm
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
         Me.tabThroughput.SuspendLayout()
-        Me.tabSpecials.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabFooters.SuspendLayout()
         Me.tabPreview.SuspendLayout()
         Me.SuspendLayout()
@@ -101,7 +92,6 @@ Partial Class VMRForm
         '
         Me.tabVMR.Controls.Add(Me.tabParticulars)
         Me.tabVMR.Controls.Add(Me.tabThroughput)
-        Me.tabVMR.Controls.Add(Me.tabSpecials)
         Me.tabVMR.Controls.Add(Me.tabFooters)
         Me.tabVMR.Controls.Add(Me.tabPreview)
         Me.tabVMR.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
@@ -143,6 +133,7 @@ Partial Class VMRForm
         '
         'mskATD
         '
+        Me.mskATD.HidePromptOnLeave = True
         Me.mskATD.Location = New System.Drawing.Point(950, 322)
         Me.mskATD.Mask = "0000H 00/00/0000"
         Me.mskATD.Name = "mskATD"
@@ -160,6 +151,7 @@ Partial Class VMRForm
         '
         'mskATA
         '
+        Me.mskATA.HidePromptOnLeave = True
         Me.mskATA.Location = New System.Drawing.Point(950, 267)
         Me.mskATA.Mask = "0000H 00/00/0000"
         Me.mskATA.Name = "mskATA"
@@ -177,6 +169,7 @@ Partial Class VMRForm
         '
         'mskETA
         '
+        Me.mskETA.HidePromptOnLeave = True
         Me.mskETA.Location = New System.Drawing.Point(981, 212)
         Me.mskETA.Mask = "0000H 00/00/0000"
         Me.mskETA.Name = "mskETA"
@@ -195,6 +188,7 @@ Partial Class VMRForm
         '
         'mskOvertime
         '
+        Me.mskOvertime.HidePromptOnLeave = True
         Me.mskOvertime.Location = New System.Drawing.Point(876, 157)
         Me.mskOvertime.Mask = "0000H 00/00/0000"
         Me.mskOvertime.Name = "mskOvertime"
@@ -203,6 +197,7 @@ Partial Class VMRForm
         '
         'mskSLGang
         '
+        Me.mskSLGang.HidePromptOnLeave = True
         Me.mskSLGang.Location = New System.Drawing.Point(297, 396)
         Me.mskSLGang.Mask = "0000H 00/00/0000"
         Me.mskSLGang.Name = "mskSLGang"
@@ -342,6 +337,7 @@ Partial Class VMRForm
         '
         'mskLastLoaded
         '
+        Me.mskLastLoaded.HidePromptOnLeave = True
         Me.mskLastLoaded.Location = New System.Drawing.Point(365, 322)
         Me.mskLastLoaded.Mask = "0000H 00/00/0000"
         Me.mskLastLoaded.Name = "mskLastLoaded"
@@ -359,6 +355,7 @@ Partial Class VMRForm
         '
         'mskFirstLoaded
         '
+        Me.mskFirstLoaded.HidePromptOnLeave = True
         Me.mskFirstLoaded.Location = New System.Drawing.Point(366, 269)
         Me.mskFirstLoaded.Mask = "0000H 00/00/0000"
         Me.mskFirstLoaded.Name = "mskFirstLoaded"
@@ -376,6 +373,7 @@ Partial Class VMRForm
         '
         'mskLastDischarged
         '
+        Me.mskLastDischarged.HidePromptOnLeave = True
         Me.mskLastDischarged.Location = New System.Drawing.Point(396, 216)
         Me.mskLastDischarged.Mask = "0000H 00/00/0000"
         Me.mskLastDischarged.Name = "mskLastDischarged"
@@ -393,6 +391,7 @@ Partial Class VMRForm
         '
         'mskFirstDischarged
         '
+        Me.mskFirstDischarged.HidePromptOnLeave = True
         Me.mskFirstDischarged.Location = New System.Drawing.Point(397, 163)
         Me.mskFirstDischarged.Mask = "0000H 00/00/0000"
         Me.mskFirstDischarged.Name = "mskFirstDischarged"
@@ -410,6 +409,7 @@ Partial Class VMRForm
         '
         'mskOpCommenced
         '
+        Me.mskOpCommenced.HidePromptOnLeave = True
         Me.mskOpCommenced.Location = New System.Drawing.Point(347, 110)
         Me.mskOpCommenced.Mask = "0000H 00/00/0000"
         Me.mskOpCommenced.Name = "mskOpCommenced"
@@ -427,6 +427,7 @@ Partial Class VMRForm
         '
         'mskTimeComplete
         '
+        Me.mskTimeComplete.HidePromptOnLeave = True
         Me.mskTimeComplete.Location = New System.Drawing.Point(914, 299)
         Me.mskTimeComplete.Mask = "0000H"
         Me.mskTimeComplete.Name = "mskTimeComplete"
@@ -444,6 +445,7 @@ Partial Class VMRForm
         '
         'mskDateComplete
         '
+        Me.mskDateComplete.HidePromptOnLeave = True
         Me.mskDateComplete.Location = New System.Drawing.Point(914, 261)
         Me.mskDateComplete.Mask = "00/00/0000"
         Me.mskDateComplete.Name = "mskDateComplete"
@@ -478,6 +480,7 @@ Partial Class VMRForm
         'mskOnCallSV
         '
         Me.mskOnCallSV.Location = New System.Drawing.Point(1011, 133)
+        Me.mskOnCallSV.Mask = "00 GANG"
         Me.mskOnCallSV.Name = "mskOnCallSV"
         Me.mskOnCallSV.Size = New System.Drawing.Size(205, 27)
         Me.mskOnCallSV.TabIndex = 80
@@ -517,73 +520,6 @@ Partial Class VMRForm
         Me.cmdExitTpt.TabIndex = 3
         Me.cmdExitTpt.Text = "Exit (F3)"
         Me.cmdExitTpt.UseVisualStyleBackColor = True
-        '
-        'tabSpecials
-        '
-        Me.tabSpecials.Controls.Add(Me.DataGridView1)
-        Me.tabSpecials.Controls.Add(Me.TextBox1)
-        Me.tabSpecials.Controls.Add(Me.ComboBox1)
-        Me.tabSpecials.Controls.Add(Me.cmdNextSpl)
-        Me.tabSpecials.Controls.Add(Me.cmdPrevSpl)
-        Me.tabSpecials.Controls.Add(Me.cmdExitSpl)
-        Me.tabSpecials.Location = New System.Drawing.Point(4, 29)
-        Me.tabSpecials.Name = "tabSpecials"
-        Me.tabSpecials.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabSpecials.Size = New System.Drawing.Size(1318, 672)
-        Me.tabSpecials.TabIndex = 3
-        Me.tabSpecials.Text = "CMU Events"
-        Me.tabSpecials.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(216, 115)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(886, 353)
-        Me.DataGridView1.TabIndex = 8
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(558, 82)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(486, 27)
-        Me.TextBox1.TabIndex = 7
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Standby Waiting for the Vessel", "Vessel Formalities", "Shifting via Dock", "Lifted"})
-        Me.ComboBox1.Location = New System.Drawing.Point(275, 81)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(277, 28)
-        Me.ComboBox1.TabIndex = 6
-        '
-        'cmdNextSpl
-        '
-        Me.cmdNextSpl.Location = New System.Drawing.Point(1100, 569)
-        Me.cmdNextSpl.Name = "cmdNextSpl"
-        Me.cmdNextSpl.Size = New System.Drawing.Size(164, 43)
-        Me.cmdNextSpl.TabIndex = 5
-        Me.cmdNextSpl.Text = "Next (F11)"
-        Me.cmdNextSpl.UseVisualStyleBackColor = True
-        '
-        'cmdPrevSpl
-        '
-        Me.cmdPrevSpl.Location = New System.Drawing.Point(930, 569)
-        Me.cmdPrevSpl.Name = "cmdPrevSpl"
-        Me.cmdPrevSpl.Size = New System.Drawing.Size(164, 43)
-        Me.cmdPrevSpl.TabIndex = 4
-        Me.cmdPrevSpl.Text = "Prev (F10)"
-        Me.cmdPrevSpl.UseVisualStyleBackColor = True
-        '
-        'cmdExitSpl
-        '
-        Me.cmdExitSpl.Location = New System.Drawing.Point(62, 569)
-        Me.cmdExitSpl.Name = "cmdExitSpl"
-        Me.cmdExitSpl.Size = New System.Drawing.Size(164, 43)
-        Me.cmdExitSpl.TabIndex = 3
-        Me.cmdExitSpl.Text = "Exit (F3)"
-        Me.cmdExitSpl.UseVisualStyleBackColor = True
         '
         'tabFooters
         '
@@ -742,9 +678,6 @@ Partial Class VMRForm
         Me.tabParticulars.PerformLayout()
         Me.tabThroughput.ResumeLayout(False)
         Me.tabThroughput.PerformLayout()
-        Me.tabSpecials.ResumeLayout(False)
-        Me.tabSpecials.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabFooters.ResumeLayout(False)
         Me.tabFooters.PerformLayout()
         Me.tabPreview.ResumeLayout(False)
@@ -755,7 +688,6 @@ Partial Class VMRForm
     Friend WithEvents tabVMR As TabControl
     Friend WithEvents tabParticulars As TabPage
     Friend WithEvents tabThroughput As TabPage
-    Friend WithEvents tabSpecials As TabPage
     Friend WithEvents tabFooters As TabPage
     Friend WithEvents lblVoyage As Label
     Friend WithEvents lblVessel As Label
@@ -764,9 +696,6 @@ Partial Class VMRForm
     Friend WithEvents cmdNextTpt As Button
     Friend WithEvents cmdPrevTpt As Button
     Friend WithEvents cmdExitTpt As Button
-    Friend WithEvents cmdNextSpl As Button
-    Friend WithEvents cmdPrevSpl As Button
-    Friend WithEvents cmdExitSpl As Button
     Friend WithEvents cmdNextFoot As Button
     Friend WithEvents cmdPrevFoot As Button
     Friend WithEvents cmdExitFoot As Button
@@ -815,7 +744,4 @@ Partial Class VMRForm
     Friend WithEvents lblRegulars As Label
     Friend WithEvents mskOnCallSV As MaskedTextBox
     Friend WithEvents lblOnCallSV As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
 End Class
