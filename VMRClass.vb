@@ -8,25 +8,11 @@ Public Class VMRClass
 
     Sub New(Registry As String, ByRef N4Connection As Connection, ByRef OPConnection As Connection)
         vmrVessel = New Vessel(Registry, N4Connection)
-        With vmrVessel
-            vmrDetails(VslInfo.Name) = vmrVessel.Name
-            If .InboundVoyage = .OutboundVoyage Then
-                vmrDetails(VslInfo.Voyage) = .InboundVoyage
-            Else
-                vmrDetails(VslInfo.Voyage) = .InboundVoyage & " - " & .OutboundVoyage
-            End If
-            vmrDetails(VslInfo.Registry) = .Registry
-            vmrDetails(VslInfo.Berth) = .BerthWindow
-            vmrDetails(VslInfo.ATA) = getMilTime(.ATA)
-            vmrDetails(VslInfo.ATD) = getMilTime(.ATD)
-            vmrDetails(VslInfo.StartWork) = getMilTime(.StartWork)
-            vmrDetails(VslInfo.LastDsc) = getMilTime(.LastContainerDischarged)
-            vmrDetails(VslInfo.EndWorkTime) = getMilTime(.EndWork).ToString.Substring(0, 5) 'HHmmH 
-            vmrDetails(VslInfo.EndWorkDate) = getMilTime(.EndWork).ToString.Substring(6, 10) 'MM/dd/YYYY
-        End With
 
         connN4 = N4Connection
         connOP = OPConnection
+        vmrDetails(VslInfo.registry) = Registry
+        RetrieveData()
     End Sub
     Public vmrVessel As Vessel
     Private vmrDetails(System.Enum.GetNames(GetType(VslInfo)).Length - 1) As String
@@ -46,29 +32,30 @@ Public Class VMRClass
         Opn
     End Enum
     Public Enum VslInfo
-        Name
-        Owner
-        Voyage
-        Registry
-        Berth
-        GangRequest
-        Overtime
-        ETA
-        ATA
-        ATD
-        StartWork
-        FirstDsc
-        LastDsc
-        FirstLoad
-        LastLoad
-        EndWorkDate
-        EndWorkTime
-        Gangs
-        RegStaff
-        Checker
-        OPSvisor
-        OPSmngr
-        OPScnter
+        name
+        owner
+        voy_num
+        registry
+        berth
+        SLGang
+        ovt_req
+        eta
+        ata
+        atd
+        start_work
+        frstcnt_dsc
+        lstcnt_dsc
+        frstcnt_load
+        lstcnt_load
+        end_work
+        oncall_sv_dv
+        regstaff
+        opschecker1
+        opschecker2
+        opsvisor1
+        opsvisor2
+        opsmngr
+        opscnter
     End Enum
     Public Property Details(index As Integer) As String
         Get
@@ -86,7 +73,7 @@ Public Class VMRClass
 
     Public ReadOnly Property OPConnection As Connection Implements IReportswSave.OPConnection
         Get
-            OPConnection = connN4
+            OPConnection = connOP
         End Get
     End Property
 
@@ -220,17 +207,112 @@ Public Class VMRClass
     End Sub
 
     Public Sub Save() Implements IReportswSave.Save
+        Dim dteSave As Date = Date.Now
+        Dim rsSave As New ADODB.Recordset
+        With rsSave
+            .Open("reports_vmr", OPConnection, CursorTypeEnum.adOpenKeyset, LockTypeEnum.adLockOptimistic, CommandTypeEnum.adCmdTable)
+            .AddNew()
+
+            .Fields("name").Value = vmrDetails(VslInfo.name)
+            .Fields("owner").Value = vmrDetails(VslInfo.owner)
+            .Fields("Registry").Value = vmrDetails(VslInfo.registry)
+            .Fields("voy_num").Value = vmrDetails(VslInfo.voy_num)
+            .Fields("berth").Value = vmrDetails(VslInfo.berth)
+            .Fields("SLGang").Value = getDateTime(vmrDetails(VslInfo.SLGang))
+            .Fields("ovt_req").Value = getDateTime(vmrDetails(VslInfo.ovt_req))
+            .Fields("eta").Value = getDateTime(vmrDetails(VslInfo.eta))
+            .Fields("ata").Value = getDateTime(vmrDetails(VslInfo.ata))
+            .Fields("atd").Value = getDateTime(vmrDetails(VslInfo.atd))
+            .Fields("start_work").Value = getDateTime(vmrDetails(VslInfo.start_work))
+            .Fields("frstcnt_dsc").Value = getDateTime(vmrDetails(VslInfo.frstcnt_dsc))
+            .Fields("lstcnt_dsc").Value = getDateTime(vmrDetails(VslInfo.lstcnt_dsc))
+            .Fields("frstcnt_load").Value = getDateTime(vmrDetails(VslInfo.frstcnt_load))
+            .Fields("lstcnt_load").Value = getDateTime(vmrDetails(VslInfo.lstcnt_load))
+            .Fields("end_work").Value = getDateTime(vmrDetails(VslInfo.end_work))
+            .Fields("oncall_sv_dv").Value = vmrDetails(VslInfo.oncall_sv_dv)
+            .Fields("regstaff").Value = vmrDetails(VslInfo.regstaff)
+            .Fields("opschecker1").Value = vmrDetails(VslInfo.opschecker1)
+            .Fields("opschecker2").Value = vmrDetails(VslInfo.opschecker2)
+            .Fields("opsvisor1").Value = vmrDetails(VslInfo.opsvisor1)
+            .Fields("opsvisor2").Value = vmrDetails(VslInfo.opsvisor2)
+            .Fields("opsmngr").Value = vmrDetails(VslInfo.opscnter)
+            .Fields("opscnter").Value = vmrDetails(VslInfo.opscnter)
+            .Fields("createdate").Value = dteSave
+
+            .Update()
+        End With
 
     End Sub
 
-    Public Sub RetrieveData(Parameter As Object) Implements IReportswSave.RetrieveData
-        'retrieve data here
+    Public Sub RetrieveData() Implements IReportswSave.RetrieveData
+        Dim adoRecordset As ADODB.Recordset
+        Dim vmrRegistry As String = vmrDetails(VslInfo.registry)
+        Dim vmrQuery As String
+
+        If Exist(vmrRegistry) Then
+            vmrQuery = "SELECT *  FROM [opreports].[dbo].[reports_vmr] where registry = '" & vmrRegistry & "'"
+
+            adoRecordset = New ADODB.Recordset
+            With adoRecordset
+                .Open(vmrQuery, connOP, CursorTypeEnum.adOpenKeyset, LockTypeEnum.adLockOptimistic)
+                For Each names As String In System.Enum.GetNames(GetType(VslInfo))
+                    Dim tempValue = .Fields(names).Value
+                    Try
+                        vmrDetails(names) = getMilTime(tempValue)
+                    Catch ex As Exception
+                        vmrDetails(names.) = tempValue
+                    End Try
+                Next
+
+            End With
+        Else
+            With vmrVessel
+                vmrDetails(VslInfo.name) = .Name
+                vmrDetails(VslInfo.owner) = .Owner
+                If .InboundVoyage = .OutboundVoyage Then
+                    vmrDetails(VslInfo.voy_num) = .InboundVoyage
+                Else
+                    vmrDetails(VslInfo.voy_num) = .InboundVoyage & " - " & .OutboundVoyage
+                End If
+                vmrDetails(VslInfo.registry) = .Registry
+                vmrDetails(VslInfo.berth) = .BerthWindow
+                vmrDetails(VslInfo.ata) = getMilTime(.ATA)
+                vmrDetails(VslInfo.atd) = getMilTime(.ATD)
+                vmrDetails(VslInfo.start_work) = getMilTime(.StartWork)
+                vmrDetails(VslInfo.lstcnt_dsc) = getMilTime(.LastContainerDischarged)
+                vmrDetails(VslInfo.end_work) = getMilTime(.EndWork)
+            End With
+        End If
     End Sub
 
-    Public Overridable Function getMilTime(strLDate As String) As String
+    Public Function getDateTime(strMDate As String) As Date
+        Return Date.ParseExact(strMDate, "HHmm\H MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture)
+    End Function
+
+    Public Function getMilTime(strLDate As String) As String
         Dim dteDate As DateTime
 
         dteDate = Convert.ToDateTime(strLDate)
         getMilTime = dteDate.ToString("HHmm\H MM/dd/yyyy")
+    End Function
+    Public Function Exist(Registry As String) As Boolean
+        Dim adoCommand As New ADODB.Command
+
+
+        adoCommand.CommandText = "check_vmr"
+        adoCommand.CommandType = CommandTypeEnum.adCmdStoredProc
+        adoCommand.ActiveConnection = connOP
+
+        adoCommand.Parameters(0).Type = DataTypeEnum.adBoolean
+        adoCommand.Parameters(0).Direction = ParameterDirectionEnum.adParamReturnValue
+
+        adoCommand.Parameters.Item("@Registry").Value = Registry
+        adoCommand.Parameters.Item("@Registry").Type = DataTypeEnum.adVarChar
+        adoCommand.Parameters.Item("@Registry").Direction = ParameterDirectionEnum.adParamInput
+
+        adoCommand.Execute
+
+        Return IIf(adoCommand.Parameters(0).Value = 1, True, False)
+
     End Function
 End Class

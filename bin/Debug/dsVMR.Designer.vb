@@ -954,17 +954,19 @@ Partial Friend Class dsThroughput
         
         Private columnLastLoad As Global.System.Data.DataColumn
         
-        Private columnEndWorkDate As Global.System.Data.DataColumn
-        
-        Private columnEndWorkTime As Global.System.Data.DataColumn
+        Private columnEndWork As Global.System.Data.DataColumn
         
         Private columnGangs As Global.System.Data.DataColumn
         
         Private columnRegStaff As Global.System.Data.DataColumn
         
-        Private columnChecker As Global.System.Data.DataColumn
+        Private columnChecker1 As Global.System.Data.DataColumn
         
-        Private columnOPSvisor As Global.System.Data.DataColumn
+        Private columnChecker2 As Global.System.Data.DataColumn
+        
+        Private columnOPSvisor1 As Global.System.Data.DataColumn
+        
+        Private columnOPSvisor2 As Global.System.Data.DataColumn
         
         Private columnOPSmngr As Global.System.Data.DataColumn
         
@@ -1127,17 +1129,9 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property EndWorkDateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property EndWorkColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnEndWorkDate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property EndWorkTimeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEndWorkTime
+                Return Me.columnEndWork
             End Get
         End Property
         
@@ -1159,17 +1153,33 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property CheckerColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Checker1Column() As Global.System.Data.DataColumn
             Get
-                Return Me.columnChecker
+                Return Me.columnChecker1
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property OPSvisorColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property Checker2Column() As Global.System.Data.DataColumn
             Get
-                Return Me.columnOPSvisor
+                Return Me.columnChecker2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property OPSvisor1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOPSvisor1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property OPSvisor2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOPSvisor2
             End Get
         End Property
         
@@ -1242,16 +1252,17 @@ Partial Friend Class dsThroughput
                     ByVal LastDsc As String,  _
                     ByVal FirstLoad As String,  _
                     ByVal LastLoad As String,  _
-                    ByVal EndWorkDate As String,  _
-                    ByVal EndWorkTime As String,  _
+                    ByVal EndWork As String,  _
                     ByVal Gangs As String,  _
                     ByVal RegStaff As String,  _
-                    ByVal Checker As String,  _
-                    ByVal OPSvisor As String,  _
+                    ByVal Checker1 As String,  _
+                    ByVal Checker2 As String,  _
+                    ByVal OPSvisor1 As String,  _
+                    ByVal OPSvisor2 As String,  _
                     ByVal OPSmngr As String,  _
                     ByVal OPScnter As String) As dtVesselRow
             Dim rowdtVesselRow As dtVesselRow = CType(Me.NewRow,dtVesselRow)
-            Dim columnValuesArray() As Object = New Object() {Name, Owner, Voyage, Registry, Berth, GangRequest, Overtime, ETA, ATA, ATD, StartWork, FirstDsc, LastDsc, FirstLoad, LastLoad, EndWorkDate, EndWorkTime, Gangs, RegStaff, Checker, OPSvisor, OPSmngr, OPScnter}
+            Dim columnValuesArray() As Object = New Object() {Name, Owner, Voyage, Registry, Berth, GangRequest, Overtime, ETA, ATA, ATD, StartWork, FirstDsc, LastDsc, FirstLoad, LastLoad, EndWork, Gangs, RegStaff, Checker1, Checker2, OPSvisor1, OPSvisor2, OPSmngr, OPScnter}
             rowdtVesselRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtVesselRow)
             Return rowdtVesselRow
@@ -1289,12 +1300,13 @@ Partial Friend Class dsThroughput
             Me.columnLastDsc = MyBase.Columns("LastDsc")
             Me.columnFirstLoad = MyBase.Columns("FirstLoad")
             Me.columnLastLoad = MyBase.Columns("LastLoad")
-            Me.columnEndWorkDate = MyBase.Columns("EndWorkDate")
-            Me.columnEndWorkTime = MyBase.Columns("EndWorkTime")
+            Me.columnEndWork = MyBase.Columns("EndWork")
             Me.columnGangs = MyBase.Columns("Gangs")
             Me.columnRegStaff = MyBase.Columns("RegStaff")
-            Me.columnChecker = MyBase.Columns("Checker")
-            Me.columnOPSvisor = MyBase.Columns("OPSvisor")
+            Me.columnChecker1 = MyBase.Columns("Checker1")
+            Me.columnChecker2 = MyBase.Columns("Checker2")
+            Me.columnOPSvisor1 = MyBase.Columns("OPSvisor1")
+            Me.columnOPSvisor2 = MyBase.Columns("OPSvisor2")
             Me.columnOPSmngr = MyBase.Columns("OPSmngr")
             Me.columnOPScnter = MyBase.Columns("OPScnter")
         End Sub
@@ -1332,18 +1344,20 @@ Partial Friend Class dsThroughput
             MyBase.Columns.Add(Me.columnFirstLoad)
             Me.columnLastLoad = New Global.System.Data.DataColumn("LastLoad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastLoad)
-            Me.columnEndWorkDate = New Global.System.Data.DataColumn("EndWorkDate", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndWorkDate)
-            Me.columnEndWorkTime = New Global.System.Data.DataColumn("EndWorkTime", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEndWorkTime)
+            Me.columnEndWork = New Global.System.Data.DataColumn("EndWork", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEndWork)
             Me.columnGangs = New Global.System.Data.DataColumn("Gangs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnGangs)
             Me.columnRegStaff = New Global.System.Data.DataColumn("RegStaff", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRegStaff)
-            Me.columnChecker = New Global.System.Data.DataColumn("Checker", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnChecker)
-            Me.columnOPSvisor = New Global.System.Data.DataColumn("OPSvisor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnOPSvisor)
+            Me.columnChecker1 = New Global.System.Data.DataColumn("Checker1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnChecker1)
+            Me.columnChecker2 = New Global.System.Data.DataColumn("Checker2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnChecker2)
+            Me.columnOPSvisor1 = New Global.System.Data.DataColumn("OPSvisor1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOPSvisor1)
+            Me.columnOPSvisor2 = New Global.System.Data.DataColumn("OPSvisor2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOPSvisor2)
             Me.columnOPSmngr = New Global.System.Data.DataColumn("OPSmngr", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOPSmngr)
             Me.columnOPScnter = New Global.System.Data.DataColumn("OPScnter", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -4196,31 +4210,16 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property EndWorkDate() As String
+        Public Property EndWork() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtVessel.EndWorkDateColumn),String)
+                    Return CType(Me(Me.tabledtVessel.EndWorkColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EndWorkDate' in table 'dtVessel' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EndWork' in table 'dtVessel' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtVessel.EndWorkDateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property EndWorkTime() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabledtVessel.EndWorkTimeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EndWorkTime' in table 'dtVessel' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabledtVessel.EndWorkTimeColumn) = value
+                Me(Me.tabledtVessel.EndWorkColumn) = value
             End Set
         End Property
         
@@ -4256,31 +4255,61 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Checker() As String
+        Public Property Checker1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtVessel.CheckerColumn),String)
+                    Return CType(Me(Me.tabledtVessel.Checker1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Checker' in table 'dtVessel' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Checker1' in table 'dtVessel' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtVessel.CheckerColumn) = value
+                Me(Me.tabledtVessel.Checker1Column) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property OPSvisor() As String
+        Public Property Checker2() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtVessel.OPSvisorColumn),String)
+                    Return CType(Me(Me.tabledtVessel.Checker2Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'OPSvisor' in table 'dtVessel' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Checker2' in table 'dtVessel' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtVessel.OPSvisorColumn) = value
+                Me(Me.tabledtVessel.Checker2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property OPSvisor1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVessel.OPSvisor1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OPSvisor1' in table 'dtVessel' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVessel.OPSvisor1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property OPSvisor2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVessel.OPSvisor2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OPSvisor2' in table 'dtVessel' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVessel.OPSvisor2Column) = value
             End Set
         End Property
         
@@ -4496,26 +4525,14 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsEndWorkDateNull() As Boolean
-            Return Me.IsNull(Me.tabledtVessel.EndWorkDateColumn)
+        Public Function IsEndWorkNull() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.EndWorkColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetEndWorkDateNull()
-            Me(Me.tabledtVessel.EndWorkDateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsEndWorkTimeNull() As Boolean
-            Return Me.IsNull(Me.tabledtVessel.EndWorkTimeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetEndWorkTimeNull()
-            Me(Me.tabledtVessel.EndWorkTimeColumn) = Global.System.Convert.DBNull
+        Public Sub SetEndWorkNull()
+            Me(Me.tabledtVessel.EndWorkColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4544,26 +4561,50 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsCheckerNull() As Boolean
-            Return Me.IsNull(Me.tabledtVessel.CheckerColumn)
+        Public Function IsChecker1Null() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.Checker1Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetCheckerNull()
-            Me(Me.tabledtVessel.CheckerColumn) = Global.System.Convert.DBNull
+        Public Sub SetChecker1Null()
+            Me(Me.tabledtVessel.Checker1Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsOPSvisorNull() As Boolean
-            Return Me.IsNull(Me.tabledtVessel.OPSvisorColumn)
+        Public Function IsChecker2Null() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.Checker2Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetOPSvisorNull()
-            Me(Me.tabledtVessel.OPSvisorColumn) = Global.System.Convert.DBNull
+        Public Sub SetChecker2Null()
+            Me(Me.tabledtVessel.Checker2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsOPSvisor1Null() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.OPSvisor1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetOPSvisor1Null()
+            Me(Me.tabledtVessel.OPSvisor1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsOPSvisor2Null() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.OPSvisor2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetOPSvisor2Null()
+            Me(Me.tabledtVessel.OPSvisor2Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

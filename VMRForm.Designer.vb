@@ -71,9 +71,9 @@ Partial Class VMRForm
         Me.lblOPCenter = New System.Windows.Forms.Label()
         Me.mskAsstOP = New System.Windows.Forms.MaskedTextBox()
         Me.lblAsstOP = New System.Windows.Forms.Label()
-        Me.mskSupervisor = New System.Windows.Forms.MaskedTextBox()
+        Me.mskVisor2 = New System.Windows.Forms.MaskedTextBox()
         Me.lblSupervisor = New System.Windows.Forms.Label()
-        Me.mskChecker = New System.Windows.Forms.MaskedTextBox()
+        Me.mskChecker2 = New System.Windows.Forms.MaskedTextBox()
         Me.lblChecker = New System.Windows.Forms.Label()
         Me.cmdNextFoot = New System.Windows.Forms.Button()
         Me.cmdPrevFoot = New System.Windows.Forms.Button()
@@ -81,6 +81,8 @@ Partial Class VMRForm
         Me.tabPreview = New System.Windows.Forms.TabPage()
         Me.cmdSave = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.mskChecker1 = New System.Windows.Forms.MaskedTextBox()
+        Me.mskVisor1 = New System.Windows.Forms.MaskedTextBox()
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
         Me.tabThroughput.SuspendLayout()
@@ -480,10 +482,11 @@ Partial Class VMRForm
         'mskOnCallSV
         '
         Me.mskOnCallSV.Location = New System.Drawing.Point(1011, 133)
-        Me.mskOnCallSV.Mask = "00 GANG"
+        Me.mskOnCallSV.Mask = "00\ \G\A\N\G"
         Me.mskOnCallSV.Name = "mskOnCallSV"
         Me.mskOnCallSV.Size = New System.Drawing.Size(205, 27)
         Me.mskOnCallSV.TabIndex = 80
+        Me.mskOnCallSV.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'lblOnCallSV
         '
@@ -523,13 +526,15 @@ Partial Class VMRForm
         '
         'tabFooters
         '
+        Me.tabFooters.Controls.Add(Me.mskVisor1)
+        Me.tabFooters.Controls.Add(Me.mskChecker1)
         Me.tabFooters.Controls.Add(Me.mskOPCenter)
         Me.tabFooters.Controls.Add(Me.lblOPCenter)
         Me.tabFooters.Controls.Add(Me.mskAsstOP)
         Me.tabFooters.Controls.Add(Me.lblAsstOP)
-        Me.tabFooters.Controls.Add(Me.mskSupervisor)
+        Me.tabFooters.Controls.Add(Me.mskVisor2)
         Me.tabFooters.Controls.Add(Me.lblSupervisor)
-        Me.tabFooters.Controls.Add(Me.mskChecker)
+        Me.tabFooters.Controls.Add(Me.mskChecker2)
         Me.tabFooters.Controls.Add(Me.lblChecker)
         Me.tabFooters.Controls.Add(Me.cmdNextFoot)
         Me.tabFooters.Controls.Add(Me.cmdPrevFoot)
@@ -574,12 +579,12 @@ Partial Class VMRForm
         Me.lblAsstOP.TabIndex = 47
         Me.lblAsstOP.Text = "Assistant Operation Manager"
         '
-        'mskSupervisor
+        'mskVisor2
         '
-        Me.mskSupervisor.Location = New System.Drawing.Point(811, 151)
-        Me.mskSupervisor.Name = "mskSupervisor"
-        Me.mskSupervisor.Size = New System.Drawing.Size(390, 27)
-        Me.mskSupervisor.TabIndex = 46
+        Me.mskVisor2.Location = New System.Drawing.Point(811, 151)
+        Me.mskVisor2.Name = "mskVisor2"
+        Me.mskVisor2.Size = New System.Drawing.Size(390, 27)
+        Me.mskVisor2.TabIndex = 46
         '
         'lblSupervisor
         '
@@ -590,12 +595,12 @@ Partial Class VMRForm
         Me.lblSupervisor.TabIndex = 45
         Me.lblSupervisor.Text = "OPS. Supervisor"
         '
-        'mskChecker
+        'mskChecker2
         '
-        Me.mskChecker.Location = New System.Drawing.Point(117, 151)
-        Me.mskChecker.Name = "mskChecker"
-        Me.mskChecker.Size = New System.Drawing.Size(390, 27)
-        Me.mskChecker.TabIndex = 44
+        Me.mskChecker2.Location = New System.Drawing.Point(117, 151)
+        Me.mskChecker2.Name = "mskChecker2"
+        Me.mskChecker2.Size = New System.Drawing.Size(390, 27)
+        Me.mskChecker2.TabIndex = 44
         '
         'lblChecker
         '
@@ -664,6 +669,20 @@ Partial Class VMRForm
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1052, 660)
         Me.CrystalReportViewer1.TabIndex = 0
         '
+        'mskChecker1
+        '
+        Me.mskChecker1.Location = New System.Drawing.Point(117, 107)
+        Me.mskChecker1.Name = "mskChecker1"
+        Me.mskChecker1.Size = New System.Drawing.Size(390, 27)
+        Me.mskChecker1.TabIndex = 55
+        '
+        'mskVisor1
+        '
+        Me.mskVisor1.Location = New System.Drawing.Point(811, 107)
+        Me.mskVisor1.Name = "mskVisor1"
+        Me.mskVisor1.Size = New System.Drawing.Size(390, 27)
+        Me.mskVisor1.TabIndex = 56
+        '
         'VMRForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -717,9 +736,9 @@ Partial Class VMRForm
     Friend WithEvents lblOPCenter As Label
     Friend WithEvents mskAsstOP As MaskedTextBox
     Friend WithEvents lblAsstOP As Label
-    Friend WithEvents mskSupervisor As MaskedTextBox
+    Friend WithEvents mskVisor2 As MaskedTextBox
     Friend WithEvents lblSupervisor As Label
-    Friend WithEvents mskChecker As MaskedTextBox
+    Friend WithEvents mskChecker2 As MaskedTextBox
     Friend WithEvents lblChecker As Label
     Friend WithEvents tabPreview As TabPage
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
@@ -744,4 +763,6 @@ Partial Class VMRForm
     Friend WithEvents lblRegulars As Label
     Friend WithEvents mskOnCallSV As MaskedTextBox
     Friend WithEvents lblOnCallSV As Label
+    Friend WithEvents mskVisor1 As MaskedTextBox
+    Friend WithEvents mskChecker1 As MaskedTextBox
 End Class

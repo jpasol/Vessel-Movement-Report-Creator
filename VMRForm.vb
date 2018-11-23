@@ -15,18 +15,22 @@ Public Class VMRForm
     Private clsVMR As VMRClass
     Private rptVMR As VMR
     Private Sub frmVMR_Load(sender As Object, e As EventArgs) Handles Me.Load
+        With clsVMR
+            MsgBox(.Exist(.Details(.VslInfo.registry)))
+
+        End With
 
         With clsVMR
-            mskVessel.Text = .Details(.VslInfo.Name)
-            mskVoyage.Text = .Details(.VslInfo.Voyage)
-            mskRegistry.Text = .Details(.VslInfo.Registry)
-            mskPier.Text = .Details(.VslInfo.Berth)
-            mskATA.Text = .Details(.VslInfo.ATA)
-            mskATD.Text = .Details(.VslInfo.ATD)
-            mskOpCommenced.Text = .Details(.VslInfo.StartWork)
-            mskLastDischarged.Text = .Details(.VslInfo.LastDsc)
-            mskTimeComplete.Text = .Details(.VslInfo.EndWorkTime) 'HHmmH 
-            mskDateComplete.Text = .Details(.VslInfo.EndWorkDate) 'MM/dd/YYYY
+            mskVessel.Text = .Details(.VslInfo.name)
+            mskVoyage.Text = .Details(.VslInfo.voy_num)
+            mskRegistry.Text = .Details(.VslInfo.registry)
+            mskPier.Text = .Details(.VslInfo.berth)
+            mskATA.Text = .Details(.VslInfo.ata)
+            mskATD.Text = .Details(.VslInfo.atd)
+            mskOpCommenced.Text = .Details(.VslInfo.start_work)
+            mskLastDischarged.Text = .Details(.VslInfo.lstcnt_dsc)
+            mskTimeComplete.Text = .Details(.VslInfo.end_work).Substring(0, 5) 'HHmmH 
+            mskDateComplete.Text = .Details(.VslInfo.end_work).Substring(6, 10) 'MM/dd/YYYY
         End With
 
     End Sub
@@ -43,30 +47,33 @@ Public Class VMRForm
     End Sub
     Private Sub mapDetails()
         With clsVMR
-            .Details(.VslInfo.Name) = mskVessel.Text
-            .Details(.VslInfo.Voyage) = mskVoyage.Text
-            .Details(.VslInfo.Registry) = mskRegistry.Text
-            .Details(.VslInfo.Berth) = mskPier.Text
-            .Details(.VslInfo.ATA) = mskATA.Text
-            .Details(.VslInfo.ATD) = mskATD.Text
-            .Details(.VslInfo.StartWork) = mskOpCommenced.Text
-            .Details(.VslInfo.LastDsc) = mskLastDischarged.Text
-            .Details(.VslInfo.EndWorkTime) = mskTimeComplete.Text 'HHmmH
-            .Details(.VslInfo.EndWorkDate) = mskDateComplete.Text 'MM/dd/YYYY
-            .Details(.VslInfo.GangRequest) = mskSLGang.Text
-            .Details(.VslInfo.Overtime) = mskOvertime.Text
-            .Details(.VslInfo.ETA) = mskETA.Text
-            .Details(.VslInfo.FirstDsc) = mskFirstDischarged.Text
-            .Details(.VslInfo.LastDsc) = mskLastDischarged.Text
-            .Details(.VslInfo.FirstLoad) = mskFirstLoaded.Text
-            .Details(.VslInfo.LastLoad) = mskLastLoaded.Text
-            .Details(.VslInfo.RegStaff) = mskOnCallSV.Text
-            .Details(.VslInfo.Gangs) = mskRegulars.Text
-            .Details(.VslInfo.Checker) = mskChecker.Text
-            .Details(.VslInfo.OPSvisor) = mskSupervisor.Text
-            .Details(.VslInfo.OPSmngr) = mskAsstOP.Text
-            .Details(.VslInfo.OPScnter) = mskOPCenter.Text
+            .Details(.VslInfo.name) = mskVessel.Text
+            .Details(.VslInfo.voy_num) = mskVoyage.Text
+            .Details(.VslInfo.registry) = mskRegistry.Text
+            .Details(.VslInfo.berth) = mskPier.Text
+            .Details(.VslInfo.ata) = mskATA.Text
+            .Details(.VslInfo.atd) = mskATD.Text
+            .Details(.VslInfo.start_work) = mskOpCommenced.Text
+            .Details(.VslInfo.end_work) = mskTimeComplete.Text & " " & mskDateComplete.Text 'HHmmH
+            .Details(.VslInfo.SLGang) = mskSLGang.Text
+            .Details(.VslInfo.ovt_req) = mskOvertime.Text
+            .Details(.VslInfo.eta) = mskETA.Text
+            .Details(.VslInfo.frstcnt_dsc) = mskFirstDischarged.Text
+            .Details(.VslInfo.lstcnt_dsc) = mskLastDischarged.Text
+            .Details(.VslInfo.frstcnt_load) = mskFirstLoaded.Text
+            .Details(.VslInfo.lstcnt_load) = mskLastLoaded.Text
+            .Details(.VslInfo.regstaff) = mskRegulars.Text
+            .Details(.VslInfo.oncall_sv_dv) = mskOnCallSV.Text
+            .Details(.VslInfo.opschecker1) = mskChecker1.Text
+            .Details(.VslInfo.opschecker2) = mskChecker2.Text
+            .Details(.VslInfo.opsvisor1) = mskVisor1.Text
+            .Details(.VslInfo.opsvisor2) = mskVisor2.Text
+            .Details(.VslInfo.opscnter) = mskAsstOP.Text
+            .Details(.VslInfo.opscnter) = mskOPCenter.Text
         End With
     End Sub
 
+    Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
+        clsVMR.Save()
+    End Sub
 End Class
