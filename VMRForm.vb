@@ -31,6 +31,20 @@ Public Class VMRForm
             mskLastDischarged.Text = .Details(.VslInfo.lstcnt_dsc)
             mskTimeComplete.Text = .Details(.VslInfo.end_work).Substring(0, 5) 'HHmmH 
             mskDateComplete.Text = .Details(.VslInfo.end_work).Substring(6, 10) 'MM/dd/YYYY
+            mskSLGang.Text = .Details(.VslInfo.SLGang)
+            mskOvertime.Text = .Details(.VslInfo.ovt_req)
+            mskETA.Text = .Details(.VslInfo.eta)
+            mskFirstDischarged.Text = .Details(.VslInfo.frstcnt_dsc)
+            mskFirstLoaded.Text = .Details(.VslInfo.frstcnt_load)
+            mskLastLoaded.Text = .Details(.VslInfo.lstcnt_load)
+            mskRegulars.Text = .Details(.VslInfo.regstaff)
+            mskOnCallSV.Text = .Details(.VslInfo.oncall_sv_dv)
+            mskChecker1.Text = .Details(.VslInfo.opschecker1)
+            mskChecker2.Text = .Details(.VslInfo.opschecker2)
+            mskVisor1.Text = .Details(.VslInfo.opsvisor1)
+            mskVisor2.Text = .Details(.VslInfo.opsvisor2)
+            mskAsstOP.Text = .Details(.VslInfo.opscnter)
+            mskOPCenter.Text = .Details(.VslInfo.opscnter)
         End With
 
     End Sub

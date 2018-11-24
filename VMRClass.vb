@@ -257,10 +257,11 @@ Public Class VMRClass
                 .Open(vmrQuery, connOP, CursorTypeEnum.adOpenKeyset, LockTypeEnum.adLockOptimistic)
                 For Each names As String In System.Enum.GetNames(GetType(VslInfo))
                     Dim tempValue = .Fields(names).Value
+
                     Try
-                        vmrDetails(names) = getMilTime(tempValue)
+                        vmrDetails(DirectCast(System.Enum.Parse(GetType(VslInfo), names), VslInfo)) = getMilTime(tempValue)
                     Catch ex As Exception
-                        vmrDetails(names.) = tempValue
+                        vmrDetails(DirectCast(System.Enum.Parse(GetType(VslInfo), names), VslInfo)) = tempValue
                     End Try
                 Next
 
