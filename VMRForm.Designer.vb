@@ -67,6 +67,8 @@ Partial Class VMRForm
         Me.cmdPrevTpt = New System.Windows.Forms.Button()
         Me.cmdExitTpt = New System.Windows.Forms.Button()
         Me.tabFooters = New System.Windows.Forms.TabPage()
+        Me.mskVisor1 = New System.Windows.Forms.MaskedTextBox()
+        Me.mskChecker1 = New System.Windows.Forms.MaskedTextBox()
         Me.mskOPCenter = New System.Windows.Forms.MaskedTextBox()
         Me.lblOPCenter = New System.Windows.Forms.Label()
         Me.mskAsstOP = New System.Windows.Forms.MaskedTextBox()
@@ -81,8 +83,6 @@ Partial Class VMRForm
         Me.tabPreview = New System.Windows.Forms.TabPage()
         Me.cmdSave = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.mskChecker1 = New System.Windows.Forms.MaskedTextBox()
-        Me.mskVisor1 = New System.Windows.Forms.MaskedTextBox()
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
         Me.tabThroughput.SuspendLayout()
@@ -547,6 +547,20 @@ Partial Class VMRForm
         Me.tabFooters.Text = "Footers"
         Me.tabFooters.UseVisualStyleBackColor = True
         '
+        'mskVisor1
+        '
+        Me.mskVisor1.Location = New System.Drawing.Point(811, 107)
+        Me.mskVisor1.Name = "mskVisor1"
+        Me.mskVisor1.Size = New System.Drawing.Size(390, 27)
+        Me.mskVisor1.TabIndex = 56
+        '
+        'mskChecker1
+        '
+        Me.mskChecker1.Location = New System.Drawing.Point(117, 107)
+        Me.mskChecker1.Name = "mskChecker1"
+        Me.mskChecker1.Size = New System.Drawing.Size(390, 27)
+        Me.mskChecker1.TabIndex = 55
+        '
         'mskOPCenter
         '
         Me.mskOPCenter.Location = New System.Drawing.Point(458, 365)
@@ -669,20 +683,6 @@ Partial Class VMRForm
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1052, 660)
         Me.CrystalReportViewer1.TabIndex = 0
         '
-        'mskChecker1
-        '
-        Me.mskChecker1.Location = New System.Drawing.Point(117, 107)
-        Me.mskChecker1.Name = "mskChecker1"
-        Me.mskChecker1.Size = New System.Drawing.Size(390, 27)
-        Me.mskChecker1.TabIndex = 55
-        '
-        'mskVisor1
-        '
-        Me.mskVisor1.Location = New System.Drawing.Point(811, 107)
-        Me.mskVisor1.Name = "mskVisor1"
-        Me.mskVisor1.Size = New System.Drawing.Size(390, 27)
-        Me.mskVisor1.TabIndex = 56
-        '
         'VMRForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -691,6 +691,7 @@ Partial Class VMRForm
         Me.Controls.Add(Me.tabVMR)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "VMRForm"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.tabVMR.ResumeLayout(False)
         Me.tabParticulars.ResumeLayout(False)

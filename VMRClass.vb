@@ -77,9 +77,9 @@ Public Class VMRClass
         End Get
     End Property
 
-    Public Sub CalculateInfo() Implements IReportswSave.CalculateInfo
+    Public Function CalculateInfo(strFunction As String, Inputs() As String) As Object Implements IReportswSave.CalculateInfo
 
-    End Sub
+    End Function
 
     Public Sub Format(ByRef crReport As Engine.ReportClass) Implements IReportswSave.Format
         Dim tempRow As DataRow
