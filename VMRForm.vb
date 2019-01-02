@@ -4,11 +4,11 @@ Imports Reports.IReports
 
 Public Class VMRForm
 
-    Sub New(Registry As String, ByRef N4Connection As ADODB.Connection, ByRef OPConnection As ADODB.Connection)
+    Sub New(Registry As String, ByRef N4Connection As ADODB.Connection, ByRef OPConnection As ADODB.Connection, Username As String)
 
         ' This call is required by the designer.
         InitializeComponent()
-        clsVMR = New VMRClass(Registry, N4Connection, OPConnection)
+        clsVMR = New VMRClass(Registry, N4Connection, OPConnection, Username)
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
@@ -16,7 +16,8 @@ Public Class VMRForm
     Private rptVMR As VMR
     Private Sub frmVMR_Load(sender As Object, e As EventArgs) Handles Me.Load
         With clsVMR
-            MsgBox(.Exist(.Details(.VslInfo.registry)))
+
+            MsgBox(.Exist())
 
         End With
 
@@ -88,6 +89,18 @@ Public Class VMRForm
     End Sub
 
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
-        clsVMR.Save()
+        With clsVMR.OPConnection
+            .Open()
+            .BeginTrans()
+            Try
+                clsVMR.Save()
+                .CommitTrans()
+                .Close()
+            Catch
+                MsgBox("Save Unsuccessful")
+                .RollbackTrans()
+                .Close()
+            End Try
+        End With
     End Sub
 End Class

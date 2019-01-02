@@ -40,3 +40,7 @@ C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\dsVMR.xsd
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\dsVMR.xss
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\adodb.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\Crane Logs Report Creator.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\Crane Logs Report Creator.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\Crane Logs Report Creator.xml
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug\Crane Logs Report Creator.dll.config

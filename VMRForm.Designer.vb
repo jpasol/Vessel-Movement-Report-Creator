@@ -135,7 +135,6 @@ Partial Class VMRForm
         '
         'mskATD
         '
-        Me.mskATD.HidePromptOnLeave = True
         Me.mskATD.Location = New System.Drawing.Point(950, 322)
         Me.mskATD.Mask = "0000H 00/00/0000"
         Me.mskATD.Name = "mskATD"
@@ -153,7 +152,6 @@ Partial Class VMRForm
         '
         'mskATA
         '
-        Me.mskATA.HidePromptOnLeave = True
         Me.mskATA.Location = New System.Drawing.Point(950, 267)
         Me.mskATA.Mask = "0000H 00/00/0000"
         Me.mskATA.Name = "mskATA"
@@ -171,7 +169,6 @@ Partial Class VMRForm
         '
         'mskETA
         '
-        Me.mskETA.HidePromptOnLeave = True
         Me.mskETA.Location = New System.Drawing.Point(981, 212)
         Me.mskETA.Mask = "0000H 00/00/0000"
         Me.mskETA.Name = "mskETA"
@@ -190,7 +187,6 @@ Partial Class VMRForm
         '
         'mskOvertime
         '
-        Me.mskOvertime.HidePromptOnLeave = True
         Me.mskOvertime.Location = New System.Drawing.Point(876, 157)
         Me.mskOvertime.Mask = "0000H 00/00/0000"
         Me.mskOvertime.Name = "mskOvertime"
@@ -199,7 +195,6 @@ Partial Class VMRForm
         '
         'mskSLGang
         '
-        Me.mskSLGang.HidePromptOnLeave = True
         Me.mskSLGang.Location = New System.Drawing.Point(297, 396)
         Me.mskSLGang.Mask = "0000H 00/00/0000"
         Me.mskSLGang.Name = "mskSLGang"
@@ -339,7 +334,6 @@ Partial Class VMRForm
         '
         'mskLastLoaded
         '
-        Me.mskLastLoaded.HidePromptOnLeave = True
         Me.mskLastLoaded.Location = New System.Drawing.Point(365, 322)
         Me.mskLastLoaded.Mask = "0000H 00/00/0000"
         Me.mskLastLoaded.Name = "mskLastLoaded"
@@ -357,7 +351,6 @@ Partial Class VMRForm
         '
         'mskFirstLoaded
         '
-        Me.mskFirstLoaded.HidePromptOnLeave = True
         Me.mskFirstLoaded.Location = New System.Drawing.Point(366, 269)
         Me.mskFirstLoaded.Mask = "0000H 00/00/0000"
         Me.mskFirstLoaded.Name = "mskFirstLoaded"
@@ -375,7 +368,6 @@ Partial Class VMRForm
         '
         'mskLastDischarged
         '
-        Me.mskLastDischarged.HidePromptOnLeave = True
         Me.mskLastDischarged.Location = New System.Drawing.Point(396, 216)
         Me.mskLastDischarged.Mask = "0000H 00/00/0000"
         Me.mskLastDischarged.Name = "mskLastDischarged"
@@ -393,7 +385,6 @@ Partial Class VMRForm
         '
         'mskFirstDischarged
         '
-        Me.mskFirstDischarged.HidePromptOnLeave = True
         Me.mskFirstDischarged.Location = New System.Drawing.Point(397, 163)
         Me.mskFirstDischarged.Mask = "0000H 00/00/0000"
         Me.mskFirstDischarged.Name = "mskFirstDischarged"
@@ -411,7 +402,6 @@ Partial Class VMRForm
         '
         'mskOpCommenced
         '
-        Me.mskOpCommenced.HidePromptOnLeave = True
         Me.mskOpCommenced.Location = New System.Drawing.Point(347, 110)
         Me.mskOpCommenced.Mask = "0000H 00/00/0000"
         Me.mskOpCommenced.Name = "mskOpCommenced"
@@ -429,7 +419,6 @@ Partial Class VMRForm
         '
         'mskTimeComplete
         '
-        Me.mskTimeComplete.HidePromptOnLeave = True
         Me.mskTimeComplete.Location = New System.Drawing.Point(914, 299)
         Me.mskTimeComplete.Mask = "0000H"
         Me.mskTimeComplete.Name = "mskTimeComplete"
@@ -447,7 +436,6 @@ Partial Class VMRForm
         '
         'mskDateComplete
         '
-        Me.mskDateComplete.HidePromptOnLeave = True
         Me.mskDateComplete.Location = New System.Drawing.Point(914, 261)
         Me.mskDateComplete.Mask = "00/00/0000"
         Me.mskDateComplete.Name = "mskDateComplete"

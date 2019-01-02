@@ -1,25 +1,34 @@
 ﻿Imports ADODB
 Imports Reports
 Imports CrystalDecisions.CrystalReports
+Imports Crane_Logs_Report_Creator
 
 Public Class VMRClass
 
     Implements IReports.IReportswSave
 
-    Sub New(Registry As String, ByRef N4Connection As Connection, ByRef OPConnection As Connection)
+    Sub New(Registry As String, ByRef N4Connection As Connection, ByRef OPConnection As Connection, Username As String)
         vmrVessel = New Vessel(Registry, N4Connection)
 
         connN4 = N4Connection
         connOP = OPConnection
+
         vmrDetails(VslInfo.registry) = Registry
         RetrieveData()
+
+        craneLogsReport = New CLRClass(Registry, N4Connection, OPConnection, Username:=Username)
+        If craneLogsReport.Exists Then
+            craneLogsReport.RetrieveData()
+        End If
+
     End Sub
     Public vmrVessel As Vessel
-    Private vmrDetails(System.Enum.GetNames(GetType(VslInfo)).Length - 1) As String
+    Private vmrDetails(System.Enum.GetNames(GetType(VslInfo)).Length - 1) As String 'optimized to string instead of property
     Private connN4 As Connection
     Private connOP As Connection
     Private crVMR As Engine.ReportClass
     Private dsVMR As dsThroughput
+    Private craneLogsReport As CLRClass
     Enum FreightKind
         FCL
         MTY
@@ -242,6 +251,7 @@ Public Class VMRClass
             .Update()
         End With
 
+        MsgBox("Save Successful!")
     End Sub
 
     Public Sub RetrieveData() Implements IReportswSave.RetrieveData
@@ -249,21 +259,22 @@ Public Class VMRClass
         Dim vmrRegistry As String = vmrDetails(VslInfo.registry)
         Dim vmrQuery As String
 
-        If Exist(vmrRegistry) Then
+        If Exist() Then
             vmrQuery = "SELECT *  FROM [opreports].[dbo].[reports_vmr] where registry = '" & vmrRegistry & "'"
 
             adoRecordset = New ADODB.Recordset
             With adoRecordset
+                connOP.Open()
                 .Open(vmrQuery, connOP, CursorTypeEnum.adOpenKeyset, LockTypeEnum.adLockOptimistic)
                 For Each names As String In System.Enum.GetNames(GetType(VslInfo))
                     Dim tempValue = .Fields(names).Value
-
                     Try
                         vmrDetails(DirectCast(System.Enum.Parse(GetType(VslInfo), names), VslInfo)) = getMilTime(tempValue)
                     Catch ex As Exception
                         vmrDetails(DirectCast(System.Enum.Parse(GetType(VslInfo), names), VslInfo)) = tempValue
                     End Try
                 Next
+                connOP.Close()
 
             End With
         Else
@@ -296,10 +307,10 @@ Public Class VMRClass
         dteDate = Convert.ToDateTime(strLDate)
         getMilTime = dteDate.ToString("HHmm\H MM/dd/yyyy")
     End Function
-    Public Function Exist(Registry As String) As Boolean
+    Public Function Exist() As Boolean Implements IReportswSave.Exists 'removed registry parameters since this can only be used when the class has been instantiated
         Dim adoCommand As New ADODB.Command
 
-
+        connOP.Open()
         adoCommand.CommandText = "check_vmr"
         adoCommand.CommandType = CommandTypeEnum.adCmdStoredProc
         adoCommand.ActiveConnection = connOP
@@ -307,13 +318,15 @@ Public Class VMRClass
         adoCommand.Parameters(0).Type = DataTypeEnum.adBoolean
         adoCommand.Parameters(0).Direction = ParameterDirectionEnum.adParamReturnValue
 
-        adoCommand.Parameters.Item("@Registry").Value = Registry
+        adoCommand.Parameters.Item("@Registry").Value = vmrVessel.Registry
         adoCommand.Parameters.Item("@Registry").Type = DataTypeEnum.adVarChar
         adoCommand.Parameters.Item("@Registry").Direction = ParameterDirectionEnum.adParamInput
 
-        adoCommand.Execute
-
-        Return IIf(adoCommand.Parameters(0).Value = 1, True, False)
+        adoCommand.Execute()
+        Dim result As Boolean = IIf(adoCommand.Parameters(0).Value = 1, True, False)
+        connOP.Close()
+        Return result
 
     End Function
+
 End Class
