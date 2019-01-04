@@ -19,6 +19,9 @@ Public Class VMRClass
         craneLogsReport = New CLRClass(Registry, N4Connection, OPConnection, Username:=Username)
         If craneLogsReport.Exists Then
             craneLogsReport.RetrieveData()
+            CreateCMU()
+        Else
+            MsgBox("Crane Log Report of this Vessel is not yet Created")
         End If
 
     End Sub
@@ -65,6 +68,8 @@ Public Class VMRClass
         opsvisor2
         opsmngr
         opscnter
+        standby
+        formalities
     End Enum
     Public Property Details(index As Integer) As String
         Get
@@ -96,6 +101,7 @@ Public Class VMRClass
         Dim paramLine As New CrystalDecisions.Shared.ParameterDiscreteValue
         dsVMR = New dsThroughput
 
+        GetVesselFormalities()
 #Region "Create Vessel Details"
         tempRow = dsVMR.Tables("dtVessel").NewRow
         tempRow.ItemArray = vmrDetails
@@ -103,6 +109,7 @@ Public Class VMRClass
             If tempRow(count).ToString.Length = 0 Or
                     IsDBNull(tempRow(count)) Then tempRow(count) = "-"
         Next
+
         dsVMR.Tables("dtVessel").Rows.Add(tempRow)
 
 #End Region
@@ -122,8 +129,23 @@ Public Class VMRClass
         Next
 
         crReport.SetDataSource(dsVMR)
-
+        For Each subReport In crReport.Subreports
+            subReport.SetDataSource(dsVMR)
+        Next
     End Sub
+
+    Private Sub GetVesselFormalities()
+        With craneLogsReport.CraneLogsData.BerthingHourDelays.AsEnumerable.Where(Function(row) row("berthdelay") = "VFM")
+            Dim delaystart As DateTime = CDate(.Select(Function(row) row("delaystart").ToString).First)
+            Dim delayend As DateTime = CDate(.Select(Function(row) row("delayend").ToString).First)
+            Dim militaryDelayStart As String = ReportFunctions.GetMilTime(delaystart).Substring(0, 5)
+            Dim militaryDelayEnd As String = ReportFunctions.GetMilTime(delayend).Substring(0, 5)
+            Dim vesselFormalities As String = $"{militaryDelayStart} - {militaryDelayEnd}"
+
+            vmrDetails(VslInfo.formalities) = vesselFormalities
+        End With
+    End Sub
+
     Private Sub CreateDT(LineOP As String(), dtUnits As DataTable, dtString As String)
         Dim line() As String = LineOP
         Dim cntsize() As Long = {20, 40, 45}
@@ -141,6 +163,78 @@ Public Class VMRClass
         Next
 
     End Sub
+
+    Private Sub CreateCMU()
+        Dim line As String = vmrVessel.Owner
+        Dim consolidatedCraneMoves As New CraneMoves
+        For Each crane As Crane In craneLogsReport.Crane
+            consolidatedCraneMoves.Merge(crane.Moves)
+        Next
+
+        AddSVDMoves(line, consolidatedCraneMoves)
+        AddSOBMoves(line, consolidatedCraneMoves)
+        AddHatchcoverMoves(line, consolidatedCraneMoves)
+
+    End Sub
+
+    Private Sub AddHatchcoverMoves(line As String, moves As CraneMoves)
+        Dim hatchCoverBays As String
+        With moves.Hatchcover.AsEnumerable
+            Dim bayArray As String() = .Select(Of String)(Function(row) row("baynum")).Distinct.ToArray
+            Dim hatchCoverBoxes As Integer = .Select(Of Integer)(Function(row) row("cvrsze20") + row("cvrsze40")).Sum
+            hatchCoverBays = String.Join(",", bayArray)
+
+            If hatchCoverBoxes > 0 Then
+                dsVMR.dtCMU.AdddtCMURow(line, "LIFTED", $"{hatchCoverBoxes} HC at Bay {hatchCoverBays}")
+            End If
+        End With
+    End Sub
+
+    Private Sub AddSOBMoves(line As String, moves As CraneMoves)
+        AddContainerMoves(line, "SHOB", "SOB", moves)
+    End Sub
+
+    Private Sub AddSVDMoves(line As String, moves As CraneMoves)
+        AddContainerMoves(line, "SHFT", "SVD", moves)
+        AddGearboxMoves(line, moves)
+    End Sub
+
+    Private Sub AddGearboxMoves(line As String, moves As CraneMoves)
+        Dim gearboxBays As String
+        Dim gearboxSizes() As Integer = {20, 40}
+        For Each size As Integer In gearboxSizes
+            With moves.Gearbox.AsEnumerable.Where(Function(row) row($"gbxsze{size}"))
+                Dim bayArray As String() = .Select(Of String)(Function(row) row("baynum")).Distinct.ToArray
+                Dim gearboxes As Integer = .Select(Of Integer)(Function(row) row($"gbxsze{size}")).Sum
+                gearboxBays = String.Join(",", bayArray)
+
+                If gearboxes > 0 Then
+                    dsVMR.dtCMU.AdddtCMURow(line, "SVD", $"{gearboxes}X{size}' GB at Bay {gearboxBays}")
+                End If
+            End With
+        Next
+    End Sub
+
+    Private Sub AddContainerMoves(line As String, v As String, v1 As String, moves As CraneMoves)
+        Dim containerSizes() As Integer = {20, 40, 45}
+        Dim freightKinds() As String = {"FCL", "MTY"}
+        For Each freight As String In freightKinds
+            For Each size As Integer In containerSizes
+                With moves.Container.AsEnumerable.Where(Function(row) row("move_kind") = v _
+                                                        And row($"cntsze{size}") > 0 _
+                                                        And row("freight_kind") = freight)
+                    Dim fullFreight As String
+                    If freight = "FCL" Then fullFreight = "FULL"
+                    If freight = "MTY" Then fullFreight = "EMPTY"
+                    For Each movesRow As DataRow In .Select(Of DataRow)(Function(row) row)
+                        dsVMR.dtCMU.AdddtCMURow(line, v1, $"{movesRow($"cntsze{size}")}X{size}' DRY {fullFreight}")
+                    Next
+
+                End With
+            Next
+        Next
+    End Sub
+
     Private Sub addContainers(Line As String, Freight As String, dtUnits As DataTable, dtContainer As DataTable)
         Dim tempRow As DataRow
         Dim ctrtyp As String
@@ -240,6 +334,7 @@ Public Class VMRClass
             .Fields("end_work").Value = getDateTime(vmrDetails(VslInfo.end_work))
             .Fields("oncall_sv_dv").Value = vmrDetails(VslInfo.oncall_sv_dv)
             .Fields("regstaff").Value = vmrDetails(VslInfo.regstaff)
+            .Fields("standby").Value = getDateTime(vmrDetails(VslInfo.standby))
             .Fields("opschecker1").Value = vmrDetails(VslInfo.opschecker1)
             .Fields("opschecker2").Value = vmrDetails(VslInfo.opschecker2)
             .Fields("opsvisor1").Value = vmrDetails(VslInfo.opsvisor1)
@@ -247,7 +342,6 @@ Public Class VMRClass
             .Fields("opsmngr").Value = vmrDetails(VslInfo.opscnter)
             .Fields("opscnter").Value = vmrDetails(VslInfo.opscnter)
             .Fields("createdate").Value = dteSave
-
             .Update()
         End With
 

@@ -46,6 +46,7 @@ Public Class VMRForm
             mskVisor2.Text = .Details(.VslInfo.opsvisor2)
             mskAsstOP.Text = .Details(.VslInfo.opscnter)
             mskOPCenter.Text = .Details(.VslInfo.opscnter)
+            mskStandby.Text = .Details(.VslInfo.standby)
         End With
 
     End Sub
@@ -85,6 +86,7 @@ Public Class VMRForm
             .Details(.VslInfo.opsvisor2) = mskVisor2.Text
             .Details(.VslInfo.opscnter) = mskAsstOP.Text
             .Details(.VslInfo.opscnter) = mskOPCenter.Text
+            .Details(.VslInfo.standby) = mskStandby.Text
         End With
     End Sub
 
@@ -102,5 +104,13 @@ Public Class VMRForm
                 .Close()
             End Try
         End With
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub mskBoxes_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles mskBoxes.MaskInputRejected
+
     End Sub
 End Class

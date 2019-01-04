@@ -972,6 +972,10 @@ Partial Friend Class dsThroughput
         
         Private columnOPScnter As Global.System.Data.DataColumn
         
+        Private columnstandby As Global.System.Data.DataColumn
+        
+        Private columnformalities As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1200,6 +1204,22 @@ Partial Friend Class dsThroughput
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property standbyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstandby
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property formalitiesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnformalities
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1260,9 +1280,11 @@ Partial Friend Class dsThroughput
                     ByVal OPSvisor1 As String,  _
                     ByVal OPSvisor2 As String,  _
                     ByVal OPSmngr As String,  _
-                    ByVal OPScnter As String) As dtVesselRow
+                    ByVal OPScnter As String,  _
+                    ByVal standby As String,  _
+                    ByVal formalities As String) As dtVesselRow
             Dim rowdtVesselRow As dtVesselRow = CType(Me.NewRow,dtVesselRow)
-            Dim columnValuesArray() As Object = New Object() {Name, Owner, Voyage, Registry, Berth, GangRequest, Overtime, ETA, ATA, ATD, StartWork, FirstDsc, LastDsc, FirstLoad, LastLoad, EndWork, Gangs, RegStaff, Checker1, Checker2, OPSvisor1, OPSvisor2, OPSmngr, OPScnter}
+            Dim columnValuesArray() As Object = New Object() {Name, Owner, Voyage, Registry, Berth, GangRequest, Overtime, ETA, ATA, ATD, StartWork, FirstDsc, LastDsc, FirstLoad, LastLoad, EndWork, Gangs, RegStaff, Checker1, Checker2, OPSvisor1, OPSvisor2, OPSmngr, OPScnter, standby, formalities}
             rowdtVesselRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtVesselRow)
             Return rowdtVesselRow
@@ -1309,6 +1331,8 @@ Partial Friend Class dsThroughput
             Me.columnOPSvisor2 = MyBase.Columns("OPSvisor2")
             Me.columnOPSmngr = MyBase.Columns("OPSmngr")
             Me.columnOPScnter = MyBase.Columns("OPScnter")
+            Me.columnstandby = MyBase.Columns("standby")
+            Me.columnformalities = MyBase.Columns("formalities")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1362,6 +1386,10 @@ Partial Friend Class dsThroughput
             MyBase.Columns.Add(Me.columnOPSmngr)
             Me.columnOPScnter = New Global.System.Data.DataColumn("OPScnter", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOPScnter)
+            Me.columnstandby = New Global.System.Data.DataColumn("standby", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstandby)
+            Me.columnformalities = New Global.System.Data.DataColumn("formalities", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnformalities)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3341,11 +3369,9 @@ Partial Friend Class dsThroughput
     Partial Public Class dtCMUDataTable
         Inherits Global.System.Data.TypedTableBase(Of dtCMURow)
         
-        Private columnItem As Global.System.Data.DataColumn
-        
         Private columnLine As Global.System.Data.DataColumn
         
-        Private columnCMU As Global.System.Data.DataColumn
+        Private columnmove_kind As Global.System.Data.DataColumn
         
         Private columnDescription As Global.System.Data.DataColumn
         
@@ -3386,14 +3412,6 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ItemColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnItem
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property LineColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnLine
@@ -3402,9 +3420,9 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property CMUColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property move_kindColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCMU
+                Return Me.columnmove_kind
             End Get
         End Property
         
@@ -3453,9 +3471,9 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AdddtCMURow(ByVal Item As String, ByVal Line As String, ByVal CMU As String, ByVal Description As String) As dtCMURow
+        Public Overloads Function AdddtCMURow(ByVal Line As String, ByVal move_kind As String, ByVal Description As String) As dtCMURow
             Dim rowdtCMURow As dtCMURow = CType(Me.NewRow,dtCMURow)
-            Dim columnValuesArray() As Object = New Object() {Item, Line, CMU, Description}
+            Dim columnValuesArray() As Object = New Object() {Line, move_kind, Description}
             rowdtCMURow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtCMURow)
             Return rowdtCMURow
@@ -3478,25 +3496,18 @@ Partial Friend Class dsThroughput
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnItem = MyBase.Columns("Item")
             Me.columnLine = MyBase.Columns("Line")
-            Me.columnCMU = MyBase.Columns("CMU")
+            Me.columnmove_kind = MyBase.Columns("move_kind")
             Me.columnDescription = MyBase.Columns("Description")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnItem = New Global.System.Data.DataColumn("Item", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Item")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ItemColumn")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnItem")
-            Me.columnItem.ExtendedProperties.Add("Generator_UserColumnName", "Item")
-            MyBase.Columns.Add(Me.columnItem)
             Me.columnLine = New Global.System.Data.DataColumn("Line", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLine)
-            Me.columnCMU = New Global.System.Data.DataColumn("CMU", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCMU)
+            Me.columnmove_kind = New Global.System.Data.DataColumn("move_kind", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmove_kind)
             Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDescription)
         End Sub
@@ -4345,6 +4356,36 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property standby() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVessel.standbyColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'standby' in table 'dtVessel' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVessel.standbyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property formalities() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVessel.formalitiesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'formalities' in table 'dtVessel' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVessel.formalitiesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsNameNull() As Boolean
             Return Me.IsNull(Me.tabledtVessel.NameColumn)
         End Function
@@ -4629,6 +4670,30 @@ Partial Friend Class dsThroughput
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetOPScnterNull()
             Me(Me.tabledtVessel.OPScnterColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsstandbyNull() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.standbyColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetstandbyNull()
+            Me(Me.tabledtVessel.standbyColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsformalitiesNull() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.formalitiesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetformalitiesNull()
+            Me(Me.tabledtVessel.formalitiesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -6052,21 +6117,6 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Item() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabledtCMU.ItemColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Item' in table 'dtCMU' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabledtCMU.ItemColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Line() As String
             Get
                 Try 
@@ -6082,16 +6132,16 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property CMU() As String
+        Public Property move_kind() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtCMU.CMUColumn),String)
+                    Return CType(Me(Me.tabledtCMU.move_kindColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CMU' in table 'dtCMU' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'move_kind' in table 'dtCMU' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtCMU.CMUColumn) = value
+                Me(Me.tabledtCMU.move_kindColumn) = value
             End Set
         End Property
         
@@ -6112,18 +6162,6 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsItemNull() As Boolean
-            Return Me.IsNull(Me.tabledtCMU.ItemColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetItemNull()
-            Me(Me.tabledtCMU.ItemColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsLineNull() As Boolean
             Return Me.IsNull(Me.tabledtCMU.LineColumn)
         End Function
@@ -6136,14 +6174,14 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsCMUNull() As Boolean
-            Return Me.IsNull(Me.tabledtCMU.CMUColumn)
+        Public Function Ismove_kindNull() As Boolean
+            Return Me.IsNull(Me.tabledtCMU.move_kindColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetCMUNull()
-            Me(Me.tabledtCMU.CMUColumn) = Global.System.Convert.DBNull
+        Public Sub Setmove_kindNull()
+            Me(Me.tabledtCMU.move_kindColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

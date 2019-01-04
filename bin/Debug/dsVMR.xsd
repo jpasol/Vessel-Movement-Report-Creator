@@ -57,6 +57,8 @@
               <xs:element name="OPSvisor2" msprop:Generator_ColumnVarNameInTable="columnOPSvisor2" msprop:Generator_ColumnPropNameInRow="OPSvisor2" msprop:Generator_ColumnPropNameInTable="OPSvisor2Column" msprop:Generator_UserColumnName="OPSvisor2" type="xs:string" minOccurs="0" />
               <xs:element name="OPSmngr" msprop:Generator_ColumnVarNameInTable="columnOPSmngr" msprop:Generator_ColumnPropNameInRow="OPSmngr" msprop:Generator_ColumnPropNameInTable="OPSmngrColumn" msprop:Generator_UserColumnName="OPSmngr" type="xs:string" minOccurs="0" />
               <xs:element name="OPScnter" msprop:Generator_ColumnVarNameInTable="columnOPScnter" msprop:Generator_ColumnPropNameInRow="OPScnter" msprop:Generator_ColumnPropNameInTable="OPScnterColumn" msprop:Generator_UserColumnName="OPScnter" type="xs:string" minOccurs="0" />
+              <xs:element name="standby" msprop:Generator_ColumnVarNameInTable="columnstandby" msprop:Generator_ColumnPropNameInRow="standby" msprop:Generator_ColumnPropNameInTable="standbyColumn" msprop:Generator_UserColumnName="standby" type="xs:string" minOccurs="0" />
+              <xs:element name="formalities" msprop:Generator_ColumnVarNameInTable="columnformalities" msprop:Generator_ColumnPropNameInRow="formalities" msprop:Generator_ColumnPropNameInTable="formalitiesColumn" msprop:Generator_UserColumnName="formalities" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -142,9 +144,8 @@
         <xs:element name="dtCMU" msprop:Generator_TableClassName="dtCMUDataTable" msprop:Generator_TableVarName="tabledtCMU" msprop:Generator_RowChangedName="dtCMURowChanged" msprop:Generator_TablePropName="dtCMU" msprop:Generator_RowDeletingName="dtCMURowDeleting" msprop:Generator_RowChangingName="dtCMURowChanging" msprop:Generator_RowEvHandlerName="dtCMURowChangeEventHandler" msprop:Generator_RowDeletedName="dtCMURowDeleted" msprop:Generator_RowClassName="dtCMURow" msprop:Generator_UserTableName="dtCMU" msprop:Generator_RowEvArgName="dtCMURowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Item" msprop:Generator_ColumnVarNameInTable="columnItem" msprop:Generator_ColumnPropNameInRow="Item" msprop:Generator_ColumnPropNameInTable="ItemColumn" msprop:Generator_UserColumnName="Item" type="xs:string" minOccurs="0" />
               <xs:element name="Line" msprop:Generator_ColumnVarNameInTable="columnLine" msprop:Generator_ColumnPropNameInRow="Line" msprop:Generator_ColumnPropNameInTable="LineColumn" msprop:Generator_UserColumnName="Line" type="xs:string" minOccurs="0" />
-              <xs:element name="CMU" msprop:Generator_ColumnVarNameInTable="columnCMU" msprop:Generator_ColumnPropNameInRow="CMU" msprop:Generator_ColumnPropNameInTable="CMUColumn" msprop:Generator_UserColumnName="CMU" type="xs:string" minOccurs="0" />
+              <xs:element name="move_kind" msprop:Generator_ColumnVarNameInTable="columnmove_kind" msprop:Generator_ColumnPropNameInRow="move_kind" msprop:Generator_ColumnPropNameInTable="move_kindColumn" msprop:Generator_UserColumnName="move_kind" type="xs:string" minOccurs="0" />
               <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

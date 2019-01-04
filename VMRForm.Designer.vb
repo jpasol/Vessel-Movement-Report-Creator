@@ -66,6 +66,28 @@ Partial Class VMRForm
         Me.cmdNextTpt = New System.Windows.Forms.Button()
         Me.cmdPrevTpt = New System.Windows.Forms.Button()
         Me.cmdExitTpt = New System.Windows.Forms.Button()
+        Me.tabCMU = New System.Windows.Forms.TabPage()
+        Me.dgvHatchcoverMoves = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mskBoxes = New System.Windows.Forms.MaskedTextBox()
+        Me.cmbSizes = New System.Windows.Forms.ComboBox()
+        Me.cmbFreight = New System.Windows.Forms.ComboBox()
+        Me.cmbUnits = New System.Windows.Forms.ComboBox()
+        Me.cmbMoveKinds = New System.Windows.Forms.ComboBox()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvConsolidatedMoves = New System.Windows.Forms.DataGridView()
+        Me.move_kind = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.description = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabFooters = New System.Windows.Forms.TabPage()
         Me.mskVisor1 = New System.Windows.Forms.MaskedTextBox()
         Me.mskChecker1 = New System.Windows.Forms.MaskedTextBox()
@@ -83,9 +105,20 @@ Partial Class VMRForm
         Me.tabPreview = New System.Windows.Forms.TabPage()
         Me.cmdSave = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.mskStandby = New System.Windows.Forms.MaskedTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
         Me.tabThroughput.SuspendLayout()
+        Me.tabCMU.SuspendLayout()
+        Me.dgvHatchcoverMoves.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage3.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvConsolidatedMoves, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabFooters.SuspendLayout()
         Me.tabPreview.SuspendLayout()
         Me.SuspendLayout()
@@ -94,6 +127,7 @@ Partial Class VMRForm
         '
         Me.tabVMR.Controls.Add(Me.tabParticulars)
         Me.tabVMR.Controls.Add(Me.tabThroughput)
+        Me.tabVMR.Controls.Add(Me.tabCMU)
         Me.tabVMR.Controls.Add(Me.tabFooters)
         Me.tabVMR.Controls.Add(Me.tabPreview)
         Me.tabVMR.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
@@ -303,6 +337,8 @@ Partial Class VMRForm
         '
         'tabThroughput
         '
+        Me.tabThroughput.Controls.Add(Me.mskStandby)
+        Me.tabThroughput.Controls.Add(Me.Label2)
         Me.tabThroughput.Controls.Add(Me.mskLastLoaded)
         Me.tabThroughput.Controls.Add(Me.lblLastLoaded)
         Me.tabThroughput.Controls.Add(Me.mskFirstLoaded)
@@ -512,6 +548,226 @@ Partial Class VMRForm
         Me.cmdExitTpt.Text = "Exit (F3)"
         Me.cmdExitTpt.UseVisualStyleBackColor = True
         '
+        'tabCMU
+        '
+        Me.tabCMU.Controls.Add(Me.dgvHatchcoverMoves)
+        Me.tabCMU.Controls.Add(Me.dgvConsolidatedMoves)
+        Me.tabCMU.Location = New System.Drawing.Point(4, 29)
+        Me.tabCMU.Name = "tabCMU"
+        Me.tabCMU.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabCMU.Size = New System.Drawing.Size(1318, 672)
+        Me.tabCMU.TabIndex = 6
+        Me.tabCMU.Text = "CMU"
+        Me.tabCMU.UseVisualStyleBackColor = True
+        '
+        'dgvHatchcoverMoves
+        '
+        Me.dgvHatchcoverMoves.Controls.Add(Me.TabPage1)
+        Me.dgvHatchcoverMoves.Controls.Add(Me.TabPage2)
+        Me.dgvHatchcoverMoves.Controls.Add(Me.TabPage3)
+        Me.dgvHatchcoverMoves.Location = New System.Drawing.Point(6, 362)
+        Me.dgvHatchcoverMoves.Name = "dgvHatchcoverMoves"
+        Me.dgvHatchcoverMoves.SelectedIndex = 0
+        Me.dgvHatchcoverMoves.Size = New System.Drawing.Size(1306, 304)
+        Me.dgvHatchcoverMoves.TabIndex = 1
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.DataGridView1)
+        Me.TabPage1.Controls.Add(Me.mskBoxes)
+        Me.TabPage1.Controls.Add(Me.cmbSizes)
+        Me.TabPage1.Controls.Add(Me.cmbFreight)
+        Me.TabPage1.Controls.Add(Me.cmbUnits)
+        Me.TabPage1.Controls.Add(Me.cmbMoveKinds)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1298, 271)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Container"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 40)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(1286, 225)
+        Me.DataGridView1.TabIndex = 7
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn1.FillWeight = 47.71573!
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Move Kind"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.FillWeight = 152.2843!
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Description"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'mskBoxes
+        '
+        Me.mskBoxes.Location = New System.Drawing.Point(900, 6)
+        Me.mskBoxes.Name = "mskBoxes"
+        Me.mskBoxes.Size = New System.Drawing.Size(100, 27)
+        Me.mskBoxes.TabIndex = 5
+        '
+        'cmbSizes
+        '
+        Me.cmbSizes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSizes.FormattingEnabled = True
+        Me.cmbSizes.Items.AddRange(New Object() {"20", "40", "45"})
+        Me.cmbSizes.Location = New System.Drawing.Point(773, 6)
+        Me.cmbSizes.Name = "cmbSizes"
+        Me.cmbSizes.Size = New System.Drawing.Size(121, 28)
+        Me.cmbSizes.TabIndex = 4
+        '
+        'cmbFreight
+        '
+        Me.cmbFreight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbFreight.FormattingEnabled = True
+        Me.cmbFreight.Items.AddRange(New Object() {"FULL", "EMPTY"})
+        Me.cmbFreight.Location = New System.Drawing.Point(646, 6)
+        Me.cmbFreight.Name = "cmbFreight"
+        Me.cmbFreight.Size = New System.Drawing.Size(121, 28)
+        Me.cmbFreight.TabIndex = 3
+        '
+        'cmbUnits
+        '
+        Me.cmbUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbUnits.FormattingEnabled = True
+        Me.cmbUnits.Items.AddRange(New Object() {"DRY", "REEFER", "FLAT RACK", "OPEN TOP ", "TANK TAINER"})
+        Me.cmbUnits.Location = New System.Drawing.Point(425, 6)
+        Me.cmbUnits.Name = "cmbUnits"
+        Me.cmbUnits.Size = New System.Drawing.Size(215, 28)
+        Me.cmbUnits.TabIndex = 2
+        '
+        'cmbMoveKinds
+        '
+        Me.cmbMoveKinds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMoveKinds.FormattingEnabled = True
+        Me.cmbMoveKinds.Items.AddRange(New Object() {"SVD", "SOB"})
+        Me.cmbMoveKinds.Location = New System.Drawing.Point(298, 6)
+        Me.cmbMoveKinds.Name = "cmbMoveKinds"
+        Me.cmbMoveKinds.Size = New System.Drawing.Size(121, 28)
+        Me.cmbMoveKinds.TabIndex = 1
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.DataGridView2)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1298, 271)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Gearbox"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToOrderColumns = True
+        Me.DataGridView2.AllowUserToResizeColumns = False
+        Me.DataGridView2.AllowUserToResizeRows = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.DataGridView2.Location = New System.Drawing.Point(6, 6)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(1286, 259)
+        Me.DataGridView2.TabIndex = 8
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn3.FillWeight = 47.71573!
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Move Kind"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn4.FillWeight = 152.2843!
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Description"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.DataGridView3)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(1298, 271)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Hatchcover"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.AllowUserToDeleteRows = False
+        Me.DataGridView3.AllowUserToOrderColumns = True
+        Me.DataGridView3.AllowUserToResizeColumns = False
+        Me.DataGridView3.AllowUserToResizeRows = False
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
+        Me.DataGridView3.Location = New System.Drawing.Point(6, 6)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(1286, 259)
+        Me.DataGridView3.TabIndex = 8
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn5.FillWeight = 47.71573!
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Move Kind"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn6.FillWeight = 152.2843!
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Description"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'dgvConsolidatedMoves
+        '
+        Me.dgvConsolidatedMoves.AllowUserToAddRows = False
+        Me.dgvConsolidatedMoves.AllowUserToDeleteRows = False
+        Me.dgvConsolidatedMoves.AllowUserToOrderColumns = True
+        Me.dgvConsolidatedMoves.AllowUserToResizeColumns = False
+        Me.dgvConsolidatedMoves.AllowUserToResizeRows = False
+        Me.dgvConsolidatedMoves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvConsolidatedMoves.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.move_kind, Me.description})
+        Me.dgvConsolidatedMoves.Location = New System.Drawing.Point(6, 6)
+        Me.dgvConsolidatedMoves.Name = "dgvConsolidatedMoves"
+        Me.dgvConsolidatedMoves.Size = New System.Drawing.Size(1309, 350)
+        Me.dgvConsolidatedMoves.TabIndex = 0
+        '
+        'move_kind
+        '
+        Me.move_kind.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.move_kind.FillWeight = 47.71573!
+        Me.move_kind.HeaderText = "Move Kind"
+        Me.move_kind.Name = "move_kind"
+        '
+        'description
+        '
+        Me.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.description.FillWeight = 152.2843!
+        Me.description.HeaderText = "Description"
+        Me.description.Name = "description"
+        '
         'tabFooters
         '
         Me.tabFooters.Controls.Add(Me.mskVisor1)
@@ -671,6 +927,23 @@ Partial Class VMRForm
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1052, 660)
         Me.CrystalReportViewer1.TabIndex = 0
         '
+        'mskStandby
+        '
+        Me.mskStandby.Location = New System.Drawing.Point(379, 379)
+        Me.mskStandby.Mask = "0000H 00/00/0000"
+        Me.mskStandby.Name = "mskStandby"
+        Me.mskStandby.Size = New System.Drawing.Size(205, 27)
+        Me.mskStandby.TabIndex = 102
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(102, 384)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(271, 22)
+        Me.Label2.TabIndex = 101
+        Me.Label2.Text = "Standby Waiting Time for Vessel"
+        '
         'VMRForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -686,6 +959,16 @@ Partial Class VMRForm
         Me.tabParticulars.PerformLayout()
         Me.tabThroughput.ResumeLayout(False)
         Me.tabThroughput.PerformLayout()
+        Me.tabCMU.ResumeLayout(False)
+        Me.dgvHatchcoverMoves.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage3.ResumeLayout(False)
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvConsolidatedMoves, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabFooters.ResumeLayout(False)
         Me.tabFooters.PerformLayout()
         Me.tabPreview.ResumeLayout(False)
@@ -754,4 +1037,28 @@ Partial Class VMRForm
     Friend WithEvents lblOnCallSV As Label
     Friend WithEvents mskVisor1 As MaskedTextBox
     Friend WithEvents mskChecker1 As MaskedTextBox
+    Friend WithEvents tabCMU As TabPage
+    Friend WithEvents dgvConsolidatedMoves As DataGridView
+    Friend WithEvents move_kind As DataGridViewTextBoxColumn
+    Friend WithEvents description As DataGridViewTextBoxColumn
+    Friend WithEvents dgvHatchcoverMoves As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents mskBoxes As MaskedTextBox
+    Friend WithEvents cmbSizes As ComboBox
+    Friend WithEvents cmbFreight As ComboBox
+    Friend WithEvents cmbUnits As ComboBox
+    Friend WithEvents cmbMoveKinds As ComboBox
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents mskStandby As MaskedTextBox
+    Friend WithEvents Label2 As Label
 End Class
