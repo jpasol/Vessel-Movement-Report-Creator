@@ -22,7 +22,7 @@ Option Explicit On
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
  Global.System.Xml.Serialization.XmlRootAttribute("dsThroughput"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Friend Class dsThroughput
+Partial Public Class dsThroughput
     Inherits Global.System.Data.DataSet
     
     Private tabledtInboundFCL As dtInboundFCLDataTable
@@ -974,7 +974,9 @@ Partial Friend Class dsThroughput
         
         Private columnstandby As Global.System.Data.DataColumn
         
-        Private columnformalities As Global.System.Data.DataColumn
+        Private columnformalities_start As Global.System.Data.DataColumn
+        
+        Private columnformalities_end As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -1213,9 +1215,17 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property formalitiesColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property formalities_startColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnformalities
+                Return Me.columnformalities_start
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property formalities_endColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnformalities_end
             End Get
         End Property
         
@@ -1282,9 +1292,10 @@ Partial Friend Class dsThroughput
                     ByVal OPSmngr As String,  _
                     ByVal OPScnter As String,  _
                     ByVal standby As String,  _
-                    ByVal formalities As String) As dtVesselRow
+                    ByVal formalities_start As String,  _
+                    ByVal formalities_end As String) As dtVesselRow
             Dim rowdtVesselRow As dtVesselRow = CType(Me.NewRow,dtVesselRow)
-            Dim columnValuesArray() As Object = New Object() {Name, Owner, Voyage, Registry, Berth, GangRequest, Overtime, ETA, ATA, ATD, StartWork, FirstDsc, LastDsc, FirstLoad, LastLoad, EndWork, Gangs, RegStaff, Checker1, Checker2, OPSvisor1, OPSvisor2, OPSmngr, OPScnter, standby, formalities}
+            Dim columnValuesArray() As Object = New Object() {Name, Owner, Voyage, Registry, Berth, GangRequest, Overtime, ETA, ATA, ATD, StartWork, FirstDsc, LastDsc, FirstLoad, LastLoad, EndWork, Gangs, RegStaff, Checker1, Checker2, OPSvisor1, OPSvisor2, OPSmngr, OPScnter, standby, formalities_start, formalities_end}
             rowdtVesselRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtVesselRow)
             Return rowdtVesselRow
@@ -1332,7 +1343,8 @@ Partial Friend Class dsThroughput
             Me.columnOPSmngr = MyBase.Columns("OPSmngr")
             Me.columnOPScnter = MyBase.Columns("OPScnter")
             Me.columnstandby = MyBase.Columns("standby")
-            Me.columnformalities = MyBase.Columns("formalities")
+            Me.columnformalities_start = MyBase.Columns("formalities_start")
+            Me.columnformalities_end = MyBase.Columns("formalities_end")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1388,8 +1400,10 @@ Partial Friend Class dsThroughput
             MyBase.Columns.Add(Me.columnOPScnter)
             Me.columnstandby = New Global.System.Data.DataColumn("standby", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstandby)
-            Me.columnformalities = New Global.System.Data.DataColumn("formalities", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnformalities)
+            Me.columnformalities_start = New Global.System.Data.DataColumn("formalities_start", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnformalities_start)
+            Me.columnformalities_end = New Global.System.Data.DataColumn("formalities_end", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnformalities_end)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4371,16 +4385,31 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property formalities() As String
+        Public Property formalities_start() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtVessel.formalitiesColumn),String)
+                    Return CType(Me(Me.tabledtVessel.formalities_startColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'formalities' in table 'dtVessel' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'formalities_start' in table 'dtVessel' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledtVessel.formalitiesColumn) = value
+                Me(Me.tabledtVessel.formalities_startColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property formalities_end() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVessel.formalities_endColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'formalities_end' in table 'dtVessel' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVessel.formalities_endColumn) = value
             End Set
         End Property
         
@@ -4686,14 +4715,26 @@ Partial Friend Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsformalitiesNull() As Boolean
-            Return Me.IsNull(Me.tabledtVessel.formalitiesColumn)
+        Public Function Isformalities_startNull() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.formalities_startColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetformalitiesNull()
-            Me(Me.tabledtVessel.formalitiesColumn) = Global.System.Convert.DBNull
+        Public Sub Setformalities_startNull()
+            Me(Me.tabledtVessel.formalities_startColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Isformalities_endNull() As Boolean
+            Return Me.IsNull(Me.tabledtVessel.formalities_endColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setformalities_endNull()
+            Me(Me.tabledtVessel.formalities_endColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

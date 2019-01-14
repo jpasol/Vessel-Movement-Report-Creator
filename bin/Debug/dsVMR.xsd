@@ -2,7 +2,7 @@
 <xs:schema id="dsThroughput" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="NotPublic" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections />
         <Tables />
         <Sources />
@@ -58,7 +58,8 @@
               <xs:element name="OPSmngr" msprop:Generator_ColumnVarNameInTable="columnOPSmngr" msprop:Generator_ColumnPropNameInRow="OPSmngr" msprop:Generator_ColumnPropNameInTable="OPSmngrColumn" msprop:Generator_UserColumnName="OPSmngr" type="xs:string" minOccurs="0" />
               <xs:element name="OPScnter" msprop:Generator_ColumnVarNameInTable="columnOPScnter" msprop:Generator_ColumnPropNameInRow="OPScnter" msprop:Generator_ColumnPropNameInTable="OPScnterColumn" msprop:Generator_UserColumnName="OPScnter" type="xs:string" minOccurs="0" />
               <xs:element name="standby" msprop:Generator_ColumnVarNameInTable="columnstandby" msprop:Generator_ColumnPropNameInRow="standby" msprop:Generator_ColumnPropNameInTable="standbyColumn" msprop:Generator_UserColumnName="standby" type="xs:string" minOccurs="0" />
-              <xs:element name="formalities" msprop:Generator_ColumnVarNameInTable="columnformalities" msprop:Generator_ColumnPropNameInRow="formalities" msprop:Generator_ColumnPropNameInTable="formalitiesColumn" msprop:Generator_UserColumnName="formalities" type="xs:string" minOccurs="0" />
+              <xs:element name="formalities_start" msprop:Generator_ColumnVarNameInTable="columnformalities_start" msprop:Generator_ColumnPropNameInRow="formalities_start" msprop:Generator_ColumnPropNameInTable="formalities_startColumn" msprop:Generator_UserColumnName="formalities_start" type="xs:string" minOccurs="0" />
+              <xs:element name="formalities_end" msprop:Generator_ColumnVarNameInTable="columnformalities_end" msprop:Generator_ColumnPropNameInRow="formalities_end" msprop:Generator_ColumnPropNameInTable="formalities_endColumn" msprop:Generator_UserColumnName="formalities_end" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
