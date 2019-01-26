@@ -44,13 +44,128 @@ Public Class VMRForm
         clsVMR = New VMRClass(Registry, N4Connection, OPConnection, Username)
         ' Add any initialization after the InitializeComponent() call.
 
+        SetCMUDatasource()
+        SetInboundFCLDatasource()
+        SetInboundMTYDatasource()
+        SetOutboundFCLDatasource()
+        SetOutboundMTYDatasource()
+        AddNavigationButtonHandlers()
+        AddDataGridViewHandlers()
+        AddButtonHandlers()
+        InitializeInputs()
+
+    End Sub
+
+    Private Sub AddButtonHandlers()
+        AddHandler cmdInboundFCL.Click, AddressOf AddLine
+        AddHandler cmdInboundMTY.Click, AddressOf AddLine
+        AddHandler cmdOutboundFCL.Click, AddressOf AddLine
+        AddHandler cmdOutboundMTY.Click, AddressOf AddLine
+    End Sub
+
+    Private Sub AddLine(sender As Object, e As EventArgs)
+        Dim suffix As String = DirectCast(sender, Button).Name.Substring(3)
+        Dim database As String = $"dt{suffix}"
+        Dim temprow As dsThroughput.dtInboundFCLRow 'any table class (INBOUNDFCL, INBOUNDMTY, etc.) is fine
+        temprow = clsVMR.GetvesselMovementReportData.Tables(database).NewRow
+        temprow.line_op = DirectCast(DirectCast(sender, Button).Parent, Control).Controls($"msk{suffix}").Text
+        clsVMR.GetvesselMovementReportData.Tables(database).Rows.Add(temprow)
+    End Sub
+
+    Private Sub SetOutboundMTYDatasource()
+        For Each ctl As Control In tabOutboundMTY.Controls
+            If ctl.GetType Is GetType(DataGridView) Then
+                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtOutboundMTY
+            End If
+        Next
+    End Sub
+
+    Private Sub SetOutboundFCLDatasource()
+        For Each ctl As Control In tabOutboundFCL.Controls
+            If ctl.GetType Is GetType(DataGridView) Then
+                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtOutboundFCL
+            End If
+        Next
+    End Sub
+
+    Private Sub SetInboundMTYDatasource()
+        For Each ctl As Control In tabInboundMTY.Controls
+            If ctl.GetType Is GetType(DataGridView) Then
+                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtInboundMTY
+            End If
+        Next
+    End Sub
+
+    Private Sub SetInboundFCLDatasource()
+        For Each ctl As Control In tabInboundFCL.Controls
+            If ctl.GetType Is GetType(DataGridView) Then
+                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtInboundFCL
+            End If
+        Next
+    End Sub
+
+    Private Sub AddDataGridViewHandlers()
+        AddHandler dgvContainers.UserDeletingRow, AddressOf ConfirmDelete
+        AddHandler dgvGearboxes.UserDeletingRow, AddressOf ConfirmDelete
+        AddHandler dgvHatchcovers.UserDeletingRow, AddressOf ConfirmDelete
+
+        AddHandler dgvContainers.UserDeletedRow, AddressOf PromptDelete
+        AddHandler dgvGearboxes.UserDeletedRow, AddressOf PromptDelete
+        AddHandler dgvHatchcovers.UserDeletedRow, AddressOf PromptDelete
+
+    End Sub
+
+    Private Sub PromptDelete(sender As Object, e As DataGridViewRowEventArgs)
+        clsVMR.GetvesselMovementReportData.dtCMU.AcceptChanges()
+        MsgBox("Successfully Deleted!")
+    End Sub
+
+    Private Sub ConfirmDelete(sender As Object, e As DataGridViewRowCancelEventArgs)
+        Dim result = MsgBox("Continue Deleting Chargeable?", vbYesNo)
+        If result = vbYes Then
+            e.Cancel = False
+        Else
+            e.Cancel = True
+        End If
+
+    End Sub
+
+    Private Sub InitializeInputs()
+        cmbFreight.SelectedIndex = 0
+        cmbMoveKinds.SelectedIndex = 0
+        cmbSizes.SelectedIndex = 0
+        cmbSizesGB.SelectedIndex = 0
+        cmbUnits.SelectedIndex = 0
+    End Sub
+
+    Private Sub AddNavigationButtonHandlers()
+        AddHandler cmdExitPart.Click, AddressOf exitForm
+        AddHandler cmdExitFoot.Click, AddressOf exitForm
+        AddHandler cmdExitTpt.Click, AddressOf exitForm
+        AddHandler cmdExitCMU.Click, AddressOf exitForm
+
+        AddHandler cmdPrevTpt.Click, AddressOf PrevTab
+        AddHandler cmdPrevCMU.Click, AddressOf PrevTab
+        AddHandler cmdPrevFoot.Click, AddressOf PrevTab
+
+        AddHandler cmdNextPart.Click, AddressOf NextTab
+        AddHandler cmdNextPart.Click, AddressOf NextTab
+        AddHandler cmdNextCMU.Click, AddressOf NextTab
+        AddHandler cmdNextFoot.Click, AddressOf NextTab
+    End Sub
+
+    Private Sub SetCMUDatasource()
         dgvCMU.DataSource = clsVMR.GetvesselMovementReportData.dtCMU
 
         gearboxesCMU.Table = dgvCMU.DataSource
         hatchcoversCMU.Table = dgvCMU.DataSource
         containersCMU.Table = dgvCMU.DataSource
 
-        containersCMU.RowFilter = "description not like '%GB%' and description not like '%HC%'"
+        containersCMU.RowFilter = "description Not Like '%GB%' and description not like '%HC%'"
         gearboxesCMU.RowFilter = "description like '%GB%'"
         hatchcoversCMU.RowFilter = "description like '%HC%'"
 
@@ -68,23 +183,8 @@ Public Class VMRForm
             subReport.SetDataSource(clsVMR.GetvesselMovementReportData)
         Next
         CrystalReportViewer1.ReportSource = rptVMR
-
-
-        AddHandler cmdExitPart.Click, AddressOf exitForm
-        AddHandler cmdExitFoot.Click, AddressOf exitForm
-        AddHandler cmdExitTpt.Click, AddressOf exitForm
-        AddHandler cmdExitCMU.Click, AddressOf exitForm
-
-        AddHandler cmdPrevTpt.Click, AddressOf PrevTab
-        AddHandler cmdPrevCMU.Click, AddressOf PrevTab
-        AddHandler cmdPrevFoot.Click, AddressOf PrevTab
-
-        AddHandler cmdNextPart.Click, AddressOf NextTab
-        AddHandler cmdNextPart.Click, AddressOf NextTab
-        AddHandler cmdNextCMU.Click, AddressOf NextTab
-        AddHandler cmdNextFoot.Click, AddressOf NextTab
-
     End Sub
+
     Private gearboxesCMU As New DataView
     Private containersCMU As New DataView
     Private hatchcoversCMU As New DataView
@@ -126,6 +226,7 @@ Public Class VMRForm
         RegisterHotKey(Me.Handle, 1, 0, Keys.F3)
         RegisterHotKey(Me.Handle, 2, 0, Keys.F10)
         RegisterHotKey(Me.Handle, 3, 0, Keys.F11)
+        clsVMR.CreateUnits()
     End Sub
 
     Private Sub tabVMR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabVMR.SelectedIndexChanged
@@ -227,9 +328,16 @@ Public Class VMRForm
             Dim description = $"{mskBoxes.Text}X{cmbSizes.Text}' {cmbUnits.Text} {cmbFreight.Text}"
 
             clsVMR.GetvesselMovementReportData.dtCMU.AdddtCMURow(line, movekind, description)
+            EmptyOutInputs({mskBoxes, cmbSizes, cmbUnits, cmbFreight})
         End If
+
     End Sub
 
+    Private Sub EmptyOutInputs(p() As Object)
+        For Each ctl As Control In p
+            ctl.ResetText()
+        Next
+    End Sub
 
     Private Sub mskGearbox_KeyDown(sender As Object, e As KeyEventArgs) Handles mskGearbox.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -237,7 +345,9 @@ Public Class VMRForm
             Dim description = $"{mskGearbox.Text}X{cmbSizesGB.Text}' GB AT BAY {mskBayGB.Text}"
 
             clsVMR.GetvesselMovementReportData.dtCMU.AdddtCMURow(line, "SVD", description)
+            EmptyOutInputs({mskCharge2, mskGearbox, cmbSizesGB, mskBayGB})
         End If
+
     End Sub
 
     Private Sub mskHatchcovers_KeyDown(sender As Object, e As KeyEventArgs) Handles mskHatchcovers.KeyDown
@@ -269,6 +379,14 @@ Public Class VMRForm
         UnregisterHotKey(Me.Handle, 1)
         UnregisterHotKey(Me.Handle, 2)
         UnregisterHotKey(Me.Handle, 3)
+    End Sub
+
+    Private Sub tabVMR_DrawItem(sender As Object, e As DrawItemEventArgs) Handles tabVMR.DrawItem
+        e.Graphics.FillRectangle(New SolidBrush(Color.FromArgb(255 / (e.Index + 1), 51, 204, 255)), e.Bounds)
+
+        Dim paddedBounds As Rectangle = e.Bounds
+        paddedBounds.Inflate(-2, -2)
+        e.Graphics.DrawString(tabVMR.TabPages(e.Index).Text, tabVMR.TabPages(e.Index).Font, New SolidBrush(Color.Black), paddedBounds)
     End Sub
 
 End Class

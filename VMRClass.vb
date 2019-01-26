@@ -105,14 +105,8 @@ Public Class VMRClass
 
     Public Sub Format(ByRef crReport As Engine.ReportClass) Implements IReportswSave.Format
         Dim tempRow As DataRow
-        Dim Lines() As String
         Dim paramLine As New CrystalDecisions.Shared.ParameterDiscreteValue
-
-        For Each datatable As DataTable In dsVMR.Tables 'REMOVE EVERYTHING EXCEPT dtCMU
-            If datatable.TableName <> "dtCMU" Then
-                datatable.Clear()
-            End If
-        Next
+        dsVMR.Tables("dtVessel").Clear()
 #Region "Create Vessel Details"
         tempRow = dsVMR.Tables("dtVessel").NewRow
         tempRow.ItemArray = vmrDetails
@@ -120,12 +114,28 @@ Public Class VMRClass
             If tempRow(count).ToString.Length = 0 Or
                     IsDBNull(tempRow(count)) Then tempRow(count) = "-"
         Next
-
         dsVMR.Tables("dtVessel").Rows.Add(tempRow)
+
+
 
 #End Region
 #Region "Create Containers"
+        Dim consolidatedDatatable As New DataTable
+        consolidatedDatatable.Merge(dsVMR.dtInboundFCL)
+        consolidatedDatatable.Merge(dsVMR.dtInboundMTY)
+        consolidatedDatatable.Merge(dsVMR.dtOutboundFCL)
+        consolidatedDatatable.Merge(dsVMR.dtOutboundMTY)
+
+        Dim lines As String() = consolidatedDatatable.AsEnumerable.Select(Function(line) line("line_op").ToString).Distinct.ToArray
+        dsVMR.Tables("dtLines").Clear()
+        CreateLines(lines)
+#End Region
+
+    End Sub
+
+    Public Sub CreateUnits()
         '0 = Inbound | 1 = Outbound
+        Dim Lines() As String
         With vmrVessel.Units.Containers
             Lines = .Tables(0).AsEnumerable.Union(.Tables(1).AsEnumerable).Select(Function(line) line("line_op").ToString).Distinct.ToArray
             CreateDT(Lines, .Tables(0), "dtInbound")
@@ -133,13 +143,14 @@ Public Class VMRClass
         End With
 
 
+        CreateLines(Lines)
+    End Sub
 
-#End Region
-        For Each linOP As String In Lines
+    Private Sub CreateLines(lines() As String)
+        For Each linOP As String In lines
             dsVMR.Tables("dtLines").Rows.Add(vmrVessel.Registry, linOP)
         Next
     End Sub
-
 
     Private Sub GetVesselFormalities()
         With craneLogsReport.CraneLogsData.BerthingHourDelays.AsEnumerable.Where(Function(row) row("berthdelay") = "VFM")
@@ -384,7 +395,7 @@ UPDATE [opreports].[dbo].[reports_vmr]
 
 
     End Sub
-    Private Sub addTempDG(Line As String, Category As String, item As String, dgClass As Short, dgRows As DataRow(), dtDG As DataTable)
+    Private Sub addTempDG(Line As String, Category As String, item As String, dgClass As String, dgRows As DataRow(), dtDG As DataTable)
         Dim temprow As DataRow
         Dim ctrtyp As String
         temprow = dtDG.NewRow

@@ -32,5 +32,9 @@
 
         End Sub
 
+        Private Sub dtInboundFCLDataTable_dtInboundFCLRowChanging(sender As Object, e As dtInboundFCLRowChangeEvent) Handles Me.dtInboundFCLRowChanging
+
+        End Sub
+
     End Class
 End Class

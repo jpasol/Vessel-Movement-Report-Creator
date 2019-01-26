@@ -1723,7 +1723,7 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AdddtDGRow(ByVal Item As String, ByVal Line As String, ByVal Size As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As Long, ByVal Dry As Long, ByVal Rfr As Long, ByVal Tnk As Long, ByVal FRk As Long, ByVal Opn As Long) As dtDGRow
+        Public Overloads Function AdddtDGRow(ByVal Item As String, ByVal Line As String, ByVal Size As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As String, ByVal Dry As Long, ByVal Rfr As Long, ByVal Tnk As Long, ByVal FRk As Long, ByVal Opn As Long) As dtDGRow
             Dim rowdtDGRow As dtDGRow = CType(Me.NewRow,dtDGRow)
             Dim columnValuesArray() As Object = New Object() {Item, Line, Size, ISO, Category, _Class, Dry, Rfr, Tnk, FRk, Opn}
             rowdtDGRow.ItemArray = columnValuesArray
@@ -1778,7 +1778,7 @@ Partial Public Class dsThroughput
             MyBase.Columns.Add(Me.columnISO)
             Me.columnCategory = New Global.System.Data.DataColumn("Category", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCategory)
-            Me.columnClass = New Global.System.Data.DataColumn("Class", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnClass = New Global.System.Data.DataColumn("Class", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             Me.columnClass.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ClassColumn")
             Me.columnClass.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnClass")
             Me.columnClass.ExtendedProperties.Add("Generator_UserColumnName", "Class")
@@ -4830,10 +4830,10 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property _Class() As Long
+        Public Property _Class() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledtDG.ClassColumn),Long)
+                    Return CType(Me(Me.tabledtDG.ClassColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'Class' in table 'dtDG' is DBNull.", e)
                 End Try
