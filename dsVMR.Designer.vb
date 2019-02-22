@@ -1541,8 +1541,6 @@ Partial Public Class dsThroughput
     Partial Public Class dtDGDataTable
         Inherits Global.System.Data.TypedTableBase(Of dtDGRow)
         
-        Private columnItem As Global.System.Data.DataColumn
-        
         Private columnLine As Global.System.Data.DataColumn
         
         Private columnSize As Global.System.Data.DataColumn
@@ -1597,14 +1595,6 @@ Partial Public Class dsThroughput
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ItemColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnItem
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -1723,9 +1713,9 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AdddtDGRow(ByVal Item As String, ByVal Line As String, ByVal Size As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As String, ByVal Dry As Long, ByVal Rfr As Long, ByVal Tnk As Long, ByVal FRk As Long, ByVal Opn As Long) As dtDGRow
+        Public Overloads Function AdddtDGRow(ByVal Line As String, ByVal Size As String, ByVal ISO As String, ByVal Category As String, ByVal _Class As String, ByVal Dry As Long, ByVal Rfr As Long, ByVal Tnk As Long, ByVal FRk As Long, ByVal Opn As Long) As dtDGRow
             Dim rowdtDGRow As dtDGRow = CType(Me.NewRow,dtDGRow)
-            Dim columnValuesArray() As Object = New Object() {Item, Line, Size, ISO, Category, _Class, Dry, Rfr, Tnk, FRk, Opn}
+            Dim columnValuesArray() As Object = New Object() {Line, Size, ISO, Category, _Class, Dry, Rfr, Tnk, FRk, Opn}
             rowdtDGRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtDGRow)
             Return rowdtDGRow
@@ -1748,7 +1738,6 @@ Partial Public Class dsThroughput
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnItem = MyBase.Columns("Item")
             Me.columnLine = MyBase.Columns("Line")
             Me.columnSize = MyBase.Columns("Size")
             Me.columnISO = MyBase.Columns("ISO")
@@ -1764,12 +1753,6 @@ Partial Public Class dsThroughput
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnItem = New Global.System.Data.DataColumn("Item", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Item")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ItemColumn")
-            Me.columnItem.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnItem")
-            Me.columnItem.ExtendedProperties.Add("Generator_UserColumnName", "Item")
-            MyBase.Columns.Add(Me.columnItem)
             Me.columnLine = New Global.System.Data.DataColumn("Line", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLine)
             Me.columnSize = New Global.System.Data.DataColumn("Size", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1793,6 +1776,11 @@ Partial Public Class dsThroughput
             MyBase.Columns.Add(Me.columnFRk)
             Me.columnOpn = New Global.System.Data.DataColumn("Opn", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOpn)
+            Me.columnDry.DefaultValue = CType(0,Long)
+            Me.columnRfr.DefaultValue = CType(0,Long)
+            Me.columnTnk.DefaultValue = CType(0,Long)
+            Me.columnFRk.DefaultValue = CType(0,Long)
+            Me.columnOpn.DefaultValue = CType(0,Long)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4755,21 +4743,6 @@ Partial Public Class dsThroughput
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Item() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tabledtDG.ItemColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Item' in table 'dtDG' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabledtDG.ItemColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Line() As String
             Get
                 Try 
@@ -4917,18 +4890,6 @@ Partial Public Class dsThroughput
                 Me(Me.tabledtDG.OpnColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsItemNull() As Boolean
-            Return Me.IsNull(Me.tabledtDG.ItemColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetItemNull()
-            Me(Me.tabledtDG.ItemColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _

@@ -47,3 +47,4 @@ C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Debug\Vessel Movement Report Creator.dll
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Debug\Vessel Movement Report Creator.xml
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Debug\Vessel Movement Report Creator.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\ReportsInterface.dll.config

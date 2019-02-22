@@ -9,7 +9,7 @@ Public Class VMRClass
     Implements IReports.IReportswSave
 
     Sub New(Registry As String, ByRef N4Connection As Connection, ByRef OPConnection As Connection, Username As String)
-        vmrVessel = New Vessel(Registry, N4Connection)
+        vmrVessel = New Vessel(Registry, OPConnection, N4Connection)
 
         connN4 = N4Connection
         connOP = OPConnection
@@ -172,9 +172,9 @@ Public Class VMRClass
                 addContainers(lin, freight, dtUnits, dsVMR.Tables(dtString & freight))
             Next
             If dtString = "dtInbound" Then
-                cat = "Import"
+                cat = "IMPRT"
             ElseIf dtString = "dtOutbound" Then
-                cat = "Export"
+                cat = "EXPRT"
             End If
             addDGContainers(cat, lin, dtUnits, dsVMR.Tables("dtDG"))
         Next
@@ -405,7 +405,7 @@ UPDATE [opreports].[dbo].[reports_vmr]
             .Item("ISO") = "N/A"
             .Item("Size") = item
             .Item("Class") = dgClass
-            For count As Integer = 6 To dtDG.Columns.Count - 1
+            For count As Integer = 5 To dtDG.Columns.Count - 1
                 ctrtyp = dtDG.Columns(count).ColumnName
                 .Item(count) = (From rows In dgRows.AsEnumerable
                                 Where rows("ctrTyp").ToString = ctrtyp And
@@ -424,10 +424,113 @@ UPDATE [opreports].[dbo].[reports_vmr]
         Try
             Dim refkey As Integer = SaveVMR() 'getRefkey when saving vmr
             SaveCMU(refkey)
+            SaveDG(refkey)
+            SaveUnits(refkey)
         Catch ex As Exception
             Throw ex
         End Try
     End Sub
+
+    Private Sub SaveDG(refkey As Integer)
+        For Each row As dsThroughput.dtDGRow In dsVMR.dtDG
+            Dim saveDG As New ADODB.Command
+            saveDG.ActiveConnection = OPConnection
+            saveDG.CommandText = $"
+INSERT INTO [opreports].[dbo].[vmr_dg]
+           ([vmr_refkey] 
+           ,[line_op]
+           ,[cntsze]
+           ,[ISO]
+           ,[category]
+           ,[class]
+           ,[Dry]
+           ,[Rfr]
+           ,[Tnk]
+           ,[FRk]
+           ,[Opn])
+     VALUES
+           ({refkey}
+           ,'{row.Line}'
+           ,{row.Size}
+           ,'{row.ISO}'
+           ,'{row.Category}'
+           ,'{row._Class}'
+           ,{row.Dry}
+           ,{row.Rfr}
+           ,{row.Tnk}
+           ,{row.FRk}
+           ,{row.Opn}
+)
+"
+            saveDG.Execute()
+        Next
+
+    End Sub
+
+    Private Sub SaveUnits(refkey As Integer)
+        Dim bounds() As String = {"Inbound", "Outbound"}
+        Dim freightKinds() As String = {"FCL", "MTY"}
+
+        For Each bound As String In bounds
+            For Each freightKind In freightKinds
+                InsertToDatabase(bound, freightKind, refkey)
+            Next
+        Next
+    End Sub
+
+    Private Sub InsertToDatabase(bound As String, freightKind As String, refkey As Integer)
+        Dim units As DataTable = dsVMR.Tables($"dt{bound}{freightKind}")
+        Dim category As String
+        Select Case bound
+            Case "Inbound"
+                category = "IMPRT"
+            Case "Outbound"
+                category = "EXPRT"
+        End Select
+
+        For Each row As DataRow In units.Rows
+
+            Dim unitsInserter As New ADODB.Command
+            unitsInserter.ActiveConnection = OPConnection
+            unitsInserter.CommandText = $"
+INSERT INTO [opreports].[dbo].[vmr_units]
+           ([vmr_refkey]
+           ,[registry]
+           ,[line_op]
+           ,[category]
+           ,[freight_kind]
+           ,[Dry20]
+           ,[Dry40]
+           ,[Dry45]
+           ,[Rfr20]
+           ,[Rfr40]
+           ,[FRk20]
+           ,[FRk40]
+           ,[Tnk20]
+           ,[Opn20]
+           ,[Opn40])
+     VALUES
+           ({refkey}
+           ,'{vmrVessel.Registry}'
+           ,'{row("line_op")}'
+           ,'{category}'
+           ,'{freightKind}'
+           ,{row("Dry20")}
+           ,{row("Dry40")}
+           ,{row("Dry45")}
+           ,{row("Rfr20")}
+           ,{row("Rfr40")}
+           ,{row("FRk20")}
+           ,{row("FRK40")}
+           ,{row("Tnk20")}
+           ,{row("Opn20")}
+           ,{row("Opn40")}
+  )
+"
+            unitsInserter.Execute()
+        Next
+    End Sub
+
 
     Private Function SaveVMR() As Integer
         Try
@@ -501,7 +604,7 @@ INSERT INTO [opreports].[dbo].[reports_vmr]
         Catch ex As Exception
             MsgBox("Error Saving VMR" & vbNewLine &
                "Error Description: " & ex.Message)
-        Throw ex
+            Throw ex
         End Try
     End Function
 
@@ -558,6 +661,74 @@ SELECT [line] as Line
     Private Sub RetrieveBySavedData()
         RetrieveVMR()
         RetrieveCMU(Refkey)
+        RetrieveDG(Refkey)
+        RetrieveSavedUnits()
+    End Sub
+
+    Private Sub RetrieveDG(refkey As Integer)
+        OPConnection.Open()
+        Dim dgContainers As New ADODB.Command
+        dgContainers.ActiveConnection = OPConnection
+        dgContainers.CommandText = $"
+SELECT [line_op] as 'Line'
+      ,[cntsze] as 'Size'
+      ,[ISO]
+      ,[category] as 'Category'
+      ,[class] as 'Class'
+      ,[Dry]
+      ,[Rfr]
+      ,[Tnk]
+      ,[FRk]
+      ,[Opn]
+  FROM [opreports].[dbo].[vmr_dg]
+	Where vmr_refkey = {refkey}
+"
+        Dim tempContainers As ADODB.Recordset = dgContainers.Execute
+        Dim adapter As New OleDb.OleDbDataAdapter
+        adapter.Fill(dsVMR.dtDG, tempContainers)
+        OPConnection.Close()
+    End Sub
+
+    Private Sub RetrieveSavedUnits()
+        Dim bounds() As String = {"Inbound", "Outbound"}
+        Dim freightKinds() As String = {"FCL", "MTY"}
+
+        For Each bound In bounds
+            For Each freight In freightKinds
+                FillUnits(bound, freight)
+            Next
+        Next
+    End Sub
+
+    Private Sub FillUnits(bound As String, freight As String)
+        OPConnection.Open()
+        Dim category As String
+        Select Case bound
+            Case "Inbound"
+                category = "IMPRT"
+            Case "Outbound"
+                category = "EXPRT"
+        End Select
+        Dim unitRetriever As New ADODB.Command
+        unitRetriever.ActiveConnection = OPConnection
+        unitRetriever.CommandText = $"
+SELECT [registry]
+      ,[line_op]
+      ,[Dry20]
+      ,[Dry40]
+      ,[Dry45]
+      ,[Rfr20]
+      ,[Rfr40]
+      ,[FRk20]
+      ,[FRk40]
+      ,[Tnk20]
+      ,[Opn20]
+      ,[Opn40]
+  FROM [opreports].[dbo].[vmr_units] where category = '{category}' and freight_kind = '{freight}' and vmr_refkey = {Refkey}
+"
+        Dim adapter As New OleDb.OleDbDataAdapter
+        adapter.Fill(dsVMR.Tables($"dt{bound}{freight}"), unitRetriever.Execute)
+        OPConnection.Close()
     End Sub
 
     Private Sub RetrieveVMR()
@@ -625,10 +796,16 @@ Options:=CommandTypeEnum.adCmdText)
             End If
             vmrDetails(VslInfo.registry) = .Registry
             vmrDetails(VslInfo.berth) = .BerthWindow
+            vmrDetails(VslInfo.SLGang) = getMilTime(.SLGangRequest)
+            vmrDetails(VslInfo.ovt_req) = getMilTime(.OvertimeRequired)
+            vmrDetails(VslInfo.eta) = getMilTime(.ETA)
             vmrDetails(VslInfo.ata) = getMilTime(.ATA)
             vmrDetails(VslInfo.atd) = getMilTime(.ATD)
             vmrDetails(VslInfo.start_work) = getMilTime(.StartWork)
+            vmrDetails(VslInfo.frstcnt_dsc) = getMilTime(.FirstContainerDischarged)
             vmrDetails(VslInfo.lstcnt_dsc) = getMilTime(.LastContainerDischarged)
+            vmrDetails(VslInfo.frstcnt_load) = getMilTime(.FirstContainerLoaded)
+            vmrDetails(VslInfo.lstcnt_load) = getMilTime(.LastContainerLoaded)
             vmrDetails(VslInfo.end_work) = getMilTime(.EndWork)
         End With
     End Sub

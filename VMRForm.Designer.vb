@@ -262,6 +262,7 @@ Partial Class VMRForm
         Me.cmdExitFoot = New System.Windows.Forms.Button()
         Me.tabPreview = New System.Windows.Forms.TabPage()
         Me.cmdSave = New System.Windows.Forms.Button()
+        Me.cmdPrint = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
@@ -367,7 +368,7 @@ Partial Class VMRForm
         Me.mskFormEnd.Mask = "0000H 00/00/0000"
         Me.mskFormEnd.Name = "mskFormEnd"
         Me.mskFormEnd.Size = New System.Drawing.Size(205, 27)
-        Me.mskFormEnd.TabIndex = 102
+        Me.mskFormEnd.TabIndex = 12
         '
         'Label6
         '
@@ -384,7 +385,7 @@ Partial Class VMRForm
         Me.mskFormStart.Mask = "0000H 00/00/0000"
         Me.mskFormStart.Name = "mskFormStart"
         Me.mskFormStart.Size = New System.Drawing.Size(205, 27)
-        Me.mskFormStart.TabIndex = 100
+        Me.mskFormStart.TabIndex = 11
         '
         'Label5
         '
@@ -401,7 +402,7 @@ Partial Class VMRForm
         Me.mskPrincipal.Mask = "AAA"
         Me.mskPrincipal.Name = "mskPrincipal"
         Me.mskPrincipal.Size = New System.Drawing.Size(98, 27)
-        Me.mskPrincipal.TabIndex = 98
+        Me.mskPrincipal.TabIndex = 2
         '
         'Label4
         '
@@ -418,7 +419,7 @@ Partial Class VMRForm
         Me.mskATD.Mask = "0000H 00/00/0000"
         Me.mskATD.Name = "mskATD"
         Me.mskATD.Size = New System.Drawing.Size(205, 27)
-        Me.mskATD.TabIndex = 92
+        Me.mskATD.TabIndex = 10
         '
         'Label1
         '
@@ -435,7 +436,7 @@ Partial Class VMRForm
         Me.mskATA.Mask = "0000H 00/00/0000"
         Me.mskATA.Name = "mskATA"
         Me.mskATA.Size = New System.Drawing.Size(205, 27)
-        Me.mskATA.TabIndex = 18
+        Me.mskATA.TabIndex = 9
         '
         'lblATA
         '
@@ -452,7 +453,7 @@ Partial Class VMRForm
         Me.mskETA.Mask = "0000H 00/00/0000"
         Me.mskETA.Name = "mskETA"
         Me.mskETA.Size = New System.Drawing.Size(205, 27)
-        Me.mskETA.TabIndex = 16
+        Me.mskETA.TabIndex = 8
         Me.mskETA.ValidatingType = GetType(Date)
         '
         'lblETA
@@ -470,7 +471,7 @@ Partial Class VMRForm
         Me.mskOvertime.Mask = "0000H 00/00/0000"
         Me.mskOvertime.Name = "mskOvertime"
         Me.mskOvertime.Size = New System.Drawing.Size(205, 27)
-        Me.mskOvertime.TabIndex = 14
+        Me.mskOvertime.TabIndex = 7
         '
         'mskSLGang
         '
@@ -478,35 +479,35 @@ Partial Class VMRForm
         Me.mskSLGang.Mask = "0000H 00/00/0000"
         Me.mskSLGang.Name = "mskSLGang"
         Me.mskSLGang.Size = New System.Drawing.Size(205, 27)
-        Me.mskSLGang.TabIndex = 13
+        Me.mskSLGang.TabIndex = 6
         '
         'mskPier
         '
         Me.mskPier.Location = New System.Drawing.Point(284, 321)
         Me.mskPier.Name = "mskPier"
         Me.mskPier.Size = New System.Drawing.Size(188, 27)
-        Me.mskPier.TabIndex = 12
+        Me.mskPier.TabIndex = 5
         '
         'mskRegistry
         '
         Me.mskRegistry.Location = New System.Drawing.Point(283, 246)
         Me.mskRegistry.Name = "mskRegistry"
         Me.mskRegistry.Size = New System.Drawing.Size(194, 27)
-        Me.mskRegistry.TabIndex = 11
+        Me.mskRegistry.TabIndex = 4
         '
         'mskVoyage
         '
         Me.mskVoyage.Location = New System.Drawing.Point(278, 171)
         Me.mskVoyage.Name = "mskVoyage"
         Me.mskVoyage.Size = New System.Drawing.Size(194, 27)
-        Me.mskVoyage.TabIndex = 10
+        Me.mskVoyage.TabIndex = 3
         '
         'mskVessel
         '
         Me.mskVessel.Location = New System.Drawing.Point(255, 96)
         Me.mskVessel.Name = "mskVessel"
         Me.mskVessel.Size = New System.Drawing.Size(535, 27)
-        Me.mskVessel.TabIndex = 9
+        Me.mskVessel.TabIndex = 1
         '
         'lblOvertime
         '
@@ -567,7 +568,7 @@ Partial Class VMRForm
         Me.cmdNextPart.Location = New System.Drawing.Point(1100, 569)
         Me.cmdNextPart.Name = "cmdNextPart"
         Me.cmdNextPart.Size = New System.Drawing.Size(164, 43)
-        Me.cmdNextPart.TabIndex = 2
+        Me.cmdNextPart.TabIndex = 99
         Me.cmdNextPart.Text = "Next (F11)"
         Me.cmdNextPart.UseVisualStyleBackColor = True
         '
@@ -576,7 +577,7 @@ Partial Class VMRForm
         Me.cmdExitPart.Location = New System.Drawing.Point(62, 569)
         Me.cmdExitPart.Name = "cmdExitPart"
         Me.cmdExitPart.Size = New System.Drawing.Size(164, 43)
-        Me.cmdExitPart.TabIndex = 0
+        Me.cmdExitPart.TabIndex = 99
         Me.cmdExitPart.Text = "Exit (F3)"
         Me.cmdExitPart.UseVisualStyleBackColor = True
         '
@@ -619,7 +620,7 @@ Partial Class VMRForm
         Me.mskStandby.Mask = "0000H 00/00/0000"
         Me.mskStandby.Name = "mskStandby"
         Me.mskStandby.Size = New System.Drawing.Size(205, 27)
-        Me.mskStandby.TabIndex = 102
+        Me.mskStandby.TabIndex = 6
         '
         'Label2
         '
@@ -636,7 +637,7 @@ Partial Class VMRForm
         Me.mskLastLoaded.Mask = "0000H 00/00/0000"
         Me.mskLastLoaded.Name = "mskLastLoaded"
         Me.mskLastLoaded.Size = New System.Drawing.Size(205, 27)
-        Me.mskLastLoaded.TabIndex = 100
+        Me.mskLastLoaded.TabIndex = 5
         '
         'lblLastLoaded
         '
@@ -653,7 +654,7 @@ Partial Class VMRForm
         Me.mskFirstLoaded.Mask = "0000H 00/00/0000"
         Me.mskFirstLoaded.Name = "mskFirstLoaded"
         Me.mskFirstLoaded.Size = New System.Drawing.Size(205, 27)
-        Me.mskFirstLoaded.TabIndex = 98
+        Me.mskFirstLoaded.TabIndex = 4
         '
         'lblFirstLoaded
         '
@@ -670,7 +671,7 @@ Partial Class VMRForm
         Me.mskLastDischarged.Mask = "0000H 00/00/0000"
         Me.mskLastDischarged.Name = "mskLastDischarged"
         Me.mskLastDischarged.Size = New System.Drawing.Size(205, 27)
-        Me.mskLastDischarged.TabIndex = 96
+        Me.mskLastDischarged.TabIndex = 3
         '
         'lblLastDischarged
         '
@@ -687,7 +688,7 @@ Partial Class VMRForm
         Me.mskFirstDischarged.Mask = "0000H 00/00/0000"
         Me.mskFirstDischarged.Name = "mskFirstDischarged"
         Me.mskFirstDischarged.Size = New System.Drawing.Size(205, 27)
-        Me.mskFirstDischarged.TabIndex = 94
+        Me.mskFirstDischarged.TabIndex = 2
         '
         'lblFirstDischarged
         '
@@ -704,7 +705,7 @@ Partial Class VMRForm
         Me.mskOpCommenced.Mask = "0000H 00/00/0000"
         Me.mskOpCommenced.Name = "mskOpCommenced"
         Me.mskOpCommenced.Size = New System.Drawing.Size(205, 27)
-        Me.mskOpCommenced.TabIndex = 92
+        Me.mskOpCommenced.TabIndex = 1
         '
         'lblOpCommenced
         '
@@ -721,7 +722,7 @@ Partial Class VMRForm
         Me.mskTimeComplete.Mask = "0000H"
         Me.mskTimeComplete.Name = "mskTimeComplete"
         Me.mskTimeComplete.Size = New System.Drawing.Size(205, 27)
-        Me.mskTimeComplete.TabIndex = 88
+        Me.mskTimeComplete.TabIndex = 10
         '
         'lblTimeComplete
         '
@@ -738,7 +739,7 @@ Partial Class VMRForm
         Me.mskDateComplete.Mask = "00/00/0000"
         Me.mskDateComplete.Name = "mskDateComplete"
         Me.mskDateComplete.Size = New System.Drawing.Size(205, 27)
-        Me.mskDateComplete.TabIndex = 86
+        Me.mskDateComplete.TabIndex = 9
         '
         'lblDateComplete
         '
@@ -754,7 +755,7 @@ Partial Class VMRForm
         Me.mskRegulars.Location = New System.Drawing.Point(902, 173)
         Me.mskRegulars.Name = "mskRegulars"
         Me.mskRegulars.Size = New System.Drawing.Size(205, 27)
-        Me.mskRegulars.TabIndex = 82
+        Me.mskRegulars.TabIndex = 8
         '
         'lblRegulars
         '
@@ -772,7 +773,7 @@ Partial Class VMRForm
         Me.mskOnCallSV.Mask = "00\ \G\A\N\G"
         Me.mskOnCallSV.Name = "mskOnCallSV"
         Me.mskOnCallSV.Size = New System.Drawing.Size(205, 27)
-        Me.mskOnCallSV.TabIndex = 80
+        Me.mskOnCallSV.TabIndex = 7
         Me.mskOnCallSV.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         '
         'lblOnCallSV
@@ -789,7 +790,7 @@ Partial Class VMRForm
         Me.cmdNextTpt.Location = New System.Drawing.Point(1100, 569)
         Me.cmdNextTpt.Name = "cmdNextTpt"
         Me.cmdNextTpt.Size = New System.Drawing.Size(164, 43)
-        Me.cmdNextTpt.TabIndex = 5
+        Me.cmdNextTpt.TabIndex = 99
         Me.cmdNextTpt.Text = "Next (F11)"
         Me.cmdNextTpt.UseVisualStyleBackColor = True
         '
@@ -798,7 +799,7 @@ Partial Class VMRForm
         Me.cmdPrevTpt.Location = New System.Drawing.Point(930, 569)
         Me.cmdPrevTpt.Name = "cmdPrevTpt"
         Me.cmdPrevTpt.Size = New System.Drawing.Size(164, 43)
-        Me.cmdPrevTpt.TabIndex = 4
+        Me.cmdPrevTpt.TabIndex = 99
         Me.cmdPrevTpt.Text = "Prev (F10)"
         Me.cmdPrevTpt.UseVisualStyleBackColor = True
         '
@@ -807,7 +808,7 @@ Partial Class VMRForm
         Me.cmdExitTpt.Location = New System.Drawing.Point(62, 569)
         Me.cmdExitTpt.Name = "cmdExitTpt"
         Me.cmdExitTpt.Size = New System.Drawing.Size(164, 43)
-        Me.cmdExitTpt.TabIndex = 3
+        Me.cmdExitTpt.TabIndex = 99
         Me.cmdExitTpt.Text = "Exit (F3)"
         Me.cmdExitTpt.UseVisualStyleBackColor = True
         '
@@ -1340,7 +1341,7 @@ Partial Class VMRForm
         Me.cmdInboundMTY.Location = New System.Drawing.Point(640, 69)
         Me.cmdInboundMTY.Name = "cmdInboundMTY"
         Me.cmdInboundMTY.Size = New System.Drawing.Size(108, 38)
-        Me.cmdInboundMTY.TabIndex = 19
+        Me.cmdInboundMTY.TabIndex = 2
         Me.cmdInboundMTY.Text = "Add Line"
         Me.cmdInboundMTY.UseVisualStyleBackColor = True
         '
@@ -1350,7 +1351,7 @@ Partial Class VMRForm
         Me.mskInboundMTY.Mask = "AAA"
         Me.mskInboundMTY.Name = "mskInboundMTY"
         Me.mskInboundMTY.Size = New System.Drawing.Size(100, 27)
-        Me.mskInboundMTY.TabIndex = 18
+        Me.mskInboundMTY.TabIndex = 1
         '
         'Label30
         '
@@ -1869,7 +1870,7 @@ Partial Class VMRForm
         Me.cmdOutboundMTY.Location = New System.Drawing.Point(640, 69)
         Me.cmdOutboundMTY.Name = "cmdOutboundMTY"
         Me.cmdOutboundMTY.Size = New System.Drawing.Size(108, 38)
-        Me.cmdOutboundMTY.TabIndex = 19
+        Me.cmdOutboundMTY.TabIndex = 2
         Me.cmdOutboundMTY.Text = "Add Line"
         Me.cmdOutboundMTY.UseVisualStyleBackColor = True
         '
@@ -1879,7 +1880,7 @@ Partial Class VMRForm
         Me.mskOutboundMTY.Mask = "AAA"
         Me.mskOutboundMTY.Name = "mskOutboundMTY"
         Me.mskOutboundMTY.Size = New System.Drawing.Size(100, 27)
-        Me.mskOutboundMTY.TabIndex = 18
+        Me.mskOutboundMTY.TabIndex = 1
         '
         'Label42
         '
@@ -1902,7 +1903,7 @@ Partial Class VMRForm
         Me.tabCMU.Padding = New System.Windows.Forms.Padding(3)
         Me.tabCMU.Size = New System.Drawing.Size(1318, 672)
         Me.tabCMU.TabIndex = 6
-        Me.tabCMU.Text = "CMU"
+        Me.tabCMU.Text = "Chargeables"
         Me.tabCMU.UseVisualStyleBackColor = True
         '
         'cmdNextCMU
@@ -1910,7 +1911,7 @@ Partial Class VMRForm
         Me.cmdNextCMU.Location = New System.Drawing.Point(1100, 569)
         Me.cmdNextCMU.Name = "cmdNextCMU"
         Me.cmdNextCMU.Size = New System.Drawing.Size(164, 43)
-        Me.cmdNextCMU.TabIndex = 8
+        Me.cmdNextCMU.TabIndex = 99
         Me.cmdNextCMU.Text = "Next (F11)"
         Me.cmdNextCMU.UseVisualStyleBackColor = True
         '
@@ -1919,7 +1920,7 @@ Partial Class VMRForm
         Me.cmdPrevCMU.Location = New System.Drawing.Point(930, 569)
         Me.cmdPrevCMU.Name = "cmdPrevCMU"
         Me.cmdPrevCMU.Size = New System.Drawing.Size(164, 43)
-        Me.cmdPrevCMU.TabIndex = 7
+        Me.cmdPrevCMU.TabIndex = 99
         Me.cmdPrevCMU.Text = "Prev (F10)"
         Me.cmdPrevCMU.UseVisualStyleBackColor = True
         '
@@ -1928,7 +1929,7 @@ Partial Class VMRForm
         Me.cmdExitCMU.Location = New System.Drawing.Point(62, 569)
         Me.cmdExitCMU.Name = "cmdExitCMU"
         Me.cmdExitCMU.Size = New System.Drawing.Size(164, 43)
-        Me.cmdExitCMU.TabIndex = 6
+        Me.cmdExitCMU.TabIndex = 99
         Me.cmdExitCMU.Text = "Exit (F3)"
         Me.cmdExitCMU.UseVisualStyleBackColor = True
         '
@@ -2017,7 +2018,7 @@ Partial Class VMRForm
         Me.mskOwner.Mask = "AAA"
         Me.mskOwner.Name = "mskOwner"
         Me.mskOwner.Size = New System.Drawing.Size(98, 27)
-        Me.mskOwner.TabIndex = 96
+        Me.mskOwner.TabIndex = 1
         '
         'Label3
         '
@@ -2068,7 +2069,7 @@ Partial Class VMRForm
         Me.mskBoxes.Location = New System.Drawing.Point(1027, 51)
         Me.mskBoxes.Name = "mskBoxes"
         Me.mskBoxes.Size = New System.Drawing.Size(100, 27)
-        Me.mskBoxes.TabIndex = 5
+        Me.mskBoxes.TabIndex = 6
         '
         'cmbSizes
         '
@@ -2078,7 +2079,7 @@ Partial Class VMRForm
         Me.cmbSizes.Location = New System.Drawing.Point(900, 51)
         Me.cmbSizes.Name = "cmbSizes"
         Me.cmbSizes.Size = New System.Drawing.Size(121, 28)
-        Me.cmbSizes.TabIndex = 4
+        Me.cmbSizes.TabIndex = 5
         '
         'cmbFreight
         '
@@ -2088,7 +2089,7 @@ Partial Class VMRForm
         Me.cmbFreight.Location = New System.Drawing.Point(773, 51)
         Me.cmbFreight.Name = "cmbFreight"
         Me.cmbFreight.Size = New System.Drawing.Size(121, 28)
-        Me.cmbFreight.TabIndex = 3
+        Me.cmbFreight.TabIndex = 4
         '
         'cmbUnits
         '
@@ -2098,7 +2099,7 @@ Partial Class VMRForm
         Me.cmbUnits.Location = New System.Drawing.Point(552, 51)
         Me.cmbUnits.Name = "cmbUnits"
         Me.cmbUnits.Size = New System.Drawing.Size(215, 28)
-        Me.cmbUnits.TabIndex = 2
+        Me.cmbUnits.TabIndex = 3
         '
         'cmbMoveKinds
         '
@@ -2108,7 +2109,7 @@ Partial Class VMRForm
         Me.cmbMoveKinds.Location = New System.Drawing.Point(425, 51)
         Me.cmbMoveKinds.Name = "cmbMoveKinds"
         Me.cmbMoveKinds.Size = New System.Drawing.Size(121, 28)
-        Me.cmbMoveKinds.TabIndex = 1
+        Me.cmbMoveKinds.TabIndex = 2
         '
         'TabPage2
         '
@@ -2161,7 +2162,7 @@ Partial Class VMRForm
         Me.mskBayGB.Location = New System.Drawing.Point(744, 52)
         Me.mskBayGB.Name = "mskBayGB"
         Me.mskBayGB.Size = New System.Drawing.Size(100, 27)
-        Me.mskBayGB.TabIndex = 105
+        Me.mskBayGB.TabIndex = 3
         '
         'cmbSizesGB
         '
@@ -2171,7 +2172,7 @@ Partial Class VMRForm
         Me.cmbSizesGB.Location = New System.Drawing.Point(617, 52)
         Me.cmbSizesGB.Name = "cmbSizesGB"
         Me.cmbSizesGB.Size = New System.Drawing.Size(121, 28)
-        Me.cmbSizesGB.TabIndex = 104
+        Me.cmbSizesGB.TabIndex = 2
         '
         'mskCharge2
         '
@@ -2179,7 +2180,7 @@ Partial Class VMRForm
         Me.mskCharge2.Mask = "AAA"
         Me.mskCharge2.Name = "mskCharge2"
         Me.mskCharge2.Size = New System.Drawing.Size(98, 27)
-        Me.mskCharge2.TabIndex = 103
+        Me.mskCharge2.TabIndex = 1
         '
         'Label7
         '
@@ -2195,7 +2196,7 @@ Partial Class VMRForm
         Me.mskGearbox.Location = New System.Drawing.Point(850, 52)
         Me.mskGearbox.Name = "mskGearbox"
         Me.mskGearbox.Size = New System.Drawing.Size(100, 27)
-        Me.mskGearbox.TabIndex = 101
+        Me.mskGearbox.TabIndex = 4
         '
         'dgvGearboxes
         '
@@ -2272,7 +2273,7 @@ Partial Class VMRForm
         Me.mskBayHC.Location = New System.Drawing.Point(720, 52)
         Me.mskBayHC.Name = "mskBayHC"
         Me.mskBayHC.Size = New System.Drawing.Size(100, 27)
-        Me.mskBayHC.TabIndex = 104
+        Me.mskBayHC.TabIndex = 2
         '
         'mskCharge3
         '
@@ -2280,7 +2281,7 @@ Partial Class VMRForm
         Me.mskCharge3.Mask = "AAA"
         Me.mskCharge3.Name = "mskCharge3"
         Me.mskCharge3.Size = New System.Drawing.Size(98, 27)
-        Me.mskCharge3.TabIndex = 103
+        Me.mskCharge3.TabIndex = 1
         '
         'Label8
         '
@@ -2296,7 +2297,7 @@ Partial Class VMRForm
         Me.mskHatchcovers.Location = New System.Drawing.Point(826, 52)
         Me.mskHatchcovers.Name = "mskHatchcovers"
         Me.mskHatchcovers.Size = New System.Drawing.Size(100, 27)
-        Me.mskHatchcovers.TabIndex = 101
+        Me.mskHatchcovers.TabIndex = 3
         '
         'dgvHatchcovers
         '
@@ -2389,7 +2390,7 @@ Partial Class VMRForm
         Me.tabFooters.Padding = New System.Windows.Forms.Padding(3)
         Me.tabFooters.Size = New System.Drawing.Size(1318, 672)
         Me.tabFooters.TabIndex = 4
-        Me.tabFooters.Text = "Footers"
+        Me.tabFooters.Text = "Signature"
         Me.tabFooters.UseVisualStyleBackColor = True
         '
         'mskVisor1
@@ -2397,21 +2398,21 @@ Partial Class VMRForm
         Me.mskVisor1.Location = New System.Drawing.Point(811, 107)
         Me.mskVisor1.Name = "mskVisor1"
         Me.mskVisor1.Size = New System.Drawing.Size(390, 27)
-        Me.mskVisor1.TabIndex = 56
+        Me.mskVisor1.TabIndex = 3
         '
         'mskChecker1
         '
         Me.mskChecker1.Location = New System.Drawing.Point(117, 107)
         Me.mskChecker1.Name = "mskChecker1"
         Me.mskChecker1.Size = New System.Drawing.Size(390, 27)
-        Me.mskChecker1.TabIndex = 55
+        Me.mskChecker1.TabIndex = 1
         '
         'mskOPCenter
         '
         Me.mskOPCenter.Location = New System.Drawing.Point(458, 365)
         Me.mskOPCenter.Name = "mskOPCenter"
         Me.mskOPCenter.Size = New System.Drawing.Size(390, 27)
-        Me.mskOPCenter.TabIndex = 54
+        Me.mskOPCenter.TabIndex = 6
         '
         'lblOPCenter
         '
@@ -2427,7 +2428,7 @@ Partial Class VMRForm
         Me.mskAsstOP.Location = New System.Drawing.Point(458, 276)
         Me.mskAsstOP.Name = "mskAsstOP"
         Me.mskAsstOP.Size = New System.Drawing.Size(390, 27)
-        Me.mskAsstOP.TabIndex = 48
+        Me.mskAsstOP.TabIndex = 5
         '
         'lblAsstOP
         '
@@ -2443,7 +2444,7 @@ Partial Class VMRForm
         Me.mskVisor2.Location = New System.Drawing.Point(811, 151)
         Me.mskVisor2.Name = "mskVisor2"
         Me.mskVisor2.Size = New System.Drawing.Size(390, 27)
-        Me.mskVisor2.TabIndex = 46
+        Me.mskVisor2.TabIndex = 4
         '
         'lblSupervisor
         '
@@ -2459,7 +2460,7 @@ Partial Class VMRForm
         Me.mskChecker2.Location = New System.Drawing.Point(117, 151)
         Me.mskChecker2.Name = "mskChecker2"
         Me.mskChecker2.Size = New System.Drawing.Size(390, 27)
-        Me.mskChecker2.TabIndex = 44
+        Me.mskChecker2.TabIndex = 2
         '
         'lblChecker
         '
@@ -2475,7 +2476,7 @@ Partial Class VMRForm
         Me.cmdNextFoot.Location = New System.Drawing.Point(1100, 569)
         Me.cmdNextFoot.Name = "cmdNextFoot"
         Me.cmdNextFoot.Size = New System.Drawing.Size(164, 43)
-        Me.cmdNextFoot.TabIndex = 5
+        Me.cmdNextFoot.TabIndex = 99
         Me.cmdNextFoot.Text = "Next (F11)"
         Me.cmdNextFoot.UseVisualStyleBackColor = True
         '
@@ -2484,7 +2485,7 @@ Partial Class VMRForm
         Me.cmdPrevFoot.Location = New System.Drawing.Point(930, 569)
         Me.cmdPrevFoot.Name = "cmdPrevFoot"
         Me.cmdPrevFoot.Size = New System.Drawing.Size(164, 43)
-        Me.cmdPrevFoot.TabIndex = 4
+        Me.cmdPrevFoot.TabIndex = 99
         Me.cmdPrevFoot.Text = "Prev (F10)"
         Me.cmdPrevFoot.UseVisualStyleBackColor = True
         '
@@ -2493,13 +2494,14 @@ Partial Class VMRForm
         Me.cmdExitFoot.Location = New System.Drawing.Point(62, 569)
         Me.cmdExitFoot.Name = "cmdExitFoot"
         Me.cmdExitFoot.Size = New System.Drawing.Size(164, 43)
-        Me.cmdExitFoot.TabIndex = 3
+        Me.cmdExitFoot.TabIndex = 99
         Me.cmdExitFoot.Text = "Exit (F3)"
         Me.cmdExitFoot.UseVisualStyleBackColor = True
         '
         'tabPreview
         '
         Me.tabPreview.Controls.Add(Me.cmdSave)
+        Me.tabPreview.Controls.Add(Me.cmdPrint)
         Me.tabPreview.Controls.Add(Me.CrystalReportViewer1)
         Me.tabPreview.Location = New System.Drawing.Point(4, 29)
         Me.tabPreview.Name = "tabPreview"
@@ -2511,12 +2513,21 @@ Partial Class VMRForm
         '
         'cmdSave
         '
-        Me.cmdSave.Location = New System.Drawing.Point(1100, 569)
+        Me.cmdSave.Location = New System.Drawing.Point(1100, 520)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(164, 43)
-        Me.cmdSave.TabIndex = 1
-        Me.cmdSave.Text = "Save | Print"
+        Me.cmdSave.TabIndex = 2
+        Me.cmdSave.Text = "Save"
         Me.cmdSave.UseVisualStyleBackColor = True
+        '
+        'cmdPrint
+        '
+        Me.cmdPrint.Location = New System.Drawing.Point(1100, 569)
+        Me.cmdPrint.Name = "cmdPrint"
+        Me.cmdPrint.Size = New System.Drawing.Size(164, 43)
+        Me.cmdPrint.TabIndex = 1
+        Me.cmdPrint.Text = "Print"
+        Me.cmdPrint.UseVisualStyleBackColor = True
         '
         'CrystalReportViewer1
         '
@@ -2634,7 +2645,7 @@ Partial Class VMRForm
     Friend WithEvents lblChecker As Label
     Friend WithEvents tabPreview As TabPage
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents cmdSave As Button
+    Friend WithEvents cmdPrint As Button
     Friend WithEvents mskATD As MaskedTextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents mskLastLoaded As MaskedTextBox
@@ -2837,4 +2848,5 @@ Partial Class VMRForm
     Friend WithEvents cmdOutboundMTY As Button
     Friend WithEvents mskOutboundMTY As MaskedTextBox
     Friend WithEvents Label42 As Label
+    Friend WithEvents cmdSave As Button
 End Class

@@ -52,8 +52,14 @@ Public Class VMRForm
         AddNavigationButtonHandlers()
         AddDataGridViewHandlers()
         AddButtonHandlers()
+        AddInputHandlers()
         InitializeInputs()
 
+    End Sub
+
+
+    Private Sub AddInputHandlers()
+        AddHandler mskOnCallSV.KeyDown, AddressOf GangEquivalent
     End Sub
 
     Private Sub AddButtonHandlers()
@@ -192,6 +198,7 @@ Public Class VMRForm
     Private rptVMR As New VMR
 
     Private Sub frmVMR_Load(sender As Object, e As EventArgs) Handles Me.Load
+        On Error Resume Next
         With clsVMR
             mskVessel.Text = .Details(.VslInfo.name)
             mskVoyage.Text = .Details(.VslInfo.voy_num)
@@ -226,7 +233,12 @@ Public Class VMRForm
         RegisterHotKey(Me.Handle, 1, 0, Keys.F3)
         RegisterHotKey(Me.Handle, 2, 0, Keys.F10)
         RegisterHotKey(Me.Handle, 3, 0, Keys.F11)
-        clsVMR.CreateUnits()
+        If clsVMR.Exist() Then
+
+        Else
+            clsVMR.CreateUnits()
+        End If
+
     End Sub
 
     Private Sub tabVMR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabVMR.SelectedIndexChanged
@@ -271,9 +283,7 @@ Public Class VMRForm
     End Sub
 
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
-        If SaveReport() Then
-            PrintReport()
-        End If
+        SaveReport()
     End Sub
 
     Private Sub PrintReport()
@@ -387,6 +397,20 @@ Public Class VMRForm
         Dim paddedBounds As Rectangle = e.Bounds
         paddedBounds.Inflate(-2, -2)
         e.Graphics.DrawString(tabVMR.TabPages(e.Index).Text, tabVMR.TabPages(e.Index).Font, New SolidBrush(Color.Black), paddedBounds)
+    End Sub
+    Private Sub GangEquivalent(sender As Object, e As KeyEventArgs)
+        If e.KeyCode = Keys.Enter Then
+            Select Case CInt(mskOnCallSV.Text)
+                Case 1
+                    mskRegulars.Text = 7
+                Case 2
+                    mskRegulars.Text = 13
+            End Select
+        End If
+    End Sub
+
+    Private Sub cmdPrint_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
+        PrintReport()
     End Sub
 
 End Class
