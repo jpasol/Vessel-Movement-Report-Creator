@@ -153,6 +153,7 @@ Public Class VMRClass
     End Sub
 
     Private Sub GetVesselFormalities()
+        On Error Resume Next
         With craneLogsReport.CraneLogsData.BerthingHourDelays.AsEnumerable.Where(Function(row) row("berthdelay") = "VFM")
             Dim delaystart As DateTime = CDate(.Select(Function(row) row("delaystart").ToString).First)
             Dim delayend As DateTime = CDate(.Select(Function(row) row("delayend").ToString).First)
