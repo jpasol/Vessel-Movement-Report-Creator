@@ -197,6 +197,7 @@ Partial Class VMRForm
         Me.mskOutboundMTY = New System.Windows.Forms.MaskedTextBox()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.tabCMU = New System.Windows.Forms.TabPage()
+        Me.cmdChargeReset = New System.Windows.Forms.Button()
         Me.cmdNextCMU = New System.Windows.Forms.Button()
         Me.cmdPrevCMU = New System.Windows.Forms.Button()
         Me.cmdExitCMU = New System.Windows.Forms.Button()
@@ -1893,6 +1894,7 @@ Partial Class VMRForm
         '
         'tabCMU
         '
+        Me.tabCMU.Controls.Add(Me.cmdChargeReset)
         Me.tabCMU.Controls.Add(Me.cmdNextCMU)
         Me.tabCMU.Controls.Add(Me.cmdPrevCMU)
         Me.tabCMU.Controls.Add(Me.cmdExitCMU)
@@ -1905,6 +1907,15 @@ Partial Class VMRForm
         Me.tabCMU.TabIndex = 6
         Me.tabCMU.Text = "Chargeables"
         Me.tabCMU.UseVisualStyleBackColor = True
+        '
+        'cmdChargeReset
+        '
+        Me.cmdChargeReset.Location = New System.Drawing.Point(740, 569)
+        Me.cmdChargeReset.Name = "cmdChargeReset"
+        Me.cmdChargeReset.Size = New System.Drawing.Size(164, 43)
+        Me.cmdChargeReset.TabIndex = 100
+        Me.cmdChargeReset.Text = "Reset"
+        Me.cmdChargeReset.UseVisualStyleBackColor = True
         '
         'cmdNextCMU
         '
@@ -2849,4 +2860,5 @@ Partial Class VMRForm
     Friend WithEvents mskOutboundMTY As MaskedTextBox
     Friend WithEvents Label42 As Label
     Friend WithEvents cmdSave As Button
+    Friend WithEvents cmdChargeReset As Button
 End Class

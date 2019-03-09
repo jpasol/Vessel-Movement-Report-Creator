@@ -413,4 +413,11 @@ Public Class VMRForm
         PrintReport()
     End Sub
 
+    Private Sub cmdChargeReset_Click(sender As Object, e As EventArgs) Handles cmdChargeReset.Click
+        Dim result As Integer = MsgBox("Would you like to reset Chargeables using Saved Crane Logs Report Data?", vbYesNo)
+        If result = vbYes Then
+            clsVMR.GetvesselMovementReportData.dtCMU.Clear()
+            clsVMR.CreateCMU()
+        End If
+    End Sub
 End Class

@@ -33,7 +33,7 @@ Public Class VMRClass
     Private connN4 As Connection
     Private connOP As Connection
     Private crVMR As Engine.ReportClass
-    Private craneLogsReport As CLRClass
+    Public craneLogsReport As CLRClass
     Private Property Refkey As Integer
     Public Function GetvesselMovementReportData() As dsThroughput
         Return dsVMR
@@ -182,7 +182,7 @@ Public Class VMRClass
 
     End Sub
 
-    Private Sub CreateCMU()
+    Public Sub CreateCMU()
         Dim line As String = vmrVessel.Owner
         Dim consolidatedCraneMoves As New CraneMoves
         For Each crane As Crane In craneLogsReport.Crane
