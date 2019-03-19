@@ -22,6 +22,7 @@ Partial Class VMRForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.tabVMR = New System.Windows.Forms.TabControl()
         Me.tabParticulars = New System.Windows.Forms.TabPage()
         Me.mskFormEnd = New System.Windows.Forms.MaskedTextBox()
@@ -75,127 +76,14 @@ Partial Class VMRForm
         Me.cmdPrevTpt = New System.Windows.Forms.Button()
         Me.cmdExitTpt = New System.Windows.Forms.Button()
         Me.tabUnits = New System.Windows.Forms.TabPage()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.cmbCategory = New System.Windows.Forms.ComboBox()
+        Me.tabUnitBreakdown = New System.Windows.Forms.TabControl()
         Me.tabInbound = New System.Windows.Forms.TabPage()
-        Me.TabControl2 = New System.Windows.Forms.TabControl()
-        Me.tabInboundFCL = New System.Windows.Forms.TabPage()
-        Me.DataGridView5 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmdInboundFCL = New System.Windows.Forms.Button()
-        Me.mskInboundFCL = New System.Windows.Forms.MaskedTextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.tabInboundMTY = New System.Windows.Forms.TabPage()
-        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView7 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView8 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView9 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.DataGridView10 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn31 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn32 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmdInboundMTY = New System.Windows.Forms.Button()
-        Me.mskInboundMTY = New System.Windows.Forms.MaskedTextBox()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.tabInboundBreakdown = New System.Windows.Forms.TabControl()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.tabOutbound = New System.Windows.Forms.TabPage()
-        Me.TabControl3 = New System.Windows.Forms.TabControl()
-        Me.tabOutboundFCL = New System.Windows.Forms.TabPage()
-        Me.DataGridView11 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn33 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView12 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn37 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView13 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn39 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView14 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn41 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn42 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn43 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.DataGridView15 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn45 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn46 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn47 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmdOutboundFCL = New System.Windows.Forms.Button()
-        Me.mskOutboundFCL = New System.Windows.Forms.MaskedTextBox()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.tabOutboundMTY = New System.Windows.Forms.TabPage()
-        Me.DataGridView16 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn48 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn49 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn50 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView17 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn51 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn52 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView18 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn53 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn54 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn55 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView19 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn56 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn57 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn58 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.DataGridView20 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn59 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn60 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn61 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn62 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmdOutboundMTY = New System.Windows.Forms.Button()
-        Me.mskOutboundMTY = New System.Windows.Forms.MaskedTextBox()
-        Me.Label42 = New System.Windows.Forms.Label()
+        Me.tabOutboundBreakdown = New System.Windows.Forms.TabControl()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.tabCMU = New System.Windows.Forms.TabPage()
         Me.cmdChargeReset = New System.Windows.Forms.Button()
         Me.cmdNextCMU = New System.Windows.Forms.Button()
@@ -265,39 +153,20 @@ Partial Class VMRForm
         Me.cmdSave = New System.Windows.Forms.Button()
         Me.cmdPrint = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.AddSL = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddShippingLineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddRemoveSL = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddShippingLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemoveShippingLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tabVMR.SuspendLayout()
         Me.tabParticulars.SuspendLayout()
         Me.tabThroughput.SuspendLayout()
         Me.tabUnits.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
+        Me.tabUnitBreakdown.SuspendLayout()
         Me.tabInbound.SuspendLayout()
-        Me.TabControl2.SuspendLayout()
-        Me.tabInboundFCL.SuspendLayout()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabInboundMTY.SuspendLayout()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView10, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabInboundBreakdown.SuspendLayout()
         Me.tabOutbound.SuspendLayout()
-        Me.TabControl3.SuspendLayout()
-        Me.tabOutboundFCL.SuspendLayout()
-        CType(Me.DataGridView11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView12, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView13, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView14, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView15, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabOutboundMTY.SuspendLayout()
-        CType(Me.DataGridView16, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView17, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView18, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView19, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView20, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabOutboundBreakdown.SuspendLayout()
         Me.tabCMU.SuspendLayout()
         Me.tabSpecificCMU.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -309,6 +178,8 @@ Partial Class VMRForm
         CType(Me.dgvCMU, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabFooters.SuspendLayout()
         Me.tabPreview.SuspendLayout()
+        Me.AddSL.SuspendLayout()
+        Me.AddRemoveSL.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabVMR
@@ -360,7 +231,7 @@ Partial Class VMRForm
         Me.tabParticulars.Padding = New System.Windows.Forms.Padding(3)
         Me.tabParticulars.Size = New System.Drawing.Size(1318, 672)
         Me.tabParticulars.TabIndex = 0
-        Me.tabParticulars.Text = "Vessel Particulars"
+        Me.tabParticulars.Text = "Vessel Information"
         Me.tabParticulars.UseVisualStyleBackColor = True
         '
         'mskFormEnd
@@ -612,7 +483,7 @@ Partial Class VMRForm
         Me.tabThroughput.Padding = New System.Windows.Forms.Padding(3)
         Me.tabThroughput.Size = New System.Drawing.Size(1318, 672)
         Me.tabThroughput.TabIndex = 2
-        Me.tabThroughput.Text = "Other Particulars"
+        Me.tabThroughput.Text = "Time Details"
         Me.tabThroughput.UseVisualStyleBackColor = True
         '
         'mskStandby
@@ -815,1082 +686,97 @@ Partial Class VMRForm
         '
         'tabUnits
         '
-        Me.tabUnits.Controls.Add(Me.TabControl1)
+        Me.tabUnits.Controls.Add(Me.cmbCategory)
+        Me.tabUnits.Controls.Add(Me.tabUnitBreakdown)
         Me.tabUnits.Location = New System.Drawing.Point(4, 29)
         Me.tabUnits.Name = "tabUnits"
         Me.tabUnits.Padding = New System.Windows.Forms.Padding(3)
         Me.tabUnits.Size = New System.Drawing.Size(1318, 672)
         Me.tabUnits.TabIndex = 7
-        Me.tabUnits.Text = "Units"
+        Me.tabUnits.Text = "Units Breakdown"
         Me.tabUnits.UseVisualStyleBackColor = True
         '
-        'TabControl1
+        'cmbCategory
         '
-        Me.TabControl1.Controls.Add(Me.tabInbound)
-        Me.TabControl1.Controls.Add(Me.tabOutbound)
-        Me.TabControl1.Location = New System.Drawing.Point(6, 6)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1306, 660)
-        Me.TabControl1.TabIndex = 0
+        Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategory.FormattingEnabled = True
+        Me.cmbCategory.Items.AddRange(New Object() {"Inbound", "Outbound"})
+        Me.cmbCategory.Location = New System.Drawing.Point(10, 6)
+        Me.cmbCategory.Name = "cmbCategory"
+        Me.cmbCategory.Size = New System.Drawing.Size(233, 28)
+        Me.cmbCategory.TabIndex = 1
+        '
+        'tabUnitBreakdown
+        '
+        Me.tabUnitBreakdown.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
+        Me.tabUnitBreakdown.Controls.Add(Me.tabInbound)
+        Me.tabUnitBreakdown.Controls.Add(Me.tabOutbound)
+        Me.tabUnitBreakdown.ItemSize = New System.Drawing.Size(0, 1)
+        Me.tabUnitBreakdown.Location = New System.Drawing.Point(6, 40)
+        Me.tabUnitBreakdown.Name = "tabUnitBreakdown"
+        Me.tabUnitBreakdown.SelectedIndex = 0
+        Me.tabUnitBreakdown.Size = New System.Drawing.Size(1306, 626)
+        Me.tabUnitBreakdown.TabIndex = 0
         '
         'tabInbound
         '
-        Me.tabInbound.Controls.Add(Me.TabControl2)
-        Me.tabInbound.Location = New System.Drawing.Point(4, 29)
+        Me.tabInbound.Controls.Add(Me.tabInboundBreakdown)
+        Me.tabInbound.Location = New System.Drawing.Point(4, 14)
         Me.tabInbound.Name = "tabInbound"
         Me.tabInbound.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabInbound.Size = New System.Drawing.Size(1298, 627)
+        Me.tabInbound.Size = New System.Drawing.Size(1298, 608)
         Me.tabInbound.TabIndex = 0
         Me.tabInbound.Text = "Inbound"
         Me.tabInbound.UseVisualStyleBackColor = True
         '
-        'TabControl2
-        '
-        Me.TabControl2.Controls.Add(Me.tabInboundFCL)
-        Me.TabControl2.Controls.Add(Me.tabInboundMTY)
-        Me.TabControl2.Location = New System.Drawing.Point(6, 6)
-        Me.TabControl2.Name = "TabControl2"
-        Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(1286, 615)
-        Me.TabControl2.TabIndex = 1
-        '
-        'tabInboundFCL
-        '
-        Me.tabInboundFCL.Controls.Add(Me.DataGridView5)
-        Me.tabInboundFCL.Controls.Add(Me.DataGridView4)
-        Me.tabInboundFCL.Controls.Add(Me.DataGridView3)
-        Me.tabInboundFCL.Controls.Add(Me.DataGridView2)
-        Me.tabInboundFCL.Controls.Add(Me.Label24)
-        Me.tabInboundFCL.Controls.Add(Me.Label23)
-        Me.tabInboundFCL.Controls.Add(Me.Label22)
-        Me.tabInboundFCL.Controls.Add(Me.Label21)
-        Me.tabInboundFCL.Controls.Add(Me.Label20)
-        Me.tabInboundFCL.Controls.Add(Me.DataGridView1)
-        Me.tabInboundFCL.Controls.Add(Me.cmdInboundFCL)
-        Me.tabInboundFCL.Controls.Add(Me.mskInboundFCL)
-        Me.tabInboundFCL.Controls.Add(Me.Label19)
-        Me.tabInboundFCL.Location = New System.Drawing.Point(4, 29)
-        Me.tabInboundFCL.Name = "tabInboundFCL"
-        Me.tabInboundFCL.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabInboundFCL.Size = New System.Drawing.Size(1278, 582)
-        Me.tabInboundFCL.TabIndex = 0
-        Me.tabInboundFCL.Text = "Loaded"
-        Me.tabInboundFCL.UseVisualStyleBackColor = True
-        '
-        'DataGridView5
-        '
-        Me.DataGridView5.AllowUserToAddRows = False
-        Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView5.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21})
-        Me.DataGridView5.Location = New System.Drawing.Point(741, 383)
-        Me.DataGridView5.Name = "DataGridView5"
-        Me.DataGridView5.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView5.TabIndex = 16
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "Opn20"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "Opn40"
-        Me.DataGridViewTextBoxColumn21.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        '
-        'DataGridView4
-        '
-        Me.DataGridView4.AllowUserToAddRows = False
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16})
-        Me.DataGridView4.Location = New System.Drawing.Point(220, 383)
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView4.TabIndex = 15
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "Tnk20"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.AllowUserToAddRows = False
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13})
-        Me.DataGridView3.Location = New System.Drawing.Point(940, 161)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView3.TabIndex = 14
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "Frk20"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "Frk40"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9})
-        Me.DataGridView2.Location = New System.Drawing.Point(481, 161)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView2.TabIndex = 13
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Rfr20"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Rfr40"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'Label24
-        '
-        Me.Label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label24.Location = New System.Drawing.Point(741, 353)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(317, 27)
-        Me.Label24.TabIndex = 12
-        Me.Label24.Text = "Open Top"
-        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label23
-        '
-        Me.Label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label23.Location = New System.Drawing.Point(220, 353)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(317, 27)
-        Me.Label23.TabIndex = 11
-        Me.Label23.Text = "Tank Tainer"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label22
-        '
-        Me.Label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label22.Location = New System.Drawing.Point(940, 131)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(317, 27)
-        Me.Label22.TabIndex = 10
-        Me.Label22.Text = "Flat Rack"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label21
-        '
-        Me.Label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label21.Location = New System.Drawing.Point(481, 131)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(317, 27)
-        Me.Label21.TabIndex = 9
-        Me.Label21.Text = "Reefer"
-        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label20
-        '
-        Me.Label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label20.Location = New System.Drawing.Point(22, 131)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(317, 27)
-        Me.Label20.TabIndex = 8
-        Me.Label20.Text = "Dry"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column3, Me.Column4, Me.Column5, Me.Column6})
-        Me.DataGridView1.Location = New System.Drawing.Point(22, 161)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView1.TabIndex = 3
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column3.DataPropertyName = "line_op"
-        Me.Column3.HeaderText = "Line"
-        Me.Column3.Name = "Column3"
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column4.DataPropertyName = "Dry20"
-        Me.Column4.HeaderText = "20"
-        Me.Column4.Name = "Column4"
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column5.DataPropertyName = "Dry40"
-        Me.Column5.HeaderText = "40"
-        Me.Column5.Name = "Column5"
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column6.DataPropertyName = "Dry45"
-        Me.Column6.HeaderText = "45"
-        Me.Column6.Name = "Column6"
-        '
-        'cmdInboundFCL
-        '
-        Me.cmdInboundFCL.Location = New System.Drawing.Point(640, 69)
-        Me.cmdInboundFCL.Name = "cmdInboundFCL"
-        Me.cmdInboundFCL.Size = New System.Drawing.Size(108, 38)
-        Me.cmdInboundFCL.TabIndex = 2
-        Me.cmdInboundFCL.Text = "Add Line"
-        Me.cmdInboundFCL.UseVisualStyleBackColor = True
-        '
-        'mskInboundFCL
-        '
-        Me.mskInboundFCL.Location = New System.Drawing.Point(534, 75)
-        Me.mskInboundFCL.Mask = "AAA"
-        Me.mskInboundFCL.Name = "mskInboundFCL"
-        Me.mskInboundFCL.Size = New System.Drawing.Size(100, 27)
-        Me.mskInboundFCL.TabIndex = 1
-        '
-        'Label19
-        '
-        Me.Label19.Location = New System.Drawing.Point(530, 49)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(104, 23)
-        Me.Label19.TabIndex = 0
-        Me.Label19.Text = "Line"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'tabInboundMTY
-        '
-        Me.tabInboundMTY.Controls.Add(Me.DataGridView6)
-        Me.tabInboundMTY.Controls.Add(Me.DataGridView7)
-        Me.tabInboundMTY.Controls.Add(Me.DataGridView8)
-        Me.tabInboundMTY.Controls.Add(Me.DataGridView9)
-        Me.tabInboundMTY.Controls.Add(Me.Label25)
-        Me.tabInboundMTY.Controls.Add(Me.Label26)
-        Me.tabInboundMTY.Controls.Add(Me.Label27)
-        Me.tabInboundMTY.Controls.Add(Me.Label28)
-        Me.tabInboundMTY.Controls.Add(Me.Label29)
-        Me.tabInboundMTY.Controls.Add(Me.DataGridView10)
-        Me.tabInboundMTY.Controls.Add(Me.cmdInboundMTY)
-        Me.tabInboundMTY.Controls.Add(Me.mskInboundMTY)
-        Me.tabInboundMTY.Controls.Add(Me.Label30)
-        Me.tabInboundMTY.Location = New System.Drawing.Point(4, 29)
-        Me.tabInboundMTY.Name = "tabInboundMTY"
-        Me.tabInboundMTY.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabInboundMTY.Size = New System.Drawing.Size(1278, 582)
-        Me.tabInboundMTY.TabIndex = 1
-        Me.tabInboundMTY.Text = "Empty"
-        Me.tabInboundMTY.UseVisualStyleBackColor = True
-        '
-        'DataGridView6
-        '
-        Me.DataGridView6.AllowUserToAddRows = False
-        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView6.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn17})
-        Me.DataGridView6.Location = New System.Drawing.Point(741, 383)
-        Me.DataGridView6.Name = "DataGridView6"
-        Me.DataGridView6.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView6.TabIndex = 29
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Opn20"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "Opn40"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        '
-        'DataGridView7
-        '
-        Me.DataGridView7.AllowUserToAddRows = False
-        Me.DataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView7.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn22})
-        Me.DataGridView7.Location = New System.Drawing.Point(220, 383)
-        Me.DataGridView7.Name = "DataGridView7"
-        Me.DataGridView7.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView7.TabIndex = 28
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn18.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "Tnk20"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        '
-        'DataGridView8
-        '
-        Me.DataGridView8.AllowUserToAddRows = False
-        Me.DataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView8.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25})
-        Me.DataGridView8.Location = New System.Drawing.Point(940, 161)
-        Me.DataGridView8.Name = "DataGridView8"
-        Me.DataGridView8.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView8.TabIndex = 27
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn24.DataPropertyName = "Frk20"
-        Me.DataGridViewTextBoxColumn24.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        '
-        'DataGridViewTextBoxColumn25
-        '
-        Me.DataGridViewTextBoxColumn25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn25.DataPropertyName = "Frk40"
-        Me.DataGridViewTextBoxColumn25.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-        '
-        'DataGridView9
-        '
-        Me.DataGridView9.AllowUserToAddRows = False
-        Me.DataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView9.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28})
-        Me.DataGridView9.Location = New System.Drawing.Point(481, 161)
-        Me.DataGridView9.Name = "DataGridView9"
-        Me.DataGridView9.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView9.TabIndex = 26
-        '
-        'DataGridViewTextBoxColumn26
-        '
-        Me.DataGridViewTextBoxColumn26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn26.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn26.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
-        '
-        'DataGridViewTextBoxColumn27
-        '
-        Me.DataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn27.DataPropertyName = "Rfr20"
-        Me.DataGridViewTextBoxColumn27.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
-        '
-        'DataGridViewTextBoxColumn28
-        '
-        Me.DataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn28.DataPropertyName = "Rfr40"
-        Me.DataGridViewTextBoxColumn28.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
-        '
-        'Label25
-        '
-        Me.Label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label25.Location = New System.Drawing.Point(741, 353)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(317, 27)
-        Me.Label25.TabIndex = 25
-        Me.Label25.Text = "Open Top"
-        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label26
-        '
-        Me.Label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label26.Location = New System.Drawing.Point(220, 353)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(317, 27)
-        Me.Label26.TabIndex = 24
-        Me.Label26.Text = "Tank Tainer"
-        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label27
-        '
-        Me.Label27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label27.Location = New System.Drawing.Point(940, 131)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(317, 27)
-        Me.Label27.TabIndex = 23
-        Me.Label27.Text = "Flat Rack"
-        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label28
-        '
-        Me.Label28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label28.Location = New System.Drawing.Point(481, 131)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(317, 27)
-        Me.Label28.TabIndex = 22
-        Me.Label28.Text = "Reefer"
-        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label29
-        '
-        Me.Label29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label29.Location = New System.Drawing.Point(22, 131)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(317, 27)
-        Me.Label29.TabIndex = 21
-        Me.Label29.Text = "Dry"
-        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'DataGridView10
-        '
-        Me.DataGridView10.AllowUserToAddRows = False
-        Me.DataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView10.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32})
-        Me.DataGridView10.Location = New System.Drawing.Point(22, 161)
-        Me.DataGridView10.Name = "DataGridView10"
-        Me.DataGridView10.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView10.TabIndex = 20
-        '
-        'DataGridViewTextBoxColumn29
-        '
-        Me.DataGridViewTextBoxColumn29.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn29.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn29.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
-        '
-        'DataGridViewTextBoxColumn30
-        '
-        Me.DataGridViewTextBoxColumn30.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn30.DataPropertyName = "Dry20"
-        Me.DataGridViewTextBoxColumn30.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
-        '
-        'DataGridViewTextBoxColumn31
-        '
-        Me.DataGridViewTextBoxColumn31.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn31.DataPropertyName = "Dry40"
-        Me.DataGridViewTextBoxColumn31.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn31.Name = "DataGridViewTextBoxColumn31"
-        '
-        'DataGridViewTextBoxColumn32
-        '
-        Me.DataGridViewTextBoxColumn32.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn32.DataPropertyName = "Dry45"
-        Me.DataGridViewTextBoxColumn32.HeaderText = "45"
-        Me.DataGridViewTextBoxColumn32.Name = "DataGridViewTextBoxColumn32"
-        '
-        'cmdInboundMTY
-        '
-        Me.cmdInboundMTY.Location = New System.Drawing.Point(640, 69)
-        Me.cmdInboundMTY.Name = "cmdInboundMTY"
-        Me.cmdInboundMTY.Size = New System.Drawing.Size(108, 38)
-        Me.cmdInboundMTY.TabIndex = 2
-        Me.cmdInboundMTY.Text = "Add Line"
-        Me.cmdInboundMTY.UseVisualStyleBackColor = True
-        '
-        'mskInboundMTY
-        '
-        Me.mskInboundMTY.Location = New System.Drawing.Point(534, 75)
-        Me.mskInboundMTY.Mask = "AAA"
-        Me.mskInboundMTY.Name = "mskInboundMTY"
-        Me.mskInboundMTY.Size = New System.Drawing.Size(100, 27)
-        Me.mskInboundMTY.TabIndex = 1
-        '
-        'Label30
-        '
-        Me.Label30.Location = New System.Drawing.Point(530, 49)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(104, 23)
-        Me.Label30.TabIndex = 17
-        Me.Label30.Text = "Line"
-        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        'tabInboundBreakdown
+        '
+        Me.tabInboundBreakdown.Controls.Add(Me.TabPage4)
+        Me.tabInboundBreakdown.Location = New System.Drawing.Point(6, 6)
+        Me.tabInboundBreakdown.Name = "tabInboundBreakdown"
+        Me.tabInboundBreakdown.SelectedIndex = 0
+        Me.tabInboundBreakdown.Size = New System.Drawing.Size(1289, 599)
+        Me.tabInboundBreakdown.TabIndex = 2
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(1281, 566)
+        Me.TabPage4.TabIndex = 0
+        Me.TabPage4.Text = "Shipping Line"
+        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'tabOutbound
         '
-        Me.tabOutbound.Controls.Add(Me.TabControl3)
-        Me.tabOutbound.Location = New System.Drawing.Point(4, 29)
+        Me.tabOutbound.Controls.Add(Me.tabOutboundBreakdown)
+        Me.tabOutbound.Location = New System.Drawing.Point(4, 5)
         Me.tabOutbound.Name = "tabOutbound"
         Me.tabOutbound.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabOutbound.Size = New System.Drawing.Size(1298, 627)
+        Me.tabOutbound.Size = New System.Drawing.Size(1298, 617)
         Me.tabOutbound.TabIndex = 1
         Me.tabOutbound.Text = "Outbound"
         Me.tabOutbound.UseVisualStyleBackColor = True
         '
-        'TabControl3
-        '
-        Me.TabControl3.Controls.Add(Me.tabOutboundFCL)
-        Me.TabControl3.Controls.Add(Me.tabOutboundMTY)
-        Me.TabControl3.Location = New System.Drawing.Point(6, 6)
-        Me.TabControl3.Name = "TabControl3"
-        Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(1286, 615)
-        Me.TabControl3.TabIndex = 2
-        '
-        'tabOutboundFCL
-        '
-        Me.tabOutboundFCL.Controls.Add(Me.DataGridView11)
-        Me.tabOutboundFCL.Controls.Add(Me.DataGridView12)
-        Me.tabOutboundFCL.Controls.Add(Me.DataGridView13)
-        Me.tabOutboundFCL.Controls.Add(Me.DataGridView14)
-        Me.tabOutboundFCL.Controls.Add(Me.Label31)
-        Me.tabOutboundFCL.Controls.Add(Me.Label32)
-        Me.tabOutboundFCL.Controls.Add(Me.Label33)
-        Me.tabOutboundFCL.Controls.Add(Me.Label34)
-        Me.tabOutboundFCL.Controls.Add(Me.Label35)
-        Me.tabOutboundFCL.Controls.Add(Me.DataGridView15)
-        Me.tabOutboundFCL.Controls.Add(Me.cmdOutboundFCL)
-        Me.tabOutboundFCL.Controls.Add(Me.mskOutboundFCL)
-        Me.tabOutboundFCL.Controls.Add(Me.Label36)
-        Me.tabOutboundFCL.Location = New System.Drawing.Point(4, 29)
-        Me.tabOutboundFCL.Name = "tabOutboundFCL"
-        Me.tabOutboundFCL.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabOutboundFCL.Size = New System.Drawing.Size(1278, 582)
-        Me.tabOutboundFCL.TabIndex = 0
-        Me.tabOutboundFCL.Text = "Loaded"
-        Me.tabOutboundFCL.UseVisualStyleBackColor = True
-        '
-        'DataGridView11
-        '
-        Me.DataGridView11.AllowUserToAddRows = False
-        Me.DataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView11.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn33, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn35})
-        Me.DataGridView11.Location = New System.Drawing.Point(741, 383)
-        Me.DataGridView11.Name = "DataGridView11"
-        Me.DataGridView11.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView11.TabIndex = 16
-        '
-        'DataGridViewTextBoxColumn33
-        '
-        Me.DataGridViewTextBoxColumn33.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn33.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn33.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn33.Name = "DataGridViewTextBoxColumn33"
-        '
-        'DataGridViewTextBoxColumn34
-        '
-        Me.DataGridViewTextBoxColumn34.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn34.DataPropertyName = "Opn20"
-        Me.DataGridViewTextBoxColumn34.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn34.Name = "DataGridViewTextBoxColumn34"
-        '
-        'DataGridViewTextBoxColumn35
-        '
-        Me.DataGridViewTextBoxColumn35.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn35.DataPropertyName = "Opn40"
-        Me.DataGridViewTextBoxColumn35.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn35.Name = "DataGridViewTextBoxColumn35"
-        '
-        'DataGridView12
-        '
-        Me.DataGridView12.AllowUserToAddRows = False
-        Me.DataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView12.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37})
-        Me.DataGridView12.Location = New System.Drawing.Point(220, 383)
-        Me.DataGridView12.Name = "DataGridView12"
-        Me.DataGridView12.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView12.TabIndex = 15
-        '
-        'DataGridViewTextBoxColumn36
-        '
-        Me.DataGridViewTextBoxColumn36.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn36.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn36.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
-        '
-        'DataGridViewTextBoxColumn37
-        '
-        Me.DataGridViewTextBoxColumn37.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn37.DataPropertyName = "Tnk20"
-        Me.DataGridViewTextBoxColumn37.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn37.Name = "DataGridViewTextBoxColumn37"
-        '
-        'DataGridView13
-        '
-        Me.DataGridView13.AllowUserToAddRows = False
-        Me.DataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView13.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40})
-        Me.DataGridView13.Location = New System.Drawing.Point(940, 161)
-        Me.DataGridView13.Name = "DataGridView13"
-        Me.DataGridView13.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView13.TabIndex = 14
-        '
-        'DataGridViewTextBoxColumn38
-        '
-        Me.DataGridViewTextBoxColumn38.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn38.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn38.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn38.Name = "DataGridViewTextBoxColumn38"
-        '
-        'DataGridViewTextBoxColumn39
-        '
-        Me.DataGridViewTextBoxColumn39.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn39.DataPropertyName = "Frk20"
-        Me.DataGridViewTextBoxColumn39.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn39.Name = "DataGridViewTextBoxColumn39"
-        '
-        'DataGridViewTextBoxColumn40
-        '
-        Me.DataGridViewTextBoxColumn40.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn40.DataPropertyName = "Frk40"
-        Me.DataGridViewTextBoxColumn40.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn40.Name = "DataGridViewTextBoxColumn40"
-        '
-        'DataGridView14
-        '
-        Me.DataGridView14.AllowUserToAddRows = False
-        Me.DataGridView14.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView14.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn41, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43})
-        Me.DataGridView14.Location = New System.Drawing.Point(481, 161)
-        Me.DataGridView14.Name = "DataGridView14"
-        Me.DataGridView14.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView14.TabIndex = 13
-        '
-        'DataGridViewTextBoxColumn41
-        '
-        Me.DataGridViewTextBoxColumn41.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn41.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn41.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn41.Name = "DataGridViewTextBoxColumn41"
-        '
-        'DataGridViewTextBoxColumn42
-        '
-        Me.DataGridViewTextBoxColumn42.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn42.DataPropertyName = "Rfr20"
-        Me.DataGridViewTextBoxColumn42.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn42.Name = "DataGridViewTextBoxColumn42"
-        '
-        'DataGridViewTextBoxColumn43
-        '
-        Me.DataGridViewTextBoxColumn43.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn43.DataPropertyName = "Rfr40"
-        Me.DataGridViewTextBoxColumn43.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn43.Name = "DataGridViewTextBoxColumn43"
-        '
-        'Label31
-        '
-        Me.Label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label31.Location = New System.Drawing.Point(741, 353)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(317, 27)
-        Me.Label31.TabIndex = 12
-        Me.Label31.Text = "Open Top"
-        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label32
-        '
-        Me.Label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label32.Location = New System.Drawing.Point(220, 353)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(317, 27)
-        Me.Label32.TabIndex = 11
-        Me.Label32.Text = "Tank Tainer"
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label33
-        '
-        Me.Label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label33.Location = New System.Drawing.Point(940, 131)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(317, 27)
-        Me.Label33.TabIndex = 10
-        Me.Label33.Text = "Flat Rack"
-        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label34
-        '
-        Me.Label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label34.Location = New System.Drawing.Point(481, 131)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(317, 27)
-        Me.Label34.TabIndex = 9
-        Me.Label34.Text = "Reefer"
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label35
-        '
-        Me.Label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label35.Location = New System.Drawing.Point(22, 131)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(317, 27)
-        Me.Label35.TabIndex = 8
-        Me.Label35.Text = "Dry"
-        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'DataGridView15
-        '
-        Me.DataGridView15.AllowUserToAddRows = False
-        Me.DataGridView15.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView15.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47})
-        Me.DataGridView15.Location = New System.Drawing.Point(22, 161)
-        Me.DataGridView15.Name = "DataGridView15"
-        Me.DataGridView15.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView15.TabIndex = 3
-        '
-        'DataGridViewTextBoxColumn44
-        '
-        Me.DataGridViewTextBoxColumn44.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn44.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn44.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn44.Name = "DataGridViewTextBoxColumn44"
-        '
-        'DataGridViewTextBoxColumn45
-        '
-        Me.DataGridViewTextBoxColumn45.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn45.DataPropertyName = "Dry20"
-        Me.DataGridViewTextBoxColumn45.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn45.Name = "DataGridViewTextBoxColumn45"
-        '
-        'DataGridViewTextBoxColumn46
-        '
-        Me.DataGridViewTextBoxColumn46.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn46.DataPropertyName = "Dry40"
-        Me.DataGridViewTextBoxColumn46.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn46.Name = "DataGridViewTextBoxColumn46"
-        '
-        'DataGridViewTextBoxColumn47
-        '
-        Me.DataGridViewTextBoxColumn47.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn47.DataPropertyName = "Dry45"
-        Me.DataGridViewTextBoxColumn47.HeaderText = "45"
-        Me.DataGridViewTextBoxColumn47.Name = "DataGridViewTextBoxColumn47"
-        '
-        'cmdOutboundFCL
-        '
-        Me.cmdOutboundFCL.Location = New System.Drawing.Point(640, 69)
-        Me.cmdOutboundFCL.Name = "cmdOutboundFCL"
-        Me.cmdOutboundFCL.Size = New System.Drawing.Size(108, 38)
-        Me.cmdOutboundFCL.TabIndex = 2
-        Me.cmdOutboundFCL.Text = "Add Line"
-        Me.cmdOutboundFCL.UseVisualStyleBackColor = True
-        '
-        'mskOutboundFCL
-        '
-        Me.mskOutboundFCL.Location = New System.Drawing.Point(534, 75)
-        Me.mskOutboundFCL.Mask = "AAA"
-        Me.mskOutboundFCL.Name = "mskOutboundFCL"
-        Me.mskOutboundFCL.Size = New System.Drawing.Size(100, 27)
-        Me.mskOutboundFCL.TabIndex = 1
-        '
-        'Label36
-        '
-        Me.Label36.Location = New System.Drawing.Point(530, 49)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(104, 23)
-        Me.Label36.TabIndex = 0
-        Me.Label36.Text = "Line"
-        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'tabOutboundMTY
-        '
-        Me.tabOutboundMTY.Controls.Add(Me.DataGridView16)
-        Me.tabOutboundMTY.Controls.Add(Me.DataGridView17)
-        Me.tabOutboundMTY.Controls.Add(Me.DataGridView18)
-        Me.tabOutboundMTY.Controls.Add(Me.DataGridView19)
-        Me.tabOutboundMTY.Controls.Add(Me.Label37)
-        Me.tabOutboundMTY.Controls.Add(Me.Label38)
-        Me.tabOutboundMTY.Controls.Add(Me.Label39)
-        Me.tabOutboundMTY.Controls.Add(Me.Label40)
-        Me.tabOutboundMTY.Controls.Add(Me.Label41)
-        Me.tabOutboundMTY.Controls.Add(Me.DataGridView20)
-        Me.tabOutboundMTY.Controls.Add(Me.cmdOutboundMTY)
-        Me.tabOutboundMTY.Controls.Add(Me.mskOutboundMTY)
-        Me.tabOutboundMTY.Controls.Add(Me.Label42)
-        Me.tabOutboundMTY.Location = New System.Drawing.Point(4, 29)
-        Me.tabOutboundMTY.Name = "tabOutboundMTY"
-        Me.tabOutboundMTY.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabOutboundMTY.Size = New System.Drawing.Size(1278, 582)
-        Me.tabOutboundMTY.TabIndex = 1
-        Me.tabOutboundMTY.Text = "Empty"
-        Me.tabOutboundMTY.UseVisualStyleBackColor = True
-        '
-        'DataGridView16
-        '
-        Me.DataGridView16.AllowUserToAddRows = False
-        Me.DataGridView16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView16.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn48, Me.DataGridViewTextBoxColumn49, Me.DataGridViewTextBoxColumn50})
-        Me.DataGridView16.Location = New System.Drawing.Point(741, 383)
-        Me.DataGridView16.Name = "DataGridView16"
-        Me.DataGridView16.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView16.TabIndex = 29
-        '
-        'DataGridViewTextBoxColumn48
-        '
-        Me.DataGridViewTextBoxColumn48.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn48.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn48.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn48.Name = "DataGridViewTextBoxColumn48"
-        '
-        'DataGridViewTextBoxColumn49
-        '
-        Me.DataGridViewTextBoxColumn49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn49.DataPropertyName = "Opn20"
-        Me.DataGridViewTextBoxColumn49.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn49.Name = "DataGridViewTextBoxColumn49"
-        '
-        'DataGridViewTextBoxColumn50
-        '
-        Me.DataGridViewTextBoxColumn50.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn50.DataPropertyName = "Opn40"
-        Me.DataGridViewTextBoxColumn50.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn50.Name = "DataGridViewTextBoxColumn50"
-        '
-        'DataGridView17
-        '
-        Me.DataGridView17.AllowUserToAddRows = False
-        Me.DataGridView17.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView17.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn51, Me.DataGridViewTextBoxColumn52})
-        Me.DataGridView17.Location = New System.Drawing.Point(220, 383)
-        Me.DataGridView17.Name = "DataGridView17"
-        Me.DataGridView17.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView17.TabIndex = 28
-        '
-        'DataGridViewTextBoxColumn51
-        '
-        Me.DataGridViewTextBoxColumn51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn51.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn51.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn51.Name = "DataGridViewTextBoxColumn51"
-        '
-        'DataGridViewTextBoxColumn52
-        '
-        Me.DataGridViewTextBoxColumn52.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn52.DataPropertyName = "Tnk20"
-        Me.DataGridViewTextBoxColumn52.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn52.Name = "DataGridViewTextBoxColumn52"
-        '
-        'DataGridView18
-        '
-        Me.DataGridView18.AllowUserToAddRows = False
-        Me.DataGridView18.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView18.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn53, Me.DataGridViewTextBoxColumn54, Me.DataGridViewTextBoxColumn55})
-        Me.DataGridView18.Location = New System.Drawing.Point(940, 161)
-        Me.DataGridView18.Name = "DataGridView18"
-        Me.DataGridView18.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView18.TabIndex = 27
-        '
-        'DataGridViewTextBoxColumn53
-        '
-        Me.DataGridViewTextBoxColumn53.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn53.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn53.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn53.Name = "DataGridViewTextBoxColumn53"
-        '
-        'DataGridViewTextBoxColumn54
-        '
-        Me.DataGridViewTextBoxColumn54.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn54.DataPropertyName = "Frk20"
-        Me.DataGridViewTextBoxColumn54.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn54.Name = "DataGridViewTextBoxColumn54"
-        '
-        'DataGridViewTextBoxColumn55
-        '
-        Me.DataGridViewTextBoxColumn55.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn55.DataPropertyName = "Frk40"
-        Me.DataGridViewTextBoxColumn55.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn55.Name = "DataGridViewTextBoxColumn55"
-        '
-        'DataGridView19
-        '
-        Me.DataGridView19.AllowUserToAddRows = False
-        Me.DataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView19.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn56, Me.DataGridViewTextBoxColumn57, Me.DataGridViewTextBoxColumn58})
-        Me.DataGridView19.Location = New System.Drawing.Point(481, 161)
-        Me.DataGridView19.Name = "DataGridView19"
-        Me.DataGridView19.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView19.TabIndex = 26
-        '
-        'DataGridViewTextBoxColumn56
-        '
-        Me.DataGridViewTextBoxColumn56.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn56.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn56.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn56.Name = "DataGridViewTextBoxColumn56"
-        '
-        'DataGridViewTextBoxColumn57
-        '
-        Me.DataGridViewTextBoxColumn57.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn57.DataPropertyName = "Rfr20"
-        Me.DataGridViewTextBoxColumn57.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn57.Name = "DataGridViewTextBoxColumn57"
-        '
-        'DataGridViewTextBoxColumn58
-        '
-        Me.DataGridViewTextBoxColumn58.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn58.DataPropertyName = "Rfr40"
-        Me.DataGridViewTextBoxColumn58.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn58.Name = "DataGridViewTextBoxColumn58"
-        '
-        'Label37
-        '
-        Me.Label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label37.Location = New System.Drawing.Point(741, 353)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(317, 27)
-        Me.Label37.TabIndex = 25
-        Me.Label37.Text = "Open Top"
-        Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label38
-        '
-        Me.Label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label38.Location = New System.Drawing.Point(220, 353)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(317, 27)
-        Me.Label38.TabIndex = 24
-        Me.Label38.Text = "Tank Tainer"
-        Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label39
-        '
-        Me.Label39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label39.Location = New System.Drawing.Point(940, 131)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(317, 27)
-        Me.Label39.TabIndex = 23
-        Me.Label39.Text = "Flat Rack"
-        Me.Label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label40
-        '
-        Me.Label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label40.Location = New System.Drawing.Point(481, 131)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(317, 27)
-        Me.Label40.TabIndex = 22
-        Me.Label40.Text = "Reefer"
-        Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label41
-        '
-        Me.Label41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label41.Location = New System.Drawing.Point(22, 131)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(317, 27)
-        Me.Label41.TabIndex = 21
-        Me.Label41.Text = "Dry"
-        Me.Label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'DataGridView20
-        '
-        Me.DataGridView20.AllowUserToAddRows = False
-        Me.DataGridView20.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView20.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn59, Me.DataGridViewTextBoxColumn60, Me.DataGridViewTextBoxColumn61, Me.DataGridViewTextBoxColumn62})
-        Me.DataGridView20.Location = New System.Drawing.Point(22, 161)
-        Me.DataGridView20.Name = "DataGridView20"
-        Me.DataGridView20.Size = New System.Drawing.Size(317, 150)
-        Me.DataGridView20.TabIndex = 20
-        '
-        'DataGridViewTextBoxColumn59
-        '
-        Me.DataGridViewTextBoxColumn59.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn59.DataPropertyName = "line_op"
-        Me.DataGridViewTextBoxColumn59.HeaderText = "Line"
-        Me.DataGridViewTextBoxColumn59.Name = "DataGridViewTextBoxColumn59"
-        '
-        'DataGridViewTextBoxColumn60
-        '
-        Me.DataGridViewTextBoxColumn60.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn60.DataPropertyName = "Dry20"
-        Me.DataGridViewTextBoxColumn60.HeaderText = "20"
-        Me.DataGridViewTextBoxColumn60.Name = "DataGridViewTextBoxColumn60"
-        '
-        'DataGridViewTextBoxColumn61
-        '
-        Me.DataGridViewTextBoxColumn61.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn61.DataPropertyName = "Dry40"
-        Me.DataGridViewTextBoxColumn61.HeaderText = "40"
-        Me.DataGridViewTextBoxColumn61.Name = "DataGridViewTextBoxColumn61"
-        '
-        'DataGridViewTextBoxColumn62
-        '
-        Me.DataGridViewTextBoxColumn62.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn62.DataPropertyName = "Dry45"
-        Me.DataGridViewTextBoxColumn62.HeaderText = "45"
-        Me.DataGridViewTextBoxColumn62.Name = "DataGridViewTextBoxColumn62"
-        '
-        'cmdOutboundMTY
-        '
-        Me.cmdOutboundMTY.Location = New System.Drawing.Point(640, 69)
-        Me.cmdOutboundMTY.Name = "cmdOutboundMTY"
-        Me.cmdOutboundMTY.Size = New System.Drawing.Size(108, 38)
-        Me.cmdOutboundMTY.TabIndex = 2
-        Me.cmdOutboundMTY.Text = "Add Line"
-        Me.cmdOutboundMTY.UseVisualStyleBackColor = True
-        '
-        'mskOutboundMTY
-        '
-        Me.mskOutboundMTY.Location = New System.Drawing.Point(534, 75)
-        Me.mskOutboundMTY.Mask = "AAA"
-        Me.mskOutboundMTY.Name = "mskOutboundMTY"
-        Me.mskOutboundMTY.Size = New System.Drawing.Size(100, 27)
-        Me.mskOutboundMTY.TabIndex = 1
-        '
-        'Label42
-        '
-        Me.Label42.Location = New System.Drawing.Point(530, 49)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(104, 23)
-        Me.Label42.TabIndex = 17
-        Me.Label42.Text = "Line"
-        Me.Label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        'tabOutboundBreakdown
+        '
+        Me.tabOutboundBreakdown.Controls.Add(Me.TabPage5)
+        Me.tabOutboundBreakdown.Location = New System.Drawing.Point(6, 6)
+        Me.tabOutboundBreakdown.Name = "tabOutboundBreakdown"
+        Me.tabOutboundBreakdown.SelectedIndex = 0
+        Me.tabOutboundBreakdown.Size = New System.Drawing.Size(1286, 596)
+        Me.tabOutboundBreakdown.TabIndex = 102
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage5.Size = New System.Drawing.Size(1278, 563)
+        Me.TabPage5.TabIndex = 0
+        Me.TabPage5.Text = "TabPage5"
+        Me.TabPage5.UseVisualStyleBackColor = True
         '
         'tabCMU
         '
@@ -1905,7 +791,7 @@ Partial Class VMRForm
         Me.tabCMU.Padding = New System.Windows.Forms.Padding(3)
         Me.tabCMU.Size = New System.Drawing.Size(1318, 672)
         Me.tabCMU.TabIndex = 6
-        Me.tabCMU.Text = "Chargeables"
+        Me.tabCMU.Text = "Shiftings"
         Me.tabCMU.UseVisualStyleBackColor = True
         '
         'cmdChargeReset
@@ -2550,6 +1436,36 @@ Partial Class VMRForm
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1052, 660)
         Me.CrystalReportViewer1.TabIndex = 0
         '
+        'AddSL
+        '
+        Me.AddSL.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddShippingLineToolStripMenuItem1})
+        Me.AddSL.Name = "AddSL"
+        Me.AddSL.Size = New System.Drawing.Size(172, 26)
+        '
+        'AddShippingLineToolStripMenuItem1
+        '
+        Me.AddShippingLineToolStripMenuItem1.Name = "AddShippingLineToolStripMenuItem1"
+        Me.AddShippingLineToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
+        Me.AddShippingLineToolStripMenuItem1.Text = "Add Shipping Line"
+        '
+        'AddRemoveSL
+        '
+        Me.AddRemoveSL.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddShippingLineToolStripMenuItem, Me.RemoveShippingLineToolStripMenuItem})
+        Me.AddRemoveSL.Name = "AddRemoveSL"
+        Me.AddRemoveSL.Size = New System.Drawing.Size(193, 48)
+        '
+        'AddShippingLineToolStripMenuItem
+        '
+        Me.AddShippingLineToolStripMenuItem.Name = "AddShippingLineToolStripMenuItem"
+        Me.AddShippingLineToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.AddShippingLineToolStripMenuItem.Text = "Add Shipping Line"
+        '
+        'RemoveShippingLineToolStripMenuItem
+        '
+        Me.RemoveShippingLineToolStripMenuItem.Name = "RemoveShippingLineToolStripMenuItem"
+        Me.RemoveShippingLineToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+        Me.RemoveShippingLineToolStripMenuItem.Text = "Remove Shipping Line"
+        '
         'VMRForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2566,39 +1482,11 @@ Partial Class VMRForm
         Me.tabThroughput.ResumeLayout(False)
         Me.tabThroughput.PerformLayout()
         Me.tabUnits.ResumeLayout(False)
-        Me.TabControl1.ResumeLayout(False)
+        Me.tabUnitBreakdown.ResumeLayout(False)
         Me.tabInbound.ResumeLayout(False)
-        Me.TabControl2.ResumeLayout(False)
-        Me.tabInboundFCL.ResumeLayout(False)
-        Me.tabInboundFCL.PerformLayout()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tabInboundMTY.ResumeLayout(False)
-        Me.tabInboundMTY.PerformLayout()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView10, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabInboundBreakdown.ResumeLayout(False)
         Me.tabOutbound.ResumeLayout(False)
-        Me.TabControl3.ResumeLayout(False)
-        Me.tabOutboundFCL.ResumeLayout(False)
-        Me.tabOutboundFCL.PerformLayout()
-        CType(Me.DataGridView11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView12, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView13, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView14, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView15, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tabOutboundMTY.ResumeLayout(False)
-        Me.tabOutboundMTY.PerformLayout()
-        CType(Me.DataGridView16, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView17, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView18, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView19, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView20, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabOutboundBreakdown.ResumeLayout(False)
         Me.tabCMU.ResumeLayout(False)
         Me.tabSpecificCMU.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -2614,14 +1502,16 @@ Partial Class VMRForm
         Me.tabFooters.ResumeLayout(False)
         Me.tabFooters.PerformLayout()
         Me.tabPreview.ResumeLayout(False)
+        Me.AddSL.ResumeLayout(False)
+        Me.AddRemoveSL.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents tabVMR As TabControl
-    Friend WithEvents tabParticulars As TabPage
-    Friend WithEvents tabThroughput As TabPage
-    Friend WithEvents tabFooters As TabPage
+    Friend WithEvents tabParticulars As Windows.Forms.TabPage
+    Friend WithEvents tabThroughput As Windows.Forms.TabPage
+    Friend WithEvents tabFooters As Windows.Forms.TabPage
     Friend WithEvents lblVoyage As Label
     Friend WithEvents lblVessel As Label
     Friend WithEvents cmdNextPart As Button
@@ -2654,7 +1544,7 @@ Partial Class VMRForm
     Friend WithEvents lblSupervisor As Label
     Friend WithEvents mskChecker2 As MaskedTextBox
     Friend WithEvents lblChecker As Label
-    Friend WithEvents tabPreview As TabPage
+    Friend WithEvents tabPreview As Windows.Forms.TabPage
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents cmdPrint As Button
     Friend WithEvents mskATD As MaskedTextBox
@@ -2679,19 +1569,19 @@ Partial Class VMRForm
     Friend WithEvents lblOnCallSV As Label
     Friend WithEvents mskVisor1 As MaskedTextBox
     Friend WithEvents mskChecker1 As MaskedTextBox
-    Friend WithEvents tabCMU As TabPage
+    Friend WithEvents tabCMU As Windows.Forms.TabPage
     Friend WithEvents dgvCMU As DataGridView
     Friend WithEvents tabSpecificCMU As TabControl
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage1 As Windows.Forms.TabPage
     Friend WithEvents dgvContainers As DataGridView
     Friend WithEvents mskBoxes As MaskedTextBox
     Friend WithEvents cmbSizes As ComboBox
     Friend WithEvents cmbFreight As ComboBox
     Friend WithEvents cmbUnits As ComboBox
     Friend WithEvents cmbMoveKinds As ComboBox
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents TabPage2 As Windows.Forms.TabPage
     Friend WithEvents dgvGearboxes As DataGridView
-    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents TabPage3 As Windows.Forms.TabPage
     Friend WithEvents dgvHatchcovers As DataGridView
     Friend WithEvents mskStandby As MaskedTextBox
     Friend WithEvents Label2 As Label
@@ -2737,128 +1627,20 @@ Partial Class VMRForm
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents Label18 As Label
-    Friend WithEvents tabUnits As TabPage
-    Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents tabInbound As TabPage
-    Friend WithEvents TabControl2 As TabControl
-    Friend WithEvents tabInboundFCL As TabPage
-    Friend WithEvents DataGridView5 As DataGridView
-    Friend WithEvents DataGridView4 As DataGridView
-    Friend WithEvents DataGridView3 As DataGridView
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label20 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents cmdInboundFCL As Button
-    Friend WithEvents mskInboundFCL As MaskedTextBox
-    Friend WithEvents Label19 As Label
-    Friend WithEvents tabInboundMTY As TabPage
-    Friend WithEvents tabOutbound As TabPage
-    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView6 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView7 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView8 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView9 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label27 As Label
-    Friend WithEvents Label28 As Label
-    Friend WithEvents Label29 As Label
-    Friend WithEvents DataGridView10 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn31 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn32 As DataGridViewTextBoxColumn
-    Friend WithEvents cmdInboundMTY As Button
-    Friend WithEvents mskInboundMTY As MaskedTextBox
-    Friend WithEvents Label30 As Label
-    Friend WithEvents TabControl3 As TabControl
-    Friend WithEvents tabOutboundFCL As TabPage
-    Friend WithEvents DataGridView11 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn33 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn34 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn35 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView12 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn36 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn37 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView13 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn38 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn39 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn40 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView14 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn41 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn42 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn43 As DataGridViewTextBoxColumn
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Label32 As Label
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Label34 As Label
-    Friend WithEvents Label35 As Label
-    Friend WithEvents DataGridView15 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn44 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn45 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn46 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn47 As DataGridViewTextBoxColumn
-    Friend WithEvents cmdOutboundFCL As Button
-    Friend WithEvents mskOutboundFCL As MaskedTextBox
-    Friend WithEvents Label36 As Label
-    Friend WithEvents tabOutboundMTY As TabPage
-    Friend WithEvents DataGridView16 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn48 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn49 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn50 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView17 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn51 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn52 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView18 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn53 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn54 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn55 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView19 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn56 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn57 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn58 As DataGridViewTextBoxColumn
-    Friend WithEvents Label37 As Label
-    Friend WithEvents Label38 As Label
-    Friend WithEvents Label39 As Label
-    Friend WithEvents Label40 As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents DataGridView20 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn59 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn60 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn61 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn62 As DataGridViewTextBoxColumn
-    Friend WithEvents cmdOutboundMTY As Button
-    Friend WithEvents mskOutboundMTY As MaskedTextBox
-    Friend WithEvents Label42 As Label
+    Friend WithEvents tabUnits As Windows.Forms.TabPage
     Friend WithEvents cmdSave As Button
     Friend WithEvents cmdChargeReset As Button
+    Friend WithEvents tabUnitBreakdown As TabControl
+    Friend WithEvents tabInbound As Windows.Forms.TabPage
+    Friend WithEvents tabOutbound As Windows.Forms.TabPage
+    Friend WithEvents cmbCategory As ComboBox
+    Friend WithEvents tabInboundBreakdown As TabControl
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents tabOutboundBreakdown As TabControl
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents AddSL As ContextMenuStrip
+    Friend WithEvents AddShippingLineToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AddRemoveSL As ContextMenuStrip
+    Friend WithEvents AddShippingLineToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RemoveShippingLineToolStripMenuItem As ToolStripMenuItem
 End Class

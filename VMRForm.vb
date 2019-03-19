@@ -2,6 +2,7 @@
 Imports Reports
 Imports Reports.IReports
 Imports System.Runtime.InteropServices
+Imports Vessel_Movement_Report_Creator
 
 Public Class VMRForm
 #Region "HOTKEY"
@@ -45,74 +46,79 @@ Public Class VMRForm
         ' Add any initialization after the InitializeComponent() call.
 
         SetCMUDatasource()
-        SetInboundFCLDatasource()
-        SetInboundMTYDatasource()
-        SetOutboundFCLDatasource()
-        SetOutboundMTYDatasource()
+        'SetInboundFCLDatasource()
+        'SetInboundMTYDatasource()
+        'SetOutboundFCLDatasource()
+        'SetOutboundMTYDatasource()
+        AddTabControlHandlers()
         AddNavigationButtonHandlers()
         AddDataGridViewHandlers()
-        AddButtonHandlers()
+        'AddButtonHandlers()
         AddInputHandlers()
         InitializeInputs()
 
     End Sub
 
+    Private Sub AddTabControlHandlers()
+        AddHandler tabInboundBreakdown.MouseClick, AddressOf BreakdownClicker
+        AddHandler tabOutboundBreakdown.MouseClick, AddressOf BreakdownClicker
+    End Sub
 
     Private Sub AddInputHandlers()
         AddHandler mskOnCallSV.KeyDown, AddressOf GangEquivalent
     End Sub
 
-    Private Sub AddButtonHandlers()
-        AddHandler cmdInboundFCL.Click, AddressOf AddLine
-        AddHandler cmdInboundMTY.Click, AddressOf AddLine
-        AddHandler cmdOutboundFCL.Click, AddressOf AddLine
-        AddHandler cmdOutboundMTY.Click, AddressOf AddLine
-    End Sub
+    'Private Sub AddButtonHandlers()
+    '    AddHandler cmdInboundFCL.Click, AddressOf AddLine
+    '    AddHandler cmdInboundMTY.Click, AddressOf AddLine
+    '    AddHandler cmdOutboundFCL.Click, AddressOf AddLine
+    '    AddHandler cmdOutboundMTY.Click, AddressOf AddLine
+    'End Sub
 
-    Private Sub AddLine(sender As Object, e As EventArgs)
-        Dim suffix As String = DirectCast(sender, Button).Name.Substring(3)
-        Dim database As String = $"dt{suffix}"
-        Dim temprow As dsThroughput.dtInboundFCLRow 'any table class (INBOUNDFCL, INBOUNDMTY, etc.) is fine
-        temprow = clsVMR.GetvesselMovementReportData.Tables(database).NewRow
-        temprow.line_op = DirectCast(DirectCast(sender, Button).Parent, Control).Controls($"msk{suffix}").Text
-        clsVMR.GetvesselMovementReportData.Tables(database).Rows.Add(temprow)
-    End Sub
+    'Private Sub AddLine(sender As Object, e As EventArgs)
+    '    Dim suffix As String = DirectCast(sender, Button).Name.Substring(3)
+    '    Dim database As String = $"dt{suffix}"
+    '    Dim temprow As dsThroughput.dtInboundFCLRow 'any table class (INBOUNDFCL, INBOUNDMTY, etc.) is fine
+    '    temprow = clsVMR.GetvesselMovementReportData.Tables(database).NewRow
+    '    temprow.line_op = DirectCast(DirectCast(sender, Button).Parent, Control).Controls($"msk{suffix}").Text
+    '    clsVMR.GetvesselMovementReportData.Tables(database).Rows.Add(temprow)
+    'End Sub
 
-    Private Sub SetOutboundMTYDatasource()
-        For Each ctl As Control In tabOutboundMTY.Controls
-            If ctl.GetType Is GetType(DataGridView) Then
-                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
-                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtOutboundMTY
-            End If
-        Next
-    End Sub
+    'Private Sub SetOutboundMTYDatasource()
+    '    For Each ctl As Control In tabOutboundMTY.Controls
+    '        If ctl.GetType Is GetType(DataGridView) Then
+    '            DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+    '            DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtOutboundMTY
+    '        End If
+    '    Next
+    'End Sub
 
-    Private Sub SetOutboundFCLDatasource()
-        For Each ctl As Control In tabOutboundFCL.Controls
-            If ctl.GetType Is GetType(DataGridView) Then
-                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
-                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtOutboundFCL
-            End If
-        Next
-    End Sub
+    'Private Sub SetOutboundFCLDatasource()
+    '    For Each ctl As Control In tabOutboundFCL.Controls
+    '        If ctl.GetType Is GetType(DataGridView) Then
+    '            DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+    '            DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtOutboundFCL
+    '        End If
+    '    Next
+    'End Sub
 
-    Private Sub SetInboundMTYDatasource()
-        For Each ctl As Control In tabInboundMTY.Controls
-            If ctl.GetType Is GetType(DataGridView) Then
-                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
-                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtInboundMTY
-            End If
-        Next
-    End Sub
+    'Private Sub SetInboundMTYDatasource()
+    '    For Each ctl As Control In tabInboundMTY.Controls
+    '        If ctl.GetType Is GetType(DataGridView) Then
+    '            DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+    '            DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtInboundMTY
+    '        End If
+    '    Next
+    'End Sub
 
-    Private Sub SetInboundFCLDatasource()
-        For Each ctl As Control In tabInboundFCL.Controls
-            If ctl.GetType Is GetType(DataGridView) Then
-                DirectCast(ctl, DataGridView).AutoGenerateColumns = False
-                DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtInboundFCL
-            End If
-        Next
-    End Sub
+    'Private Sub SetInboundFCLDatasource()
+    '    For Each ctl As Control In tabInboundFCL.Controls
+    '        If ctl.GetType Is GetType(DataGridView) Then
+    '            DirectCast(ctl, DataGridView).AutoGenerateColumns = False
+    '            DirectCast(ctl, DataGridView).DataSource = clsVMR.GetvesselMovementReportData.dtInboundFCL
+    '        End If
+    '    Next
+    'End Sub
 
     Private Sub AddDataGridViewHandlers()
         AddHandler dgvContainers.UserDeletingRow, AddressOf ConfirmDelete
@@ -194,6 +200,7 @@ Public Class VMRForm
     Private gearboxesCMU As New DataView
     Private containersCMU As New DataView
     Private hatchcoversCMU As New DataView
+    Private BreakdownControls As List(Of UnitBreakdownControl)
     Private clsVMR As VMRClass
     Private rptVMR As New VMR
 
@@ -242,14 +249,102 @@ Public Class VMRForm
     End Sub
 
     Private Sub tabVMR_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabVMR.SelectedIndexChanged
-        Dim tabClicked As TabPage = DirectCast(sender, TabControl).SelectedTab
+        Dim tabClicked As Windows.Forms.TabPage = DirectCast(sender, TabControl).SelectedTab
         Select Case tabClicked.Name.ToString
             Case "tabPreview"
                 mapDetails()
                 clsVMR.Format(rptVMR)
                 clsVMR.Preview(rptVMR, CrystalReportViewer1)
+            Case "tabUnits"
+                tabInboundBreakdown.TabPages.Clear()
+                tabOutboundBreakdown.TabPages.Clear()
+
+                BreakdownControls = New List(Of UnitBreakdownControl)
+                PopulateUnitBreakdowns()
+
         End Select
     End Sub
+
+    Private Sub RecreateUnitBreakdown()
+        ClearVMRUnits()
+
+        For Each ctl As UnitBreakdownControl In BreakdownControls
+            Dim category As String = ctl.Category
+            Dim mtyDatatable As DataTable = clsVMR.GetvesselMovementReportData.Tables.Item($"dt{category}MTY")
+            Dim fclDatatable As DataTable = clsVMR.GetvesselMovementReportData.Tables.Item($"dt{category}FCL")
+
+            PopulateDatatable(ctl, mtyDatatable)
+            PopulateDatatable(ctl, fclDatatable)
+
+        Next
+    End Sub
+
+    Private Sub PopulateDatatable(ctl As UnitBreakdownControl, unitDatatable As DataTable)
+        Dim unitView As DataGridView
+        Select Case True
+            Case unitDatatable.TableName.Contains("FCL")
+                unitView = ctl.tabLoaded
+            Case unitDatatable.TableName.Contains("MTY")
+                unitView = ctl.tabEmpty
+        End Select
+
+        With unitDatatable
+            Dim tempList As New List(Of String)
+            tempList.Add(clsVMR.vmrVessel.Registry)
+            tempList.Add(ctl.ShippingLine)
+            For index As Integer = .Columns.IndexOf("Dry20") To .Columns.Count - 1
+                Dim ISO As String = ReportFunctions.TranslateISO(.Columns(index).ColumnName.Substring(0, 3))
+                Dim Size As Integer = .Columns(index).ColumnName.Substring(3)
+
+                For Each row As DataRow In DirectCast(unitView.DataSource, DataTable).Rows
+                    If row("iso").ToString = ISO Then
+                        tempList.Add(0 & row(Size.ToString))
+                    End If
+                Next
+
+
+            Next
+            unitDatatable.Rows.Add(tempList.ToArray)
+        End With
+    End Sub
+
+    Private Sub ClearVMRUnits()
+        With clsVMR.GetvesselMovementReportData
+            .dtInboundFCL.Clear()
+            .dtInboundMTY.Clear()
+            .dtOutboundFCL.Clear()
+            .dtOutboundMTY.Clear()
+        End With
+    End Sub
+
+    Private Sub PopulateUnitBreakdowns()
+        Dim categories As String() = {"Inbound", "Outbound"}
+        For Each category As String In categories
+            Dim consolidatedTable As New DataTable
+            consolidatedTable.Merge(clsVMR.GetvesselMovementReportData.Tables.Item($"dt{category}FCL"))
+            consolidatedTable.Merge(clsVMR.GetvesselMovementReportData.Tables.Item($"dt{category}MTY"))
+
+            Dim shippingLines As New List(Of String)
+            shippingLines = consolidatedTable.AsEnumerable.OrderBy(Function(row) row("line_op")).
+                        Select(Function(row) row("line_op").ToString).Distinct.ToList
+
+            For Each shippingLine As String In shippingLines
+                Dim tempBreakdownData As New UnitBreakdown(category, shippingLine, clsVMR.GetvesselMovementReportData)
+                Dim tempBreakdownControl As New UnitBreakdownControl(tempBreakdownData)
+                BreakdownControls.Add(tempBreakdownControl)
+
+                Dim tabControl As TabControl
+                Select Case category
+                    Case "Inbound"
+                        tabControl = tabInboundBreakdown
+                    Case "Outbound"
+                        tabControl = tabOutboundBreakdown
+                End Select
+                tabControl.TabPages.Add(tempBreakdownControl.UnitBreakdownPage)
+            Next
+        Next
+    End Sub
+
     Private Sub mapDetails()
         With clsVMR
             .Details(.VslInfo.name) = mskVessel.Text
@@ -419,5 +514,41 @@ Public Class VMRForm
             clsVMR.GetvesselMovementReportData.dtCMU.Clear()
             clsVMR.CreateCMU()
         End If
+    End Sub
+
+    Private Sub BreakdownClicker(sender As Object, e As MouseEventArgs)
+        Try
+            Dim tabControl As TabControl = DirectCast(sender, TabControl)
+            If e.Button = MouseButtons.Right Then
+                tabcontrolCursorLocation = e.Location
+                Dim tabPage As TabPage = GetTabPageByLocation(tabControl, e.Location)
+
+                Select Case tabControl.TabPages.Count
+                    Case 1
+                        AddSL.Show(tabControl, e.Location)
+                    Case Else
+                        AddRemoveSL.Show(tabControl, e.Location)
+                End Select
+            End If
+        Catch
+        End Try
+    End Sub
+    Private tabcontrolCursorLocation As Point 'used to catch cursor location when using gettabpagebylocation
+    Private Function GetTabPageByLocation(tabControl1 As TabControl, location As Point) As TabPage
+
+        For Each tabpage As TabPage In tabControl1.TabPages
+            Dim r As Rectangle = tabControl1.GetTabRect(tabControl1.TabPages.IndexOf(tabpage))
+            If r.Contains(location) Then
+                Return tabpage
+            End If
+        Next
+    End Function
+
+    Private Sub cmbCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCategory.SelectedIndexChanged
+        tabUnitBreakdown.SelectedIndex = cmbCategory.SelectedIndex
+    End Sub
+
+    Private Sub tabUnits_Leave(sender As Object, e As EventArgs) Handles tabUnits.Leave
+        RecreateUnitBreakdown()
     End Sub
 End Class

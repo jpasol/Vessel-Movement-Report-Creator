@@ -216,6 +216,21 @@
     </Compile>
     <Compile Include="Gearboxes.vb" />
     <Compile Include="Hatchcover.vb" />
+    <Compile Include="UnitBreakdown.vb" />
+    <Compile Include="UnitBreakdownControl.Designer.vb">
+      <DependentUpon>UnitBreakdownControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UnitBreakdownControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UnitBreakdownData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitBreakdownData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UnitBreakdownData.vb">
+      <DependentUpon>UnitBreakdownData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="VMR.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -258,6 +273,9 @@
       <LastGenOutput>CMU.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="UnitBreakdownControl.resx">
+      <DependentUpon>UnitBreakdownControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VMR.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VMR.vb</LastGenOutput>
@@ -298,8 +316,20 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="UnitBreakdownData.xsc">
+      <DependentUpon>UnitBreakdownData.xsd</DependentUpon>
+    </None>
+    <None Include="UnitBreakdownData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UnitBreakdownData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="UnitBreakdownData.xss">
+      <DependentUpon>UnitBreakdownData.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>

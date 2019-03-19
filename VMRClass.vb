@@ -251,7 +251,11 @@ UPDATE [opreports].[dbo].[reports_vmr]
 
     Private Sub AddHatchcoverMoves(line As String, moves As CraneMoves)
         Dim hatchCoverBays As String
-        With moves.Hatchcover.AsEnumerable.Select(Function(row) New Hatchcover(row("baynum"), row("cvrsze20"), row("cvrsze40")))
+        Dim consolidatedTable As New DataTable
+        consolidatedTable.Merge(moves.Hatchcover)
+        consolidatedTable.Merge(moves.Hatchcover1)
+
+        With consolidatedTable.AsEnumerable.Select(Function(row) New Hatchcover(row("baynum"), row("cvrsze20"), row("cvrsze40")))
             With hatchcoverSets(.ToList).AsEnumerable
                 Dim bayArray As String() = .Select(Of String)(Function(row) row.bayNumber).Distinct.ToArray
                 Dim hatchCoverBoxes As Integer = .Sum(Function(hc) hc.cvrsze20 + hc.cvrsze40)
@@ -287,7 +291,11 @@ UPDATE [opreports].[dbo].[reports_vmr]
         Dim gearboxBays As String
         Dim gearboxSizes() As Integer = {20, 40}
         For Each size As Integer In gearboxSizes
-            With moves.Gearbox.AsEnumerable.Where(Function(gbx) gbx($"gbxsze{size}") > 0)
+            Dim consolidatedTable As New DataTable
+            consolidatedTable.Merge(moves.Gearbox)
+            consolidatedTable.Merge(moves.Gearbox1)
+
+            With consolidatedTable.AsEnumerable.Where(Function(gbx) gbx($"gbxsze{size}") > 0)
                 With .Select(Function(row) New Gearbox(row("baynum"), row("gbxsze20"), row("gbxsze40")))
                     With GearboxSets(.ToList).AsEnumerable
                         Dim bayArray As String() = .Select(Of String)(Function(gbx) gbx.baynum).Distinct.ToArray
@@ -318,7 +326,7 @@ UPDATE [opreports].[dbo].[reports_vmr]
         Dim freightKinds() As String = {"FCL", "MTY"}
         For Each freight As String In freightKinds
             For Each size As Integer In containerSizes
-                With moves.Container.AsEnumerable.Where(Function(row) row("move_kind") = v _
+                With moves.Container.AsEnumerable.Where(Function(row) row("container") = v _
                                                         And row($"cntsze{size}") > 0 _
                                                         And row("freight_kind") = freight)
                     With .Select(Function(ctn) New Container(ctn("move_kind"), freight, size, ctn($"cntsze{size}")))

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="UnitBreakdownData" targetNamespace="http://tempuri.org/UnitBreakdownData.xsd" xmlns:mstns="http://tempuri.org/UnitBreakdownData.xsd" xmlns="http://tempuri.org/UnitBreakdownData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="UnitBreakdownData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="UnitBreakdownData" msprop:Generator_UserDSName="UnitBreakdownData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FCL" msprop:Generator_TableClassName="FCLDataTable" msprop:Generator_TableVarName="tableFCL" msprop:Generator_TablePropName="FCL" msprop:Generator_RowDeletingName="FCLRowDeleting" msprop:Generator_RowChangingName="FCLRowChanging" msprop:Generator_RowEvHandlerName="FCLRowChangeEventHandler" msprop:Generator_RowDeletedName="FCLRowDeleted" msprop:Generator_UserTableName="FCL" msprop:Generator_RowChangedName="FCLRowChanged" msprop:Generator_RowEvArgName="FCLRowChangeEvent" msprop:Generator_RowClassName="FCLRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ISO" msprop:Generator_ColumnVarNameInTable="columnISO" msprop:Generator_ColumnPropNameInRow="ISO" msprop:Generator_ColumnPropNameInTable="ISOColumn" msprop:Generator_UserColumnName="ISO" type="xs:string" minOccurs="0" />
+              <xs:element name="_x0032_0" msprop:Generator_ColumnVarNameInTable="column20" msprop:Generator_ColumnPropNameInRow="_20" msprop:Generator_ColumnPropNameInTable="_20Column" msprop:Generator_UserColumnName="20" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="_x0034_0" msprop:Generator_ColumnVarNameInTable="column40" msprop:Generator_ColumnPropNameInRow="_40" msprop:Generator_ColumnPropNameInTable="_40Column" msprop:Generator_UserColumnName="40" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="_x0034_5" msprop:Generator_ColumnVarNameInTable="column45" msprop:Generator_ColumnPropNameInRow="_45" msprop:Generator_ColumnPropNameInTable="_45Column" msprop:Generator_UserColumnName="45" type="xs:long" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MTY" msprop:Generator_TableClassName="MTYDataTable" msprop:Generator_TableVarName="tableMTY" msprop:Generator_TablePropName="MTY" msprop:Generator_RowDeletingName="MTYRowDeleting" msprop:Generator_RowChangingName="MTYRowChanging" msprop:Generator_RowEvHandlerName="MTYRowChangeEventHandler" msprop:Generator_RowDeletedName="MTYRowDeleted" msprop:Generator_UserTableName="MTY" msprop:Generator_RowChangedName="MTYRowChanged" msprop:Generator_RowEvArgName="MTYRowChangeEvent" msprop:Generator_RowClassName="MTYRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ISO" msprop:Generator_ColumnVarNameInTable="columnISO" msprop:Generator_ColumnPropNameInRow="ISO" msprop:Generator_ColumnPropNameInTable="ISOColumn" msprop:Generator_UserColumnName="ISO" type="xs:string" minOccurs="0" />
+              <xs:element name="_x0032_0" msprop:Generator_ColumnVarNameInTable="column20" msprop:Generator_ColumnPropNameInRow="_20" msprop:Generator_ColumnPropNameInTable="_20Column" msprop:Generator_UserColumnName="20" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="_x0034_0" msprop:Generator_ColumnVarNameInTable="column40" msprop:Generator_ColumnPropNameInRow="_40" msprop:Generator_ColumnPropNameInTable="_40Column" msprop:Generator_UserColumnName="40" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="_x0034_5" msprop:Generator_ColumnVarNameInTable="column45" msprop:Generator_ColumnPropNameInRow="_45" msprop:Generator_ColumnPropNameInTable="_45Column" msprop:Generator_UserColumnName="45" type="xs:long" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
