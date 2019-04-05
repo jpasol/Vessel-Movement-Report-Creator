@@ -721,10 +721,10 @@ Partial Class VMRForm
         'tabInbound
         '
         Me.tabInbound.Controls.Add(Me.tabInboundBreakdown)
-        Me.tabInbound.Location = New System.Drawing.Point(4, 14)
+        Me.tabInbound.Location = New System.Drawing.Point(4, 5)
         Me.tabInbound.Name = "tabInbound"
         Me.tabInbound.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabInbound.Size = New System.Drawing.Size(1298, 608)
+        Me.tabInbound.Size = New System.Drawing.Size(1298, 617)
         Me.tabInbound.TabIndex = 0
         Me.tabInbound.Text = "Inbound"
         Me.tabInbound.UseVisualStyleBackColor = True
@@ -1440,12 +1440,12 @@ Partial Class VMRForm
         '
         Me.AddSL.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddShippingLineToolStripMenuItem1})
         Me.AddSL.Name = "AddSL"
-        Me.AddSL.Size = New System.Drawing.Size(172, 26)
+        Me.AddSL.Size = New System.Drawing.Size(181, 48)
         '
         'AddShippingLineToolStripMenuItem1
         '
         Me.AddShippingLineToolStripMenuItem1.Name = "AddShippingLineToolStripMenuItem1"
-        Me.AddShippingLineToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
+        Me.AddShippingLineToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.AddShippingLineToolStripMenuItem1.Text = "Add Shipping Line"
         '
         'AddRemoveSL

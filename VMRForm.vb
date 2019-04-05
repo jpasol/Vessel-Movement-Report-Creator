@@ -42,7 +42,7 @@ Public Class VMRForm
 
         ' This call is required by the designer.
         InitializeComponent()
-        clsVMR = New VMRClass(Registry, N4Connection, OPConnection, Username)
+        clsVMR = New VMRClass(Registry, Username)
         ' Add any initialization after the InitializeComponent() call.
 
         SetCMUDatasource()
@@ -62,6 +62,10 @@ Public Class VMRForm
     Private Sub AddTabControlHandlers()
         AddHandler tabInboundBreakdown.MouseClick, AddressOf BreakdownClicker
         AddHandler tabOutboundBreakdown.MouseClick, AddressOf BreakdownClicker
+
+        AddHandler AddShippingLineToolStripMenuItem.Click, AddressOf AddShippingLineMenu
+        AddHandler AddShippingLineToolStripMenuItem1.Click, AddressOf AddShippingLineMenu
+        AddHandler RemoveShippingLineToolStripMenuItem.Click, AddressOf RemoveShippingLineMenu
     End Sub
 
     Private Sub AddInputHandlers()
@@ -329,22 +333,39 @@ Public Class VMRForm
                         Select(Function(row) row("line_op").ToString).Distinct.ToList
 
             For Each shippingLine As String In shippingLines
-                Dim tempBreakdownData As New UnitBreakdown(category, shippingLine, clsVMR.GetvesselMovementReportData)
-                Dim tempBreakdownControl As New UnitBreakdownControl(tempBreakdownData)
-                BreakdownControls.Add(tempBreakdownControl)
+                AddShippingLineToBreakdown(category, shippingLine)
 
-                Dim tabControl As TabControl
-                Select Case category
-                    Case "Inbound"
-                        tabControl = tabInboundBreakdown
-                    Case "Outbound"
-                        tabControl = tabOutboundBreakdown
-                End Select
-                tabControl.TabPages.Add(tempBreakdownControl.UnitBreakdownPage)
             Next
         Next
     End Sub
 
+    Private Sub AddShippingLineToBreakdown(category As String, shippingLine As String)
+        Dim tempBreakdownData As New UnitBreakdown(category, shippingLine, clsVMR.GetvesselMovementReportData)
+        Dim tempBreakdownControl As New UnitBreakdownControl(tempBreakdownData)
+        BreakdownControls.Add(tempBreakdownControl)
+
+        Dim tabControl As TabControl
+        Select Case category
+            Case "Inbound"
+                tabControl = tabInboundBreakdown
+            Case "Outbound"
+                tabControl = tabOutboundBreakdown
+        End Select
+        tabControl.TabPages.Add(tempBreakdownControl.UnitBreakdownPage)
+    End Sub
+    Private Sub RemoveShippingLineFromBreakdown(category As String)
+
+        Dim tabControl As TabControl
+        Select Case category
+            Case "Inbound"
+                tabControl = tabInboundBreakdown
+            Case "Outbound"
+                tabControl = tabOutboundBreakdown
+        End Select
+
+        Dim tabPageRemove As TabPage = GetTabPageByLocation(tabControl, tabcontrolCursorLocation)
+        tabControl.TabPages.Remove(tabPageRemove)
+    End Sub
     Private Sub mapDetails()
         With clsVMR
             .Details(.VslInfo.name) = mskVessel.Text
@@ -531,6 +552,7 @@ Public Class VMRForm
                 End Select
             End If
         Catch
+            tabcontrolCursorLocation = e.Location
         End Try
     End Sub
     Private tabcontrolCursorLocation As Point 'used to catch cursor location when using gettabpagebylocation
@@ -550,5 +572,20 @@ Public Class VMRForm
 
     Private Sub tabUnits_Leave(sender As Object, e As EventArgs) Handles tabUnits.Leave
         RecreateUnitBreakdown()
+    End Sub
+
+    Private Sub AddShippingLineMenu(sender As Object, e As EventArgs)
+        Dim tabcontrol As TabPage = tabUnitBreakdown.SelectedTab
+        Dim category As String = tabcontrol.Name.Substring(3)
+        Dim shippingline As String = UCase(InputBox("What Shipping Line?"))
+
+        AddShippingLineToBreakdown(category, shippingline)
+    End Sub
+
+    Private Sub RemoveShippingLineMenu(sender As Object, e As EventArgs)
+        Dim tabcontrol As TabPage = tabUnitBreakdown.SelectedTab
+        Dim category As String = tabcontrol.Name.Substring(3)
+
+        RemoveShippingLineFromBreakdown(category)
     End Sub
 End Class

@@ -8,13 +8,14 @@ Public Class VMRClass
 
     Implements IReports.IReportswSave
 
-    Sub New(Registry As String, ByRef N4Connection As Connection, ByRef OPConnection As Connection, Username As String)
-        vmrVessel = New Vessel(Registry, OPConnection, N4Connection)
+    Sub New(Registry As String, Username As String)
+        Dim connections As New Connections
+        connN4 = connections.N4Connection
+        connOP = connections.OPConnection
 
-        connN4 = N4Connection
-        connOP = OPConnection
+        vmrVessel = New Vessel(Registry)
 
-        craneLogsReport = New CLRClass(Registry, N4Connection, OPConnection, Username:=Username)
+        craneLogsReport = New CLRClass(Registry, Username:=Username)
         If craneLogsReport.Exists Then
             craneLogsReport.RetrieveData()
             GetVesselFormalities()
