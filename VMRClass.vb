@@ -796,6 +796,7 @@ Options:=CommandTypeEnum.adCmdText)
     End Sub
 
     Private Sub RetrieveByVessel(vmrVessel As Vessel)
+        On Error Resume Next
         With vmrVessel
             vmrDetails(VslInfo.name) = .Name
             vmrDetails(VslInfo.owner) = .Owner
