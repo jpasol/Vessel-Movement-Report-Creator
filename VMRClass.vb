@@ -195,47 +195,47 @@ Public Class VMRClass
 
     End Sub
 
-    Friend Sub CancelExisting()
-        Try
-            CancelVMR(Refkey)
-        Catch ex As Exception
-            MsgBox("Cannot Cancel Existing")
-            Throw ex
-        End Try
+    'Friend Sub CancelExisting()
+    '    Try
+    '        CancelVMR(Refkey)
+    '    Catch ex As Exception
+    '        MsgBox("Cannot Cancel Existing")
+    '        Throw ex
+    '    End Try
 
-    End Sub
+    'End Sub
 
-    Private Sub CancelCMU(refkey As Integer)
-        Try
-            Dim cancelCMU As New ADODB.Command
-            cancelCMU.ActiveConnection = connOP
-            cancelCMU.CommandText = $"
-UPDATE [opreports].[dbo].[reports_vmr]
-   SET [status] = 'VOID'
- WHERE vmr_key = {refkey}
-"
-            cancelCMU.Execute()
-        Catch ex As Exception
-            MsgBox("Cannot Cancel CMU")
-            Throw ex
-        End Try
-    End Sub
+    '    Private Sub CancelCMU(refkey As Integer)
+    '        Try
+    '            Dim cancelCMU As New ADODB.Command
+    '            cancelCMU.ActiveConnection = connOP
+    '            cancelCMU.CommandText = $"
+    'UPDATE [opreports].[dbo].[reports_vmr]
+    '   SET [status] = 'VOID'
+    ' WHERE vmr_key = {refkey}
+    '"
+    '            cancelCMU.Execute()
+    '        Catch ex As Exception
+    '            MsgBox("Cannot Cancel CMU")
+    '            Throw ex
+    '        End Try
+    '    End Sub
 
-    Private Sub CancelVMR(refkey As Integer)
-        Try
-            Dim cancelVMR As New ADODB.Command
-            cancelVMR.ActiveConnection = connOP
-            cancelVMR.CommandText = $"
-UPDATE [opreports].[dbo].[reports_vmr]
-   SET [status] = 'VOID'
- WHERE vmr_key = {refkey}
-"
-            cancelVMR.Execute()
-        Catch ex As Exception
-            MsgBox("Cannot Cancel VMR")
-            Throw ex
-        End Try
-    End Sub
+    '    Private Sub CancelVMR(refkey As Integer)
+    '        Try
+    '            Dim cancelVMR As New ADODB.Command
+    '            cancelVMR.ActiveConnection = connOP
+    '            cancelVMR.CommandText = $"
+    'UPDATE [opreports].[dbo].[reports_vmr]
+    '   SET [status] = 'VOID'
+    ' WHERE vmr_key = {refkey}
+    '"
+    '            cancelVMR.Execute()
+    '        Catch ex As Exception
+    '            MsgBox("Cannot Cancel VMR")
+    '            Throw ex
+    '        End Try
+    '    End Sub
 
     Private Function GetRefkey() As Integer
         Dim refkeyFinder As New ADODB.Command
@@ -488,6 +488,62 @@ INSERT INTO [opreports].[dbo].[vmr_dg]
         Next
     End Sub
 
+    Friend Sub DeleteExisting()
+        Try
+            DeleteVMR(Refkey)
+        Catch ex As Exception
+            MsgBox("Cannot Cancel Existing")
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub DeleteVMR(refkey As Integer)
+        DeleteVMRReport(refkey)
+        DeleteChargeables(refkey)
+        DeleteDGUnits(refkey)
+        DeleteUnits(refkey)
+    End Sub
+
+    Private Sub DeleteUnits(refkey As Integer)
+        Dim deleteUnits As New ADODB.Command
+        deleteUnits.ActiveConnection = OPConnection
+        deleteUnits.CommandText = $"
+DELETE FROM [opreports].[dbo].[vmr_units]
+      WHERE vmr_refkey = {refkey}
+"
+        deleteUnits.Execute()
+    End Sub
+
+    Private Sub DeleteDGUnits(refkey As Integer)
+        Dim deleteUnits As New ADODB.Command
+        deleteUnits.ActiveConnection = OPConnection
+        deleteUnits.CommandText = $"
+DELETE FROM [opreports].[dbo].[vmr_dg]
+      WHERE vmr_refkey = {refkey}
+"
+        deleteUnits.Execute()
+    End Sub
+
+    Private Sub DeleteChargeables(refkey As Integer)
+        Dim deleteUnits As New ADODB.Command
+        deleteUnits.ActiveConnection = OPConnection
+        deleteUnits.CommandText = $"
+DELETE FROM [opreports].[dbo].[vmr_cmu]
+      WHERE vmr_refkey = {refkey}
+"
+        deleteUnits.Execute()
+    End Sub
+
+    Private Sub DeleteVMRReport(refkey As Integer)
+        Dim deleteUnits As New ADODB.Command
+        deleteUnits.ActiveConnection = OPConnection
+        deleteUnits.CommandText = $"
+DELETE FROM [opreports].[dbo].[reports_vmr]
+      WHERE vmr_key = {refkey}
+"
+        deleteUnits.Execute()
+    End Sub
+
     Private Sub InsertToDatabase(bound As String, freightKind As String, refkey As Integer)
         Dim units As DataTable = dsVMR.Tables($"dt{bound}{freightKind}")
         Dim category As String
@@ -609,8 +665,8 @@ INSERT INTO [opreports].[dbo].[reports_vmr]
            ,'{dteSave}'
            )
 "
-
-            Return insertVMR.Execute.Fields("vmr_key").Value
+            Refkey = insertVMR.Execute.Fields("vmr_key").Value
+            Return Refkey
         Catch ex As Exception
             MsgBox("Error Saving VMR" & vbNewLine &
                "Error Description: " & ex.Message)

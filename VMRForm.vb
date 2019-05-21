@@ -416,7 +416,8 @@ Public Class VMRForm
                         .BeginTrans()
                         Dim result = MsgBox("Update?", vbYesNo)
                         If result = vbYes Then
-                            clsVMR.CancelExisting()
+                            'clsVMR.CancelExisting()
+                            clsVMR.DeleteExisting()
                             clsVMR.Save()
                             .CommitTrans()
                             MsgBox("Save Successful!")
