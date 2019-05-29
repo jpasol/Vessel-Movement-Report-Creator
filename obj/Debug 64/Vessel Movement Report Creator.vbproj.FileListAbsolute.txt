@@ -1,15 +1,4 @@
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\app.config
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\CrystalReport1.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\CMU.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\VMR.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\CrystalReport1.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\CMU.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\dsVMR.Designer.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\dsVMR.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\VMR.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\dsVMR.xsc
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\dsVMR.xsd
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\dsVMR.xss
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\Vessel Movement Report Creator.dll
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\Vessel Movement Report Creator.pdb
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\Debug 64\Vessel Movement Report Creator.xml
