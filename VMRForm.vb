@@ -232,8 +232,12 @@ Public Class VMRForm
             mskOnCallSV.Text = .Details(.VslInfo.oncall_sv_dv)
             mskChecker1.Text = .Details(.VslInfo.opschecker1)
             mskChecker2.Text = .Details(.VslInfo.opschecker2)
-            mskVisor1.Text = .Details(.VslInfo.opsvisor1)
-            mskVisor2.Text = .Details(.VslInfo.opsvisor2)
+
+            Dim visor1 As String = .Details(.VslInfo.opsvisor1)
+            Dim visor2 As String = .Details(.VslInfo.opsvisor2)
+
+            mskVisor1.Text = IIf(IsNothing(visor1), mskVisor1.Text, visor1)
+            mskVisor2.Text = IIf(IsNothing(visor2), mskVisor2.Text, visor2)
             mskAsstOP.Text = .Details(.VslInfo.opscnter)
             mskOPCenter.Text = .Details(.VslInfo.opscnter)
             mskStandby.Text = .Details(.VslInfo.standby)
@@ -392,6 +396,7 @@ Public Class VMRForm
             .Details(.VslInfo.opsvisor2) = mskVisor2.Text
             .Details(.VslInfo.opscnter) = mskAsstOP.Text
             .Details(.VslInfo.opscnter) = mskOPCenter.Text
+            .Details(.VslInfo.opsmngr) = mskAsstOP.Text
             .Details(.VslInfo.standby) = mskStandby.Text
             .Details(.VslInfo.formalities_start) = mskFormStart.Text
             .Details(.VslInfo.formalities_end) = mskFormEnd.Text

@@ -1296,6 +1296,7 @@ Partial Class VMRForm
         Me.mskVisor1.Name = "mskVisor1"
         Me.mskVisor1.Size = New System.Drawing.Size(390, 27)
         Me.mskVisor1.TabIndex = 3
+        Me.mskVisor1.Text = "O. Cupat"
         '
         'mskChecker1
         '
@@ -1342,15 +1343,16 @@ Partial Class VMRForm
         Me.mskVisor2.Name = "mskVisor2"
         Me.mskVisor2.Size = New System.Drawing.Size(390, 27)
         Me.mskVisor2.TabIndex = 4
+        Me.mskVisor2.Text = "R. Pangilinan"
         '
         'lblSupervisor
         '
         Me.lblSupervisor.AutoSize = True
         Me.lblSupervisor.Location = New System.Drawing.Point(934, 181)
         Me.lblSupervisor.Name = "lblSupervisor"
-        Me.lblSupervisor.Size = New System.Drawing.Size(144, 22)
+        Me.lblSupervisor.Size = New System.Drawing.Size(145, 22)
         Me.lblSupervisor.TabIndex = 45
-        Me.lblSupervisor.Text = "OPS. Supervisor"
+        Me.lblSupervisor.Text = "OPC. Supervisor"
         '
         'mskChecker2
         '
@@ -1440,12 +1442,12 @@ Partial Class VMRForm
         '
         Me.AddSL.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddShippingLineToolStripMenuItem1})
         Me.AddSL.Name = "AddSL"
-        Me.AddSL.Size = New System.Drawing.Size(181, 48)
+        Me.AddSL.Size = New System.Drawing.Size(172, 26)
         '
         'AddShippingLineToolStripMenuItem1
         '
         Me.AddShippingLineToolStripMenuItem1.Name = "AddShippingLineToolStripMenuItem1"
-        Me.AddShippingLineToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AddShippingLineToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
         Me.AddShippingLineToolStripMenuItem1.Text = "Add Shipping Line"
         '
         'AddRemoveSL
