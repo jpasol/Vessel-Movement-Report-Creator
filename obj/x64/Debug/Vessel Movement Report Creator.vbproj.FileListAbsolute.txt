@@ -1,14 +1,3 @@
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\CrystalReport1.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\CMU.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\VMR.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\CrystalReport1.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\CMU.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\dsVMR.Designer.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\dsVMR.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\VMR.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\dsVMR.xsc
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\dsVMR.xsd
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\dsVMR.xss
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\Vessel Movement Report Creator.dll
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\Vessel Movement Report Creator.pdb
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\Vessel Movement Report Creator.xml
@@ -50,3 +39,15 @@ C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\ReportsInterface.dll.config
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\app.config
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Debug\Vessel_Movement_Report_Creator.UnitBreakdownControl.resources
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\Vessel Movement Report Creator User Controls.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\Crane Logs Report Creator Controls.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\CommonServiceLocator.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\System.Windows.Interactivity.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\Vessel Movement Report Creator User Controls.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\GalaSoft.MvvmLight.xml
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\Crane Logs Report Creator Controls.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Debug\System.Windows.Interactivity.xml

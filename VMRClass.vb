@@ -3,6 +3,8 @@ Imports Reports
 Imports CrystalDecisions.CrystalReports
 Imports Crane_Logs_Report_Creator
 Imports Vessel_Movement_Report_Creator
+Imports System.Collections.ObjectModel
+Imports Vessel_Movement_Report_Creator_User_Controls.Model
 
 Public Class VMRClass
 
@@ -25,7 +27,6 @@ Public Class VMRClass
 
         vmrDetails(VslInfo.registry) = Registry
         RetrieveData()
-
 
     End Sub
     Public vmrVessel As Vessel
@@ -99,7 +100,7 @@ Public Class VMRClass
             OPConnection = connOP
         End Get
     End Property
-
+    Public Property ShutoutContainers As ObservableCollection(Of Shutout_Container)
     Public Function CalculateInfo(strFunction As String, Inputs() As String) As Object Implements IReportswSave.CalculateInfo
 
     End Function
@@ -177,8 +178,18 @@ Public Class VMRClass
                 cat = "IMPRT"
             ElseIf dtString = "dtOutbound" Then
                 cat = "EXPRT"
+                AddShutoutContainers(lin, dtUnits) 'for export only
             End If
             addDGContainers(cat, lin, dtUnits, dsVMR.Tables("dtDG"))
+        Next
+
+    End Sub
+
+    Private Sub AddShutoutContainers(lin As String, dtUnits As DataTable)
+        For Each rw As DataRow In dtUnits.AsEnumerable().Where(Function(row) row("line_op").ToString = lin And row("transit_state").ToString.Contains("YARD"))
+            dsVMR.dtShutout.AdddtShutoutRow(cntnum:=rw("id"),
+                                            Line:=rw("line_op"),
+                                            Description:=rw("remark"))
         Next
 
     End Sub
@@ -254,7 +265,7 @@ Public Class VMRClass
         Dim hatchCoverBays As String
         Dim consolidatedTable As New DataTable
         consolidatedTable.Merge(moves.Hatchcover)
-        consolidatedTable.Merge(moves.Hatchcover1)
+        'consolidatedTable.Merge(moves.Hatchcover1)
 
         With consolidatedTable.AsEnumerable.Select(Function(row) New Hatchcover(row("baynum"), row("cvrsze20"), row("cvrsze40")))
             With hatchcoverSets(.ToList).AsEnumerable
@@ -294,7 +305,7 @@ Public Class VMRClass
         For Each size As Integer In gearboxSizes
             Dim consolidatedTable As New DataTable
             consolidatedTable.Merge(moves.Gearbox)
-            consolidatedTable.Merge(moves.Gearbox1)
+            'consolidatedTable.Merge(moves.Gearbox1)
 
             With consolidatedTable.AsEnumerable.Where(Function(gbx) gbx($"gbxsze{size}") > 0)
                 With .Select(Function(row) New Gearbox(row("baynum"), row("gbxsze20"), row("gbxsze40")))
@@ -321,6 +332,16 @@ Public Class VMRClass
         Next
         Return gearboxes
     End Function
+
+    Private Sub GenerateShutoutContainers()
+
+        Me.ShutoutContainers = New ObservableCollection(Of Shutout_Container)(GetvesselMovementReportData.dtShutout.AsEnumerable.
+                                                                  Select(Function(ctn) New Shutout_Container With {.ContainerNumber = ctn.cntnum,
+                                                                                                                      .Line = ctn.Line,
+                                                                                                                      .Reason = ctn.Description}))
+
+
+    End Sub
 
     Private Sub AddContainerMoves(line As String, v As String, v1 As String, moves As CraneMoves)
         Dim containerSizes() As Integer = {20, 40, 45}
@@ -372,7 +393,8 @@ Public Class VMRClass
                                 Where unit("nominal_length").ToString.Substring(3, 2) = cntsze And
                                    unit("freight_kind") = Freight And
                                    unit("line_op") = Line And
-                                   unit("ctrTyp") = ctrtyp).Count()
+                                   unit("ctrTyp") = ctrtyp And
+                                   (dtContainer.TableName.Contains("dtInbound") Or Not (unit("transit_state").ToString.Contains("YARD")))).Count()
 
             Next
         End With
@@ -435,10 +457,35 @@ Public Class VMRClass
             Dim refkey As Integer = SaveVMR() 'getRefkey when saving vmr
             SaveCMU(refkey)
             SaveDG(refkey)
+            SaveShutout(refkey)
             SaveUnits(refkey)
         Catch ex As Exception
             Throw ex
         End Try
+    End Sub
+
+    Private Sub SaveShutout(refkey As Integer)
+        For Each container As Shutout_Container In ShutoutContainers
+            Dim SaveShutout As New ADODB.Command
+            SaveShutout.ActiveConnection = OPConnection
+            SaveShutout.CommandText = $"
+INSERT INTO [opreports].[dbo].[vmr_shutout]
+           ([vmr_refkey]
+           ,[registry]
+           ,[ctrnum]
+           ,[line_op]
+           ,[notes])
+     VALUES
+           (
+            {refkey}
+           ,'{Details(VslInfo.registry)}'
+           ,'{container.ContainerNumber}'
+           ,'{container.Line}'
+           ,'{Replace(container.Reason, "'", "''")}'
+)
+"
+            SaveShutout.Execute()
+        Next
     End Sub
 
     Private Sub SaveDG(refkey As Integer)
@@ -704,8 +751,10 @@ INSERT INTO [opreports].[dbo].[vmr_cmu]
             RetrieveBySavedData()
         Else
             RetrieveByVessel(vmrVessel)
+            CreateUnits()
             CreateCMU()
         End If
+        GenerateShutoutContainers()
     End Sub
 
     Private Sub RetrieveCMU(refkey As Integer)
@@ -729,6 +778,24 @@ SELECT [line] as Line
         RetrieveCMU(Refkey)
         RetrieveDG(Refkey)
         RetrieveSavedUnits()
+        RetrieveShutoutContainers()
+    End Sub
+
+    Private Sub RetrieveShutoutContainers()
+        OPConnection.Open()
+        Dim dgShutout As New ADODB.Command
+        dgShutout.ActiveConnection = OPConnection
+        dgShutout.CommandText = $"
+SELECT [ctrnum] 'cntnum'
+      ,[line_op] 'Line'
+      ,[notes] 'Description' 
+  FROM [opreports].[dbo].[vmr_shutout]
+	Where vmr_refkey = {Refkey}
+"
+        Dim tempContainers As ADODB.Recordset = dgShutout.Execute
+        Dim adapter As New OleDb.OleDbDataAdapter
+        adapter.Fill(dsVMR.dtShutout, tempContainers)
+        OPConnection.Close()
     End Sub
 
     Private Sub RetrieveDG(refkey As Integer)

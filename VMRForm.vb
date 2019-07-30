@@ -4,6 +4,7 @@ Imports Reports.IReports
 Imports System.Runtime.InteropServices
 Imports Vessel_Movement_Report_Creator
 
+
 Public Class VMRForm
 #Region "HOTKEY"
     Public Const KEY_ALT As Integer = &H1
@@ -56,7 +57,6 @@ Public Class VMRForm
         'AddButtonHandlers()
         AddInputHandlers()
         InitializeInputs()
-
     End Sub
 
     Private Sub AddTabControlHandlers()
@@ -244,15 +244,11 @@ Public Class VMRForm
             mskFormStart.Text = .Details(.VslInfo.formalities_start)
             mskFormEnd.Text = .Details(.VslInfo.formalities_end)
         End With
+        Shutout_Form1.LoadShutout(clsVMR.ShutoutContainers)
 
         RegisterHotKey(Me.Handle, 1, 0, Keys.F3)
         RegisterHotKey(Me.Handle, 2, 0, Keys.F10)
         RegisterHotKey(Me.Handle, 3, 0, Keys.F11)
-        If clsVMR.Exist() Then
-
-        Else
-            clsVMR.CreateUnits()
-        End If
 
     End Sub
 
@@ -272,7 +268,6 @@ Public Class VMRForm
 
         End Select
     End Sub
-
     Private Sub RecreateUnitBreakdown()
         ClearVMRUnits()
 

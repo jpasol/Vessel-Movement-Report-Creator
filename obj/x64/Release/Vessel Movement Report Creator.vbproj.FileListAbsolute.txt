@@ -6,17 +6,6 @@ C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Release\Vessel Movement Report Creator.vbproj.GenerateResource.cache
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Release\Vessel Movement Report Creator.vbproj.CoreCompileInputs.cache
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\app.config
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\CrystalReport1.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\CMU.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\VMR.rpt
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\CrystalReport1.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\CMU.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\dsVMR.Designer.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\dsVMR.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\VMR.vb
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\dsVMR.xsc
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\dsVMR.xsd
-C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\dsVMR.xss
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\Vessel Movement Report Creator.dll
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\Vessel Movement Report Creator.pdb
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\Vessel Movement Report Creator.xml
@@ -49,3 +38,16 @@ C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Release\Vessel Movement Report Creator.dll
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Release\Vessel Movement Report Creator.xml
 C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\obj\x64\Release\Vessel Movement Report Creator.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\GalaSoft.MvvmLight.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\Vessel Movement Report Creator User Controls.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\Crane Logs Report Creator Controls.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\CommonServiceLocator.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\GalaSoft.MvvmLight.Extras.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\System.Windows.Interactivity.dll
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\Vessel Movement Report Creator User Controls.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\GalaSoft.MvvmLight.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\GalaSoft.MvvmLight.xml
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\Crane Logs Report Creator Controls.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\GalaSoft.MvvmLight.Extras.xml
+C:\Users\JPasol\Desktop\Repository\OP Dox Reports\Vessel-Movement-Report-Creator\bin\x64\Release\System.Windows.Interactivity.xml

@@ -150,6 +150,17 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="dtShutout" msprop:Generator_TableClassName="dtShutoutDataTable" msprop:Generator_TableVarName="tabledtShutout" msprop:Generator_RowChangedName="dtShutoutRowChanged" msprop:Generator_TablePropName="dtShutout" msprop:Generator_RowDeletingName="dtShutoutRowDeleting" msprop:Generator_RowChangingName="dtShutoutRowChanging" msprop:Generator_RowEvHandlerName="dtShutoutRowChangeEventHandler" msprop:Generator_RowDeletedName="dtShutoutRowDeleted" msprop:Generator_RowClassName="dtShutoutRow" msprop:Generator_UserTableName="dtShutout" msprop:Generator_RowEvArgName="dtShutoutRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cntnum" msprop:Generator_ColumnVarNameInTable="columncntnum" msprop:Generator_ColumnPropNameInRow="cntnum" msprop:Generator_ColumnPropNameInTable="cntnumColumn" msprop:Generator_UserColumnName="cntnum" type="xs:string" minOccurs="0" />
+              <xs:element name="Line" msprop:Generator_ColumnVarNameInTable="columnLine" msprop:Generator_ColumnPropNameInRow="Line" msprop:Generator_ColumnPropNameInTable="LineColumn" msprop:Generator_UserColumnName="Line" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="isotyp" msprop:Generator_ColumnVarNameInTable="columnisotyp" msprop:Generator_ColumnPropNameInRow="isotyp" msprop:Generator_ColumnPropNameInTable="isotypColumn" msprop:Generator_UserColumnName="isotyp" type="xs:string" minOccurs="0" />
+              <xs:element name="freight_kind" msprop:Generator_ColumnVarNameInTable="columnfreight_kind" msprop:Generator_ColumnPropNameInRow="freight_kind" msprop:Generator_ColumnPropNameInTable="freight_kindColumn" msprop:Generator_UserColumnName="freight_kind" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

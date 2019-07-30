@@ -25,6 +25,7 @@ Partial Class VMRForm
         Me.components = New System.ComponentModel.Container()
         Me.tabVMR = New System.Windows.Forms.TabControl()
         Me.tabParticulars = New System.Windows.Forms.TabPage()
+        Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.mskFormEnd = New System.Windows.Forms.MaskedTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.mskFormStart = New System.Windows.Forms.MaskedTextBox()
@@ -135,6 +136,9 @@ Partial Class VMRForm
         Me.line_op = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.move_kind = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.description = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tabShutout = New System.Windows.Forms.TabPage()
+        Me.ctlShutout = New System.Windows.Forms.Integration.ElementHost()
+        Me.Shutout_Form1 = New Vessel_Movement_Report_Creator_User_Controls.Shutout_Form()
         Me.tabFooters = New System.Windows.Forms.TabPage()
         Me.mskVisor1 = New System.Windows.Forms.MaskedTextBox()
         Me.mskChecker1 = New System.Windows.Forms.MaskedTextBox()
@@ -176,6 +180,7 @@ Partial Class VMRForm
         Me.TabPage3.SuspendLayout()
         CType(Me.dgvHatchcovers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvCMU, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabShutout.SuspendLayout()
         Me.tabFooters.SuspendLayout()
         Me.tabPreview.SuspendLayout()
         Me.AddSL.SuspendLayout()
@@ -188,6 +193,7 @@ Partial Class VMRForm
         Me.tabVMR.Controls.Add(Me.tabThroughput)
         Me.tabVMR.Controls.Add(Me.tabUnits)
         Me.tabVMR.Controls.Add(Me.tabCMU)
+        Me.tabVMR.Controls.Add(Me.tabShutout)
         Me.tabVMR.Controls.Add(Me.tabFooters)
         Me.tabVMR.Controls.Add(Me.tabPreview)
         Me.tabVMR.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
@@ -200,6 +206,7 @@ Partial Class VMRForm
         '
         'tabParticulars
         '
+        Me.tabParticulars.Controls.Add(Me.Splitter1)
         Me.tabParticulars.Controls.Add(Me.mskFormEnd)
         Me.tabParticulars.Controls.Add(Me.Label6)
         Me.tabParticulars.Controls.Add(Me.mskFormStart)
@@ -233,6 +240,14 @@ Partial Class VMRForm
         Me.tabParticulars.TabIndex = 0
         Me.tabParticulars.Text = "Vessel Information"
         Me.tabParticulars.UseVisualStyleBackColor = True
+        '
+        'Splitter1
+        '
+        Me.Splitter1.Location = New System.Drawing.Point(3, 3)
+        Me.Splitter1.Name = "Splitter1"
+        Me.Splitter1.Size = New System.Drawing.Size(3, 666)
+        Me.Splitter1.TabIndex = 102
+        Me.Splitter1.TabStop = False
         '
         'mskFormEnd
         '
@@ -1267,6 +1282,26 @@ Partial Class VMRForm
         Me.description.HeaderText = "Description"
         Me.description.Name = "description"
         '
+        'tabShutout
+        '
+        Me.tabShutout.Controls.Add(Me.ctlShutout)
+        Me.tabShutout.Location = New System.Drawing.Point(4, 29)
+        Me.tabShutout.Name = "tabShutout"
+        Me.tabShutout.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabShutout.Size = New System.Drawing.Size(1318, 672)
+        Me.tabShutout.TabIndex = 8
+        Me.tabShutout.Text = "Shutout"
+        Me.tabShutout.UseVisualStyleBackColor = True
+        '
+        'ctlShutout
+        '
+        Me.ctlShutout.Location = New System.Drawing.Point(6, 6)
+        Me.ctlShutout.Name = "ctlShutout"
+        Me.ctlShutout.Size = New System.Drawing.Size(1306, 660)
+        Me.ctlShutout.TabIndex = 0
+        Me.ctlShutout.Text = "ElementHost1"
+        Me.ctlShutout.Child = Me.Shutout_Form1
+        '
         'tabFooters
         '
         Me.tabFooters.Controls.Add(Me.mskVisor1)
@@ -1501,6 +1536,7 @@ Partial Class VMRForm
         Me.TabPage3.PerformLayout()
         CType(Me.dgvHatchcovers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvCMU, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabShutout.ResumeLayout(False)
         Me.tabFooters.ResumeLayout(False)
         Me.tabFooters.PerformLayout()
         Me.tabPreview.ResumeLayout(False)
@@ -1645,4 +1681,9 @@ Partial Class VMRForm
     Friend WithEvents AddRemoveSL As ContextMenuStrip
     Friend WithEvents AddShippingLineToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RemoveShippingLineToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tabShutout As TabPage
+    Friend WithEvents Splitter1 As Splitter
+    Friend UserControl11 As Vessel_Movement_Report_Creator_User_Controls.Shutout_Form
+    Friend WithEvents ctlShutout As Integration.ElementHost
+    Friend Shutout_Form1 As Vessel_Movement_Report_Creator_User_Controls.Shutout_Form
 End Class
